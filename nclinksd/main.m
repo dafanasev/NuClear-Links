@@ -1,6 +1,6 @@
 //
-//  ViewController.h
-//  NuClear Links
+//  main.m
+//  nclinksd
 //
 //  Created by Dmitry Afanasyev on 28/09/2017.
 //  Copyright © 2017 Dmitrii Afanasev. All rights reserved.
@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
-
-
-@end
-
+int main(int argc, const char * argv[]) {
+  return NSApplicationMain(argc, argv);
+}

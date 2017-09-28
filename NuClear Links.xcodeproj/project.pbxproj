@@ -7,24 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252EE0C81F7D8B8000E663CD /* nclinksd.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25DB3B0B1F7D88E200484310 /* nclinksd.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */; };
 		25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3AF41F7D88D200484310 /* AppDelegate.m */; };
-		25DB3AF81F7D88D200484310 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3AF71F7D88D200484310 /* ViewController.m */; };
 		25DB3AFA1F7D88D200484310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AF91F7D88D200484310 /* Assets.xcassets */; };
 		25DB3AFD1F7D88D200484310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AFB1F7D88D200484310 /* Main.storyboard */; };
 		25DB3B001F7D88D200484310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3AFF1F7D88D200484310 /* main.m */; };
+		25DB3B0F1F7D88E200484310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3B0E1F7D88E200484310 /* AppDelegate.m */; };
+		25DB3B111F7D88E200484310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3B101F7D88E200484310 /* Assets.xcassets */; };
+		25DB3B141F7D88E200484310 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3B121F7D88E200484310 /* MainMenu.xib */; };
+		25DB3B171F7D88E200484310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3B161F7D88E200484310 /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		252EE0C71F7D8B7900E663CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				252EE0C81F7D8B8000E663CD /* nclinksd.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		25DB3AF01F7D88D200484310 /* NuClear Links.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NuClear Links.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DB3AF31F7D88D200484310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		25DB3AF41F7D88D200484310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		25DB3AF61F7D88D200484310 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		25DB3AF71F7D88D200484310 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		25DB3AF91F7D88D200484310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25DB3AFC1F7D88D200484310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25DB3AFE1F7D88D200484310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25DB3AFF1F7D88D200484310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25DB3B011F7D88D200484310 /* NuClear_Links.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NuClear_Links.entitlements; sourceTree = "<group>"; };
+		25DB3B0B1F7D88E200484310 /* nclinksd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nclinksd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25DB3B0D1F7D88E200484310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		25DB3B0E1F7D88E200484310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		25DB3B101F7D88E200484310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25DB3B131F7D88E200484310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		25DB3B151F7D88E200484310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25DB3B161F7D88E200484310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		25DB3B181F7D88E200484310 /* nclinksd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nclinksd.entitlements; sourceTree = "<group>"; };
+		25DB3B1C1F7D88F200484310 /* NuClear Links.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NuClear Links.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,13 +62,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		25DB3B081F7D88E200484310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25556E9B1F7D908900A1C486 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */,
+				25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		25DB3AE71F7D88D200484310 = {
 			isa = PBXGroup;
 			children = (
 				25DB3AF21F7D88D200484310 /* NuClear Links */,
+				25DB3B0C1F7D88E200484310 /* nclinksd */,
 				25DB3AF11F7D88D200484310 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				25DB3AF01F7D88D200484310 /* NuClear Links.app */,
+				25DB3B0B1F7D88E200484310 /* nclinksd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,10 +102,10 @@
 		25DB3AF21F7D88D200484310 /* NuClear Links */ = {
 			isa = PBXGroup;
 			children = (
+				25556E9B1F7D908900A1C486 /* Controllers */,
+				25DB3B1C1F7D88F200484310 /* NuClear Links.entitlements */,
 				25DB3AF31F7D88D200484310 /* AppDelegate.h */,
 				25DB3AF41F7D88D200484310 /* AppDelegate.m */,
-				25DB3AF61F7D88D200484310 /* ViewController.h */,
-				25DB3AF71F7D88D200484310 /* ViewController.m */,
 				25DB3AF91F7D88D200484310 /* Assets.xcassets */,
 				25DB3AFB1F7D88D200484310 /* Main.storyboard */,
 				25DB3AFE1F7D88D200484310 /* Info.plist */,
@@ -68,6 +113,20 @@
 				25DB3B011F7D88D200484310 /* NuClear_Links.entitlements */,
 			);
 			path = "NuClear Links";
+			sourceTree = "<group>";
+		};
+		25DB3B0C1F7D88E200484310 /* nclinksd */ = {
+			isa = PBXGroup;
+			children = (
+				25DB3B0D1F7D88E200484310 /* AppDelegate.h */,
+				25DB3B0E1F7D88E200484310 /* AppDelegate.m */,
+				25DB3B101F7D88E200484310 /* Assets.xcassets */,
+				25DB3B121F7D88E200484310 /* MainMenu.xib */,
+				25DB3B151F7D88E200484310 /* Info.plist */,
+				25DB3B161F7D88E200484310 /* main.m */,
+				25DB3B181F7D88E200484310 /* nclinksd.entitlements */,
+			);
+			path = nclinksd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +139,7 @@
 				25DB3AEC1F7D88D200484310 /* Sources */,
 				25DB3AED1F7D88D200484310 /* Frameworks */,
 				25DB3AEE1F7D88D200484310 /* Resources */,
+				252EE0C71F7D8B7900E663CD /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -88,6 +148,23 @@
 			name = "NuClear Links";
 			productName = "NuClear Links";
 			productReference = 25DB3AF01F7D88D200484310 /* NuClear Links.app */;
+			productType = "com.apple.product-type.application";
+		};
+		25DB3B0A1F7D88E200484310 /* nclinksd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25DB3B191F7D88E200484310 /* Build configuration list for PBXNativeTarget "nclinksd" */;
+			buildPhases = (
+				25DB3B071F7D88E200484310 /* Sources */,
+				25DB3B081F7D88E200484310 /* Frameworks */,
+				25DB3B091F7D88E200484310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nclinksd;
+			productName = nclinksd;
+			productReference = 25DB3B0B1F7D88E200484310 /* nclinksd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,6 +179,23 @@
 					25DB3AEF1F7D88D200484310 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					25DB3B0A1F7D88E200484310 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -119,6 +213,7 @@
 			projectRoot = "";
 			targets = (
 				25DB3AEF1F7D88D200484310 /* NuClear Links */,
+				25DB3B0A1F7D88E200484310 /* nclinksd */,
 			);
 		};
 /* End PBXProject section */
@@ -133,6 +228,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		25DB3B091F7D88E200484310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25DB3B111F7D88E200484310 /* Assets.xcassets in Resources */,
+				25DB3B141F7D88E200484310 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,9 +244,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25DB3AF81F7D88D200484310 /* ViewController.m in Sources */,
+				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25DB3B071F7D88E200484310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25DB3B171F7D88E200484310 /* main.m in Sources */,
+				25DB3B0F1F7D88E200484310 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +268,14 @@
 				25DB3AFC1F7D88D200484310 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		25DB3B121F7D88E200484310 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25DB3B131F7D88E200484310 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -267,7 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "NuClear Links/NuClear_Links.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "NuClear Links/NuClear Links.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z5QP29E2U5;
@@ -282,7 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "NuClear Links/NuClear_Links.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "NuClear Links/NuClear Links.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z5QP29E2U5;
@@ -290,6 +411,38 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nuclear-tools.NuClear-Links";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		25DB3B1A1F7D88E200484310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nclinksd/nclinksd.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z5QP29E2U5;
+				INFOPLIST_FILE = nclinksd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nuclear-tools.nclinksd";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		25DB3B1B1F7D88E200484310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nclinksd/nclinksd.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Z5QP29E2U5;
+				INFOPLIST_FILE = nclinksd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nuclear-tools.nclinksd";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -310,6 +463,15 @@
 			buildConfigurations = (
 				25DB3B051F7D88D200484310 /* Debug */,
 				25DB3B061F7D88D200484310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25DB3B191F7D88E200484310 /* Build configuration list for PBXNativeTarget "nclinksd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25DB3B1A1F7D88E200484310 /* Debug */,
+				25DB3B1B1F7D88E200484310 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
