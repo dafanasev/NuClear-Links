@@ -6,12 +6,16 @@
 //  Copyright © 2017 Dmitrii Afanasev. All rights reserved.
 //
 
+#import <shared/shared.h>
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+  if ([[NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier] count] > 1) {
+    [NSApplication.sharedApplication terminate:self];
+  }
+  
   [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
@@ -28,10 +32,19 @@
   NSURL *url = [NSURL URLWithString:urlStr];
   NSArray *urlArray = [NSArray arrayWithObject:url];
   
-  NSString *bid = [urlStr isEqualToString:@"https://nuclear.tools/"] ? @"com.google.Chrome" : @"com.apple.safari";
+  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kAppGroup];
+  NSString *defaultBrowserBundleId = [defaults objectForKey:kDefaultBrowserBundleId];
   
-  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:bid options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
-  
+  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:defaultBrowserBundleId options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+}
+
+- (void)showMessage:(NSString *)message {
+  NSAlert *alert = [[NSAlert alloc] init];
+  [alert setMessageText:message];
+  [alert setInformativeText:@"Informative text."];
+  [alert addButtonWithTitle:@"Cancel"];
+  [alert addButtonWithTitle:@"Ok"];
+  [alert runModal];
 }
 
 
