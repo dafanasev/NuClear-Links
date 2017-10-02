@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2BE1F82BFEC004AE168 /* RulesViewController.m */; };
+		2517A2CE1F82CA60004AE168 /* NSUserDefaults+Links.h in Headers */ = {isa = PBXBuildFile; fileRef = 2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2517A2CF1F82CA60004AE168 /* NSUserDefaults+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */; };
 		252EE0C81F7D8B8000E663CD /* nclinksd.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25DB3B0B1F7D88E200484310 /* nclinksd.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */; };
 		25BA1DB11F7DDBE300176831 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; };
 		25BA1DB21F7DDBE300176831 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25C998AB1F830D890088BA9A /* Rule.h in Headers */ = {isa = PBXBuildFile; fileRef = 2517A2B71F82B9A6004AE168 /* Rule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25C998AC1F830D8F0088BA9A /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2B81F82B9A6004AE168 /* Rule.m */; };
 		25CC5F191F7DD6DF00C99F14 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 25CC5F171F7DD6DF00C99F14 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25CC5F1C1F7DD6DF00C99F14 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; };
 		25CC5F1D1F7DD6DF00C99F14 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +85,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2517A2B71F82B9A6004AE168 /* Rule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
+		2517A2B81F82B9A6004AE168 /* Rule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rule.m; sourceTree = "<group>"; };
+		2517A2BD1F82BFEC004AE168 /* RulesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RulesViewController.h; sourceTree = "<group>"; };
+		2517A2BE1F82BFEC004AE168 /* RulesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RulesViewController.m; sourceTree = "<group>"; };
+		2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Links.h"; sourceTree = "<group>"; };
+		2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Links.m"; sourceTree = "<group>"; };
 		25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		25CC5F151F7DD6DF00C99F14 /* shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,9 +144,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2517A2B51F82B95B004AE168 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2517A2B71F82B9A6004AE168 /* Rule.h */,
+				2517A2B81F82B9A6004AE168 /* Rule.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2517A2B61F82B965004AE168 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				25DB3B1C1F7D88F200484310 /* NuClear Links.entitlements */,
+				25DB3AF91F7D88D200484310 /* Assets.xcassets */,
+				25DB3AFB1F7D88D200484310 /* Main.storyboard */,
+				25DB3AFE1F7D88D200484310 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2517A2C81F82CA08004AE168 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */,
+				2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */,
+			);
+			name = Categories;
+			path = shared/Categories;
+			sourceTree = SOURCE_ROOT;
+		};
 		25556E9B1F7D908900A1C486 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2517A2BD1F82BFEC004AE168 /* RulesViewController.h */,
+				2517A2BE1F82BFEC004AE168 /* RulesViewController.m */,
 				25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */,
 				25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */,
 			);
@@ -145,6 +188,8 @@
 		25CC5F161F7DD6DF00C99F14 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				2517A2B51F82B95B004AE168 /* Models */,
+				2517A2C81F82CA08004AE168 /* Categories */,
 				25CC5F171F7DD6DF00C99F14 /* shared.h */,
 				25CC5F221F7DD74C00C99F14 /* Constants.h */,
 				25CC5F181F7DD6DF00C99F14 /* Info.plist */,
@@ -177,13 +222,10 @@
 		25DB3AF21F7D88D200484310 /* NuClear Links */ = {
 			isa = PBXGroup;
 			children = (
+				2517A2B61F82B965004AE168 /* Resources */,
 				25556E9B1F7D908900A1C486 /* Controllers */,
-				25DB3B1C1F7D88F200484310 /* NuClear Links.entitlements */,
 				25DB3AF31F7D88D200484310 /* AppDelegate.h */,
 				25DB3AF41F7D88D200484310 /* AppDelegate.m */,
-				25DB3AF91F7D88D200484310 /* Assets.xcassets */,
-				25DB3AFB1F7D88D200484310 /* Main.storyboard */,
-				25DB3AFE1F7D88D200484310 /* Info.plist */,
 				25DB3AFF1F7D88D200484310 /* main.m */,
 			);
 			path = "NuClear Links";
@@ -210,8 +252,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C998AB1F830D890088BA9A /* Rule.h in Headers */,
 				25CC5F231F7DD7C600C99F14 /* Constants.h in Headers */,
 				25CC5F281F7DD9CA00C99F14 /* Utils.h in Headers */,
+				2517A2CE1F82CA60004AE168 /* NSUserDefaults+Links.h in Headers */,
 				25CC5F191F7DD6DF00C99F14 /* shared.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +410,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25CC5F291F7DD9CA00C99F14 /* Utils.m in Sources */,
+				2517A2CF1F82CA60004AE168 /* NSUserDefaults+Links.m in Sources */,
+				25C998AC1F830D8F0088BA9A /* Rule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */,
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,

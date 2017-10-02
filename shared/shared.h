@@ -19,3 +19,5 @@ FOUNDATION_EXPORT const unsigned char sharedVersionString[];
 
 #import "Constants.h"
 #import "Utils.h"
+#import "Rule.h"
+#import "NSUserDefaults+Links.h"
