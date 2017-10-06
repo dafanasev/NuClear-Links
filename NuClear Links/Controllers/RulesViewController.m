@@ -6,39 +6,47 @@
 //  Copyright © 2017 Dmitrii Afanasev. All rights reserved.
 //
 
-#import <shared/shared.h>
 #import "RulesViewController.h"
+#import "Rule.h"
+#import "RulePredicateEditorViewController.h"
 
 
 @interface RulesViewController ()
 
-@property NSMutableArray<Rule *> *rules;
+@property (strong) IBOutlet NSArrayController *arrayController;
 
 @end
 
 
 @implementation RulesViewController
 
-- (void)awakeFromNib {
-  [super awakeFromNib];
+- (IBAction)duplicateButtonClicked:(NSButton *)sender {
   
-  Rule *rule1 = [[Rule alloc] initWithTitle:@"Rule #1" browserBundleIdentifier:@"com.apple.safari"];
-  Rule *rule2 = [[Rule alloc] initWithTitle:@"Rule #2" browserBundleIdentifier:@"com.google.Chrome"];
-  
-  self.rules = [@[rule1, rule2] mutableCopy];
-    //  _rules = [Rule.all mutableCopy];
+  id <NSCoding> selectedObject = _arrayController.selectedObjects.firstObject;
+  NSData *ruleData = [NSKeyedArchiver archivedDataWithRootObject:selectedObject];
+  Rule *newRule = [NSKeyedUnarchiver unarchiveObjectWithData:ruleData];
+  newRule.title = [NSString stringWithFormat:@"%@ copy", newRule.title];
+  [_arrayController insertObject:newRule atArrangedObjectIndex:_arrayController.selectionIndex + 1];
+  [_arrayController setSelectedObjects:@[newRule]];
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-}
-
-- (void)viewWillDisappear {
-  Rule.all = _rules;
+- (IBAction)removeButtonClicked:(id)sender {
+  NSAlert *alert = [[NSAlert alloc] init];
+  alert.messageText = @"Are you sure?";
+  [alert addButtonWithTitle:@"OK"];
+  [alert addButtonWithTitle:@"Cancel"];
+  NSModalResponse response = [alert runModal];
   
-  [super viewWillDisappear];
+  if (response == NSAlertFirstButtonReturn) {
+    [_arrayController removeObject:_arrayController.selectedObjects.firstObject];
+  }
 }
 
+# pragma mark - NSSeguePerforming
 
+-(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+  RulePredicateEditorViewController *rulePredicateEditorViewController = (RulePredicateEditorViewController *)segue.destinationController;
+  [rulePredicateEditorViewController.objectController setContent:_arrayController.selectedObjects.firstObject];
+}
 
 @end

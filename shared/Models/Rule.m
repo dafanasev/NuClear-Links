@@ -21,14 +21,17 @@
 -(instancetype)init {
   if (self = [super init]) {
     self.title = @"New rule";
+    self.isActive = YES;
+    [self setupPredicate];
   }
   return self;
 }
 
--(instancetype)initWithTitle:(NSString *)title browserBundleIdentifier:(NSString *)browserBundleIdentifier {
+-(instancetype)initWithTitle:(NSString *)title browserBundleIdentifier:(NSString *)browserBundleIdentifier isActive:(BOOL)isActive {
   if (self = [super init]) {
     self.title = title;
     self.browserBundleIdentifier = browserBundleIdentifier;
+    self.isActive = isActive;
   }
   return self;
 }
@@ -39,6 +42,8 @@
   if (self = [super init]) {
     self.title = [decoder decodeObjectForKey:@"title"];
     self.browserBundleIdentifier = [decoder decodeObjectForKey:@"browserBundleIdentifier"];
+    self.isActive = [decoder decodeBoolForKey:@"isActive"];
+    [self setupPredicate];
   }
   return self;
 }
@@ -46,6 +51,11 @@
 - (void)encodeWithCoder:(NSCoder *)encoder {
   [encoder encodeObject:_title forKey:@"title"];
   [encoder encodeObject:_browserBundleIdentifier forKey:@"browserBundleIdentifier"];
+  [encoder encodeBool:_isActive forKey:@"isActive"];
+}
+
+-(void)setupPredicate {
+  self.predicate = [NSPredicate predicateWithFormat:@"url.host = 'yandex.ru'"];
 }
 
 #pragma mark - Rules

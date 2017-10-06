@@ -10,8 +10,10 @@
 		2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2BE1F82BFEC004AE168 /* RulesViewController.m */; };
 		2517A2CE1F82CA60004AE168 /* NSUserDefaults+Links.h in Headers */ = {isa = PBXBuildFile; fileRef = 2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2517A2CF1F82CA60004AE168 /* NSUserDefaults+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */; };
+		2529A0651F87AE0800C7EAF0 /* RulePredicateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529A0641F87AE0800C7EAF0 /* RulePredicateEditorViewController.m */; };
 		252EE0C81F7D8B8000E663CD /* nclinksd.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25DB3B0B1F7D88E200484310 /* nclinksd.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */; };
+		2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */; };
 		25BA1DB11F7DDBE300176831 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; };
 		25BA1DB21F7DDBE300176831 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		25C998AB1F830D890088BA9A /* Rule.h in Headers */ = {isa = PBXBuildFile; fileRef = 2517A2B71F82B9A6004AE168 /* Rule.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,8 +93,12 @@
 		2517A2BE1F82BFEC004AE168 /* RulesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RulesViewController.m; sourceTree = "<group>"; };
 		2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Links.h"; sourceTree = "<group>"; };
 		2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Links.m"; sourceTree = "<group>"; };
+		2529A0631F87AE0800C7EAF0 /* RulePredicateEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RulePredicateEditorViewController.h; sourceTree = "<group>"; };
+		2529A0641F87AE0800C7EAF0 /* RulePredicateEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RulePredicateEditorViewController.m; sourceTree = "<group>"; };
 		25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		2574E4D41F8534E500FEC112 /* NCLinksUserDefaulsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCLinksUserDefaulsController.h; sourceTree = "<group>"; };
+		2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCLinksUserDefaulsController.m; sourceTree = "<group>"; };
 		25CC5F151F7DD6DF00C99F14 /* shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CC5F171F7DD6DF00C99F14 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
 		25CC5F181F7DD6DF00C99F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +185,10 @@
 			children = (
 				2517A2BD1F82BFEC004AE168 /* RulesViewController.h */,
 				2517A2BE1F82BFEC004AE168 /* RulesViewController.m */,
+				2529A0631F87AE0800C7EAF0 /* RulePredicateEditorViewController.h */,
+				2529A0641F87AE0800C7EAF0 /* RulePredicateEditorViewController.m */,
+				2574E4D41F8534E500FEC112 /* NCLinksUserDefaulsController.h */,
+				2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */,
 				25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */,
 				25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */,
 			);
@@ -419,10 +429,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */,
 				2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */,
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,
+				2529A0651F87AE0800C7EAF0 /* RulePredicateEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

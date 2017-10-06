@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NSUserDefaults+Links.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +23,7 @@
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-  // Insert code here to tear down your application
+  [[NSUserDefaults appGroupUserDefaults] synchronize];
 }
 
 
