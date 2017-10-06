@@ -21,14 +21,14 @@
 
 #pragma mark - Init
 
--(instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier {
+- (instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier {
   if (self = [super init]) {
     self.bundleIdentifier = bundleIdentifier;
   }
   return self;
 }
 
-+(Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier {
++ (Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier {
   return [[Browser alloc] initWithBundleIdentifier:bundleIdentifier];
 }
 
@@ -47,19 +47,19 @@
 
 #pragma mark - Computed properties
 
--(NSBundle *)bundle {
+- (NSBundle *)bundle {
   return [NSBundle bundleWithPath:[[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:_bundleIdentifier]];
 }
 
--(NSString *)title {
+- (NSString *)title {
   return [self.bundle.infoDictionary objectForKey:(NSString *)kCFBundleNameKey];
 }
 
--(NSImage *)image {
+- (NSImage *)image {
   return [[NSWorkspace sharedWorkspace] iconForFile:self.bundle.bundlePath];
 }
 
-+(NSDictionary <NSString *, Browser *> *)browsersDictionary {
++ (NSDictionary <NSString *, Browser *> *)browsersDictionary {
   NSMutableDictionary <NSString *, Browser *> *browsersDictionary = [NSMutableDictionary dictionary];
 
   [(__bridge NSArray *)LSCopyAllHandlersForURLScheme(CFSTR("http")) enumerateObjectsUsingBlock:^(id  _Nonnull bundleIdentifier, NSUInteger idx, BOOL * _Nonnull stop) {

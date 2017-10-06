@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "BrowserPopUpButton.h"
 
 @interface RulePredicateEditorViewController : NSViewController
 
 @property (strong) IBOutlet NSObjectController *objectController;
+@property (weak) IBOutlet BrowserPopUpButton *browserPopUpButton;
 
 @end

@@ -26,22 +26,6 @@
   [super viewDidLoad];
   
   _defaults = [NSUserDefaults appGroupUserDefaults];
-  
-  NSString *defaultBrowserBundleIdentifier = [_defaults objectForKey:kDefaultBrowserBundleId];
-  __block NSMenuItem *menuItemToSelect;
-  [Browser.browsersDictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull bundleIdentifier, Browser * _Nonnull browser, BOOL * _Nonnull stop) {
-    NSMenuItem *mi = [[NSMenuItem alloc] init];
-    mi.title = browser.title;
-    mi.image = browser.image;
-    mi.representedObject = bundleIdentifier;
-    [_defaultBrowserPopUpButton.menu addItem:mi];
-    
-    if ([(NSString *)mi.representedObject isEqualToString:defaultBrowserBundleIdentifier]) {
-      menuItemToSelect = mi;
-    }
-  }];
-  
-  [_defaultBrowserPopUpButton selectItem:menuItemToSelect];
 }
 
 - (IBAction)setAsTheSystemDefaultBrowserButtonClicked:(NSButton *)sender {
@@ -49,10 +33,10 @@
   LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)kDaemonBundleId);
 }
 
-- (IBAction)setSafariAsTheSystemDefaultBrowserClicked:(id)sender {
-  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)kSafariBundleId);
-  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)kSafariBundleId);
-}
+//- (IBAction)setSafariAsTheSystemDefaultBrowserClicked:(id)sender {
+//  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)kSafariBundleId);
+//  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)kSafariBundleId);
+//}
 
 - (IBAction)browserListPopUpButtonClicked:(NSPopUpButton *)sender {
   [_defaults setObject:sender.selectedItem.representedObject forKey:kDefaultBrowserBundleId];

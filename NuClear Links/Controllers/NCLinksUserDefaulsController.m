@@ -11,8 +11,10 @@
 
 @implementation NCLinksUserDefaulsController
 
-- (instancetype)init {
-  return [super initWithDefaults:[NSUserDefaults appGroupUserDefaults] initialValues:nil];
+- (instancetype)initWithCoder:(NSCoder *)coder {
+  NSUserDefaultsController *controller = [super initWithDefaults:[NSUserDefaults appGroupUserDefaults] initialValues:nil];
+  controller.appliesImmediately = YES;
+  return (NCLinksUserDefaulsController *)controller;
 }
 
 @end

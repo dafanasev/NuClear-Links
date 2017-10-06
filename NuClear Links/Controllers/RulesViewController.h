@@ -10,4 +10,6 @@
 
 @interface RulesViewController : NSViewController <NSSeguePerforming>
 
+- (IBAction)rulesControlClicked:(id)sender;
+
 @end

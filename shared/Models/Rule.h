@@ -18,6 +18,4 @@
 
 @property (class) NSArray<Rule *> *all;
 
--(instancetype)initWithTitle:(NSString *)title browser:(Browser *)browser isActive:(BOOL)isActive;
-
 @end

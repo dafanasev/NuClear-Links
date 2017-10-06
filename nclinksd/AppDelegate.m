@@ -38,14 +38,5 @@
   [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:defaultBrowserBundleId options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
-- (void)showMessage:(NSString *)message {
-  NSAlert *alert = [[NSAlert alloc] init];
-  [alert setMessageText:message];
-  [alert setInformativeText:@"Informative text."];
-  [alert addButtonWithTitle:@"Cancel"];
-  [alert addButtonWithTitle:@"Ok"];
-  [alert runModal];
-}
-
 
 @end

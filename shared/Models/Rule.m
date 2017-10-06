@@ -8,6 +8,7 @@
 
 #import "Rule.h"
 #import "NSUserDefaults+Links.h"
+#import "Constants.h"
 
 
 @interface Rule ()
@@ -19,21 +20,15 @@
 
 #pragma mark - Init
 
--(instancetype)init {
+- (instancetype)init {
   if (self = [super init]) {
     self.title = @"New rule";
+    self.browser = [Browser browserWithBundleIdentifier:[[NSUserDefaults appGroupUserDefaults] objectForKey:kDefaultBrowserBundleId]];
     self.isActive = YES;
-    [self setupPredicate];
-  }
-  return self;
-}
-
--(instancetype)initWithTitle:(NSString *)title browser:(Browser *)browser isActive:(BOOL)isActive {
-  if (self = [super init]) {
-    self.title = title;
-    self.browser = browser;
-    self.isActive = isActive;
-    [self setupPredicate];
+    
+      // TODO: empty subpredicates
+    NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = 'yandex.ru'"]];
+    self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
   }
   return self;
 }
@@ -42,10 +37,10 @@
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   if (self = [super init]) {
-    self.title = [decoder decodeObjectForKey:@"title"];
-    self.browser = [decoder decodeObjectForKey:@"browser"];
-    self.isActive = [decoder decodeBoolForKey:@"isActive"];
-    [self setupPredicate];
+    self.title     = [decoder decodeObjectForKey:@"title"];
+    self.browser   = [decoder decodeObjectForKey:@"browser"];
+    self.isActive  = [decoder decodeBoolForKey:@"isActive"];
+    self.predicate = [decoder decodeObjectForKey:@"predicate"];
   }
   return self;
 }
@@ -54,21 +49,16 @@
   [encoder encodeObject:_title forKey:@"title"];
   [encoder encodeObject:_browser forKey:@"browser"];
   [encoder encodeBool:_isActive forKey:@"isActive"];
-}
-
--(void)setupPredicate {
-  // TODO: empty subpredicates
-  NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = ''"]];
-  self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
+  [encoder encodeObject:_predicate forKey:@"predicate"];
 }
 
 #pragma mark - Rules
 
-+(NSArray<Rule *> *)all {
++ (NSArray<Rule *> *)all {
   return [NSUserDefaults appGroupUserDefaults].rules;
 }
 
-+(void)setAll:(NSArray<Rule *> *)all {
++ (void)setAll:(NSArray<Rule *> *)all {
   [NSUserDefaults appGroupUserDefaults].rules = all;
 }
 

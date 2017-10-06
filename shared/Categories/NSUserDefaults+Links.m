@@ -11,7 +11,7 @@
 
 @implementation NSUserDefaults (Links)
 
-+(NSUserDefaults *)appGroupUserDefaults {
++ (NSUserDefaults *)appGroupUserDefaults {
   static NSUserDefaults *_appGroupUserDefaults = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -20,7 +20,11 @@
   return _appGroupUserDefaults;
 }
 
--(NSArray<Rule *> *)rules {
+- (void)register {
+  [self registerDefaults:@{kDefaultBrowserBundleId: @"com.apple.Safari"}];
+}
+
+- (NSArray<Rule *> *)rules {
   NSData *data = [self objectForKey:@"rules"];
   if (data == nil) {
     return @[];
@@ -28,7 +32,7 @@
   return (NSArray<Rule *> *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
--(void)setRules:(NSArray<Rule *> *)newRules {
+- (void)setRules:(NSArray<Rule *> *)newRules {
   [self setObject:[NSKeyedArchiver archivedDataWithRootObject:newRules] forKey:@"rules"];
 }
 

@@ -16,9 +16,9 @@
 
 @property (class, readonly) NSDictionary <NSString *, Browser *> *browsersDictionary;
 
-+(Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier;
++ (Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier;
 
--(instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier;
+- (instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier;
 
 
 @end

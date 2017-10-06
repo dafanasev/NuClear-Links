@@ -9,7 +9,8 @@
 #import "RulesViewController.h"
 #import "Rule.h"
 #import "RulePredicateEditorViewController.h"
-
+#import "BrowserPopUpButton.h"
+#import <shared/shared.h>
 
 @interface RulesViewController ()
 
@@ -20,9 +21,13 @@
 
 @implementation RulesViewController
 
-#pragma mark - Setup
-
 #pragma mark - Actions
+
+- (IBAction)rulesControlClicked:(id)sender {
+  // BUG: Array Controller does not propagate changes to UserDefaulsController automatically
+  [[NSUserDefaults appGroupUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_arrayController.arrangedObjects] forKey:@"rules"];
+}
+
 
 - (IBAction)duplicateButtonClicked:(NSButton *)sender {
   
@@ -54,7 +59,7 @@
 
 # pragma mark - NSSeguePerforming
 
--(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
   RulePredicateEditorViewController *rulePredicateEditorViewController = (RulePredicateEditorViewController *)segue.destinationController;
   [rulePredicateEditorViewController.objectController setContent:_arrayController.selectedObjects.firstObject];
 }

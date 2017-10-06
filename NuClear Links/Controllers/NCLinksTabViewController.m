@@ -18,7 +18,7 @@
 
 @implementation NCLinksTabViewController
 
--(void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+- (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
   [super tabView:tabView willSelectTabViewItem:tabViewItem];
   
   static dispatch_once_t onceToken;
@@ -32,7 +32,7 @@
   }
 }
 
--(void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
+- (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
   [super tabView:tabView didSelectTabViewItem:tabViewItem];
   
   if (tabViewItem) {
@@ -40,7 +40,7 @@
   }
 }
 
--(void)resizeWindowToFitTabViewItem:(NSTabViewItem *)tabViewItem {
+- (void)resizeWindowToFitTabViewItem:(NSTabViewItem *)tabViewItem {
   NSValue *value = [_tabViewSizes objectForKey:tabViewItem.identifier];
   NSWindow *window = ((NSView *)[self valueForKey:@"view"]).window;
   if (value && window) {

@@ -7,6 +7,7 @@
 //
 
 #import "RulePredicateEditorViewController.h"
+#import "RulesViewController.h"
 #import <shared/shared.h>
 
 @interface RulePredicateEditorViewController ()
@@ -15,10 +16,26 @@
 
 @implementation RulePredicateEditorViewController
 
--(void)dismissController:(id)sender {
-  [[NSUserDefaults appGroupUserDefaults] synchronize];
+- (void)viewDidLoad {
+  [super viewDidLoad];
   
-  [super dismissController:sender];
+  [_browserPopUpButton.menu.itemArray enumerateObjectsUsingBlock:^(NSMenuItem * _Nonnull mi, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSLog(@"The represented object is: %@", mi.representedObject);
+  }];
+}
+
+- (void)dismissController:(id)sender {
+  // BUG: Array Controller does not propagate changes to UserDefaulsController automatically
+  if (((NSButton *)sender).tag == 1) {
+    RulesViewController *presentingController = (RulesViewController *)self.presentingViewController;
+    [super dismissController:sender];
+    [presentingController rulesControlClicked:sender];
+  }
+  else {
+    // save before dismissing controller to save old values, actually doing cancel
+    [(RulesViewController *)self.presentingViewController rulesControlClicked:sender];
+    [super dismissController:sender];
+  }
 }
 
 @end

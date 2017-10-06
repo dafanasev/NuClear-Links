@@ -13,6 +13,6 @@
 #define kDaemonBundleId @"com.nuclear-tools.nclinksd"
 #define kAppGroup       @"com.nuclear-tools.NuClear-Links-Group"
 #define kSafariBundleId @"com.apple.safari"
-#define kDefaultBrowserBundleId @"kDefaultBrowserBundleId"
+#define kDefaultBrowserBundleId @"defaultBrowserBundleId"
 
 #endif /* Constants_h */

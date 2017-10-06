@@ -19,14 +19,15 @@
   if ([[NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier] count] > 1) {
     [NSApplication.sharedApplication terminate:self];
   }
+  
+  [[NSUserDefaults appGroupUserDefaults] register];
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-  [[NSUserDefaults appGroupUserDefaults] synchronize];
 }
 
--(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
   return YES;
 }
 
