@@ -27,16 +27,16 @@
   
   _defaults = [NSUserDefaults appGroupUserDefaults];
   
-  NSString *defaultBrowserBundleId = [_defaults objectForKey:kDefaultBrowserBundleId];
+  NSString *defaultBrowserBundleIdentifier = [_defaults objectForKey:kDefaultBrowserBundleId];
   __block NSMenuItem *menuItemToSelect;
-  [browsersList() enumerateObjectsUsingBlock:^(NSString * _Nonnull bundleId, NSUInteger idx, BOOL * _Nonnull stop) {
+  [Browser.browsersDictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull bundleIdentifier, Browser * _Nonnull browser, BOOL * _Nonnull stop) {
     NSMenuItem *mi = [[NSMenuItem alloc] init];
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:bundleId]];
-    mi.title = [bundle.infoDictionary objectForKey:(NSString *)kCFBundleNameKey];
-    mi.representedObject = bundleId;
+    mi.title = browser.title;
+    mi.image = browser.image;
+    mi.representedObject = bundleIdentifier;
     [_defaultBrowserPopUpButton.menu addItem:mi];
     
-    if ([(NSString *)mi.representedObject isEqualToString:defaultBrowserBundleId]) {
+    if ([(NSString *)mi.representedObject isEqualToString:defaultBrowserBundleIdentifier]) {
       menuItemToSelect = mi;
     }
   }];

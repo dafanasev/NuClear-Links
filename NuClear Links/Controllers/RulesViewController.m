@@ -20,6 +20,10 @@
 
 @implementation RulesViewController
 
+#pragma mark - Setup
+
+#pragma mark - Actions
+
 - (IBAction)duplicateButtonClicked:(NSButton *)sender {
   
   id <NSCoding> selectedObject = _arrayController.selectedObjects.firstObject;
@@ -39,6 +43,12 @@
   
   if (response == NSAlertFirstButtonReturn) {
     [_arrayController removeObject:_arrayController.selectedObjects.firstObject];
+  }
+}
+
+- (IBAction)tableViewDoubleClicked:(NSTableView *)sender {
+  if (_arrayController.selectedObjects.firstObject) {
+    [self performSegueWithIdentifier:@"showRulePredicateEditorViewControllerSegue" sender:self];
   }
 }
 

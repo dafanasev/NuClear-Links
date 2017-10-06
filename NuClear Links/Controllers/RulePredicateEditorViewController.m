@@ -7,11 +7,18 @@
 //
 
 #import "RulePredicateEditorViewController.h"
+#import <shared/shared.h>
 
 @interface RulePredicateEditorViewController ()
 
 @end
 
 @implementation RulePredicateEditorViewController
+
+-(void)dismissController:(id)sender {
+  [[NSUserDefaults appGroupUserDefaults] synchronize];
+  
+  [super dismissController:sender];
+}
 
 @end

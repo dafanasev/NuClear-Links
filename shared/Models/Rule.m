@@ -9,6 +9,7 @@
 #import "Rule.h"
 #import "NSUserDefaults+Links.h"
 
+
 @interface Rule ()
 
 @end
@@ -27,11 +28,12 @@
   return self;
 }
 
--(instancetype)initWithTitle:(NSString *)title browserBundleIdentifier:(NSString *)browserBundleIdentifier isActive:(BOOL)isActive {
+-(instancetype)initWithTitle:(NSString *)title browser:(Browser *)browser isActive:(BOOL)isActive {
   if (self = [super init]) {
     self.title = title;
-    self.browserBundleIdentifier = browserBundleIdentifier;
+    self.browser = browser;
     self.isActive = isActive;
+    [self setupPredicate];
   }
   return self;
 }
@@ -41,7 +43,7 @@
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   if (self = [super init]) {
     self.title = [decoder decodeObjectForKey:@"title"];
-    self.browserBundleIdentifier = [decoder decodeObjectForKey:@"browserBundleIdentifier"];
+    self.browser = [decoder decodeObjectForKey:@"browser"];
     self.isActive = [decoder decodeBoolForKey:@"isActive"];
     [self setupPredicate];
   }
@@ -50,12 +52,14 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
   [encoder encodeObject:_title forKey:@"title"];
-  [encoder encodeObject:_browserBundleIdentifier forKey:@"browserBundleIdentifier"];
+  [encoder encodeObject:_browser forKey:@"browser"];
   [encoder encodeBool:_isActive forKey:@"isActive"];
 }
 
 -(void)setupPredicate {
-  self.predicate = [NSPredicate predicateWithFormat:@"url.host = 'yandex.ru'"];
+  // TODO: empty subpredicates
+  NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = ''"]];
+  self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
 }
 
 #pragma mark - Rules

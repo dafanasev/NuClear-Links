@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "NSUserDefaults+Links.h"
+#import <shared/shared.h>
 
 @interface AppDelegate ()
 
@@ -26,5 +26,8 @@
   [[NSUserDefaults appGroupUserDefaults] synchronize];
 }
 
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+  return YES;
+}
 
 @end

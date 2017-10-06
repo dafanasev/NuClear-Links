@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Browser.h"
 
 @interface Rule : NSObject <NSCoding>
 
-@property NSString    *title;
-@property BOOL        isActive;
-@property NSString    *browserBundleIdentifier;
-@property NSString    *browserName;
-@property NSImage     *browserIcon;
-@property NSURL       *url;
-@property NSPredicate *predicate;
+@property NSString *title;
+@property BOOL      isActive;
+@property Browser  *browser;
+@property NSCompoundPredicate *predicate;
 
 @property (class) NSArray<Rule *> *all;
 
--(instancetype)initWithTitle:(NSString *)title browserBundleIdentifier:(NSString *)browserBundleIdentifier isActive:(BOOL)isActive;
+-(instancetype)initWithTitle:(NSString *)title browser:(Browser *)browser isActive:(BOOL)isActive;
 
 @end
