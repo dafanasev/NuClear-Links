@@ -1401,22 +1401,74 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="90"/>
+                        <rect key="frame" x="0.0" y="0.0" width="426" height="90"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="320" height="50"/>
+                                <rect key="frame" x="20" y="20" width="386" height="50"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LvC-AQ-0UT">
-                                        <rect key="frame" x="-6" y="22" width="332" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Set Nuclear Links as the system default browser" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bXh-YW-AYV">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="setAsTheSystemDefaultBrowserButtonClicked:" target="Nip-bf-vlf" id="Ks9-59-z9A"/>
-                                        </connections>
-                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
+                                        <rect key="frame" x="0.0" y="29" width="364" height="21"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5le-TX-odY">
+                                                <rect key="frame" x="-2" y="4" width="253" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is not your default browser" id="eUt-KL-8T4">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LvC-AQ-0UT">
+                                                <rect key="frame" x="251" y="-7" width="119" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Set Default..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bXh-YW-AYV">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="setAsTheSystemDefaultBrowserButtonClicked:" target="Nip-bf-vlf" id="Ks9-59-z9A"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S47-aL-Iwv">
+                                        <rect key="frame" x="0.0" y="29" width="386" height="21"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-1V-pNq">
+                                                <rect key="frame" x="-2" y="4" width="230" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is your default browser" id="Zcm-zI-McQ">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-NI-GaA">
+                                                <rect key="frame" x="228" y="-7" width="164" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Restore {{Browser}} " bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gVr-9X-zF2">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="restoreSystemBrowserButonClicked:" target="Nip-bf-vlf" id="Wou-ej-NTC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-14-Xee">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="21"/>
                                         <subviews>
@@ -1466,8 +1518,10 @@ DQ
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -1480,11 +1534,16 @@ DQ
                             <constraint firstItem="yH3-mc-uIv" firstAttribute="top" secondItem="yzh-hr-PTV" secondAttribute="top" constant="20" id="eMG-Un-EtL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="isDefaultBrowserStackView" destination="S47-aL-Iwv" id="oDI-Vo-JJE"/>
+                        <outlet property="isNotDefaultBrowserStackView" destination="nVe-Lc-XcF" id="9sC-IK-RhA"/>
+                        <outlet property="restoreDefaultBrowserButton" destination="Fda-NI-GaA" id="u2K-LT-ERy"/>
+                    </connections>
                 </viewController>
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="435.5" y="1063"/>
+            <point key="canvasLocation" x="379" y="943.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aAm-iU-1Yi">
