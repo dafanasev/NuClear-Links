@@ -35,10 +35,14 @@
   
   __block NSString *neededBrowserBundleId = defaultBrowserBundleId;
   
+  __block NSWorkspaceLaunchOptions options = 0;
   @try {
     [[defaults rules] enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
       if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
         neededBrowserBundleId = rule.browser.bundleIdentifier;
+        if (rule.openInBackground) {
+          options |= NSWorkspaceLaunchWithoutActivation;
+        }
         *stop = YES;
       }
     }];
@@ -47,7 +51,9 @@
     neededBrowserBundleId = defaultBrowserBundleId;
   }
   
-  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+  
+  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
+           additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
 

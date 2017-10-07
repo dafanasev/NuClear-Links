@@ -12,8 +12,9 @@
 @interface Rule : NSObject <NSCoding, NSCopying>
 
 @property NSString *title;
-@property BOOL      isActive;
 @property Browser  *browser;
+@property BOOL      isActive;
+@property BOOL      openInBackground;
 @property NSPredicate *predicate;
 
 @property (class) NSArray<Rule *> *all;

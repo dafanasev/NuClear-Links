@@ -25,6 +25,7 @@
     self.title = @"New rule";
     self.browser = [Browser browserWithBundleIdentifier:[[NSUserDefaults appGroupUserDefaults] objectForKey:kDefaultBrowserBundleId]];
     self.isActive = YES;
+    self.openInBackground = NO;
     
       // TODO: empty subpredicates
     NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = ''"]];
@@ -37,10 +38,11 @@
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   if (self = [super init]) {
-    self.title     = [decoder decodeObjectForKey:@"title"];
-    self.browser   = [decoder decodeObjectForKey:@"browser"];
-    self.isActive  = [decoder decodeBoolForKey:@"isActive"];
-    self.predicate = [decoder decodeObjectForKey:@"predicate"];
+    self.title            = [decoder decodeObjectForKey:@"title"];
+    self.browser          = [decoder decodeObjectForKey:@"browser"];
+    self.isActive         = [decoder decodeBoolForKey:@"isActive"];
+    self.openInBackground = [decoder decodeBoolForKey:@"openInBackground"];
+    self.predicate        = [decoder decodeObjectForKey:@"predicate"];
   }
   return self;
 }
@@ -49,6 +51,7 @@
   [encoder encodeObject:_title forKey:@"title"];
   [encoder encodeObject:_browser forKey:@"browser"];
   [encoder encodeBool:_isActive forKey:@"isActive"];
+  [encoder encodeBool:_openInBackground forKey:@"openInBackground"];
   [encoder encodeObject:_predicate forKey:@"predicate"];
 }
 
