@@ -26,10 +26,7 @@
     self.browser = [Browser browserWithBundleIdentifier:[[NSUserDefaults appGroupUserDefaults] objectForKey:kDefaultBrowserBundleId]];
     self.isActive = YES;
     self.openInBackground = NO;
-    
-      // TODO: empty subpredicates
-    NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = ''"]];
-    self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
+    self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[]];
   }
   return self;
 }
