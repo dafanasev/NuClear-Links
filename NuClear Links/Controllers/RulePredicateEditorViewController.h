@@ -12,5 +12,6 @@
 @interface RulePredicateEditorViewController : NSViewController
 
 @property (strong) IBOutlet NSObjectController *objectController;
+@property NSInteger objectIndex;
 
 @end

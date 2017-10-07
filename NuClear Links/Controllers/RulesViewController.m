@@ -16,6 +16,8 @@
 
 @property (strong) IBOutlet NSArrayController *arrayController;
 
+- (IBAction)rulesControlClicked:(id)sender;
+
 @end
 
 
@@ -31,9 +33,8 @@
 
 - (IBAction)duplicateButtonClicked:(NSButton *)sender {
   
-  id <NSCoding> selectedObject = _arrayController.selectedObjects.firstObject;
-  NSData *ruleData = [NSKeyedArchiver archivedDataWithRootObject:selectedObject];
-  Rule *newRule = [NSKeyedUnarchiver unarchiveObjectWithData:ruleData];
+  Rule *selectedObject = _arrayController.selectedObjects.firstObject;
+  Rule *newRule = [selectedObject copy];
   newRule.title = [NSString stringWithFormat:@"%@ copy", newRule.title];
   [_arrayController insertObject:newRule atArrangedObjectIndex:_arrayController.selectionIndex + 1];
   [_arrayController setSelectedObjects:@[newRule]];
@@ -61,7 +62,9 @@
 
 - (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
   RulePredicateEditorViewController *rulePredicateEditorViewController = (RulePredicateEditorViewController *)segue.destinationController;
-  [rulePredicateEditorViewController.objectController setContent:_arrayController.selectedObjects.firstObject];
+  Rule *selectedRule = _arrayController.selectedObjects.firstObject;
+  [rulePredicateEditorViewController.objectController setContent:[selectedRule copy]];
+  rulePredicateEditorViewController.objectIndex = _arrayController.selectionIndex;
 }
 
 @end

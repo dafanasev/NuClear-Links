@@ -19,19 +19,15 @@
 
 
 - (void)dismissController:(id)sender {
-  // TODO: save using the save method of UserDefaultsController
+  [self.view.window makeFirstResponder:sender];
   
-  // BUG: Array Controller does not propagate changes to UserDefaulsController automatically
   if (((NSButton *)sender).tag == 1) {
-    RulesViewController *presentingController = (RulesViewController *)self.presentingViewController;
-    [super dismissController:sender];
-    [presentingController rulesControlClicked:sender];
+    NSMutableArray<Rule *> *rules = [[[NSUserDefaults appGroupUserDefaults] rules] mutableCopy];
+    [rules setObject:_objectController.selectedObjects.firstObject atIndexedSubscript:_objectIndex];
+    [[NSUserDefaults appGroupUserDefaults] setRules:rules];
   }
-  else {
-    // save before dismissing controller to save old values, actually doing cancel
-    [(RulesViewController *)self.presentingViewController rulesControlClicked:sender];
-    [super dismissController:sender];
-  }
+  
+  [super dismissController:sender];
 }
 
 @end

@@ -52,6 +52,13 @@
   [encoder encodeObject:_predicate forKey:@"predicate"];
 }
 
+#pragma mark - NSCopying
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
+  return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+}
+
 #pragma mark - Rules
 
 + (NSArray<Rule *> *)all {

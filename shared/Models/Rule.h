@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Browser.h"
 
-@interface Rule : NSObject <NSCoding>
+@interface Rule : NSObject <NSCoding, NSCopying>
 
 @property NSString *title;
 @property BOOL      isActive;
