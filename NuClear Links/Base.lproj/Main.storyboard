@@ -872,7 +872,7 @@
                                                                                         <menu key="menu" id="vVZ-fb-aMi"/>
                                                                                     </popUpButtonCell>
                                                                                     <connections>
-                                                                                        <action selector="rulesControlClicked:" target="Gi8-4o-obq" id="yjB-el-GC7"/>
+                                                                                        <action selector="rulesControlClicked:" target="Gi8-4o-obq" id="aHX-MR-SO9"/>
                                                                                         <binding destination="moP-r2-Qyo" name="selectedObject" keyPath="objectValue.browser.bundleIdentifier" id="HCA-fI-H77"/>
                                                                                     </connections>
                                                                                 </popUpButton>
@@ -1150,17 +1150,41 @@
                                                         <predicateEditorRowTemplate rowType="simple" id="hog-SE-Dyv">
                                                             <array key="leftExpressionObject">
                                                                 <expression type="keyPath">
-                                                                    <string key="keyPath">url.host</string>
+                                                                    <string key="keyPath">host</string>
+                                                                </expression>
+                                                                <expression type="keyPath">
+                                                                    <string key="keyPath">path</string>
+                                                                </expression>
+                                                                <expression type="keyPath">
+                                                                    <string key="keyPath">query</string>
+                                                                </expression>
+                                                                <expression type="keyPath">
+                                                                    <string key="keyPath">fragment</string>
                                                                 </expression>
                                                             </array>
                                                             <integer key="rightExpressionObject" value="700"/>
                                                             <comparisonPredicateOptions key="options" caseInsensitive="YES" diacriticInsensitive="YES"/>
                                                             <popUpMenus>
-                                                                <menu id="gfS-QA-0UV">
+                                                                <menu id="QXD-lW-ScF">
                                                                     <items>
-                                                                        <menuItem title="url.host" state="on" id="yPM-xT-EUC">
+                                                                        <menuItem title="host" state="on" id="90i-hQ-WPs">
                                                                             <expression key="representedObject" type="keyPath">
-                                                                                <string key="keyPath">url.host</string>
+                                                                                <string key="keyPath">host</string>
+                                                                            </expression>
+                                                                        </menuItem>
+                                                                        <menuItem title="path" id="RNe-vI-9gK">
+                                                                            <expression key="representedObject" type="keyPath">
+                                                                                <string key="keyPath">path</string>
+                                                                            </expression>
+                                                                        </menuItem>
+                                                                        <menuItem title="query" id="j4q-TU-RQI">
+                                                                            <expression key="representedObject" type="keyPath">
+                                                                                <string key="keyPath">query</string>
+                                                                            </expression>
+                                                                        </menuItem>
+                                                                        <menuItem title="fragment" id="1IA-C6-odk">
+                                                                            <expression key="representedObject" type="keyPath">
+                                                                                <string key="keyPath">fragment</string>
                                                                             </expression>
                                                                         </menuItem>
                                                                     </items>
@@ -1188,8 +1212,8 @@
                                                         </predicateEditorRowTemplate>
                                                         <predicateEditorRowTemplate rowType="simple" id="Ztj-TU-h72">
                                                             <array key="leftExpressionObject">
-                                                                <expression type="constant">
-                                                                    <string key="constantValue">url.scheme</string>
+                                                                <expression type="keyPath">
+                                                                    <string key="keyPath">scheme</string>
                                                                 </expression>
                                                             </array>
                                                             <array key="rightExpressionObject">
@@ -1201,11 +1225,11 @@
                                                                 </expression>
                                                             </array>
                                                             <popUpMenus>
-                                                                <menu id="3Ga-Bm-VQ6">
+                                                                <menu id="ivb-Jl-4S5">
                                                                     <items>
-                                                                        <menuItem title="url.scheme" state="on" id="fzf-oZ-76x">
-                                                                            <expression key="representedObject" type="constant">
-                                                                                <string key="constantValue">url.scheme</string>
+                                                                        <menuItem title="scheme" state="on" id="0GT-Bh-6gH">
+                                                                            <expression key="representedObject" type="keyPath">
+                                                                                <string key="keyPath">scheme</string>
                                                                             </expression>
                                                                         </menuItem>
                                                                     </items>
@@ -1239,16 +1263,16 @@
                                                         <predicateEditorRowTemplate rowType="simple" id="aN3-fm-TNN">
                                                             <array key="leftExpressionObject">
                                                                 <expression type="keyPath">
-                                                                    <string key="keyPath">url.port</string>
+                                                                    <string key="keyPath">port</string>
                                                                 </expression>
                                                             </array>
                                                             <integer key="rightExpressionObject" value="300"/>
                                                             <popUpMenus>
                                                                 <menu id="ZTO-3n-xWf">
                                                                     <items>
-                                                                        <menuItem title="url.port" state="on" id="FMN-qd-5f2">
+                                                                        <menuItem title="port" state="on" id="FMN-qd-5f2">
                                                                             <expression key="representedObject" type="keyPath">
-                                                                                <string key="keyPath">url.port</string>
+                                                                                <string key="keyPath">port</string>
                                                                             </expression>
                                                                         </menuItem>
                                                                     </items>
@@ -1364,7 +1388,6 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="browserPopUpButton" destination="qgK-oo-zDT" id="S8i-KX-Xat"/>
                         <outlet property="objectController" destination="R1m-Jd-hez" id="Kmk-SS-RkC"/>
                     </connections>
                 </viewController>
@@ -1457,9 +1480,6 @@ DQ
                             <constraint firstItem="yH3-mc-uIv" firstAttribute="top" secondItem="yzh-hr-PTV" secondAttribute="top" constant="20" id="eMG-Un-EtL"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="defaultBrowserPopUpButton" destination="60s-Du-0co" id="AJ0-wt-GY8"/>
-                    </connections>
                 </viewController>
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>

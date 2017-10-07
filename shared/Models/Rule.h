@@ -14,7 +14,7 @@
 @property NSString *title;
 @property BOOL      isActive;
 @property Browser  *browser;
-@property NSCompoundPredicate *predicate;
+@property NSPredicate *predicate;
 
 @property (class) NSArray<Rule *> *all;
 

@@ -25,17 +25,29 @@
   // Insert code here to tear down your application
 }
 
-
 - (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
-  NSString *urlStr = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+  NSUserDefaults *defaults = [NSUserDefaults appGroupUserDefaults];
   
-  NSURL *url = [NSURL URLWithString:urlStr];
-  NSArray *urlArray = [NSArray arrayWithObject:url];
-  
-  NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:kAppGroup];
   NSString *defaultBrowserBundleId = [defaults objectForKey:kDefaultBrowserBundleId];
   
-  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:defaultBrowserBundleId options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+  NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+  NSArray<NSURL *> *urlArray = [NSArray arrayWithObject:url];
+  
+  __block NSString *neededBrowserBundleId = defaultBrowserBundleId;
+  
+  @try {
+    [[defaults rules] enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
+      if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
+        neededBrowserBundleId = rule.browser.bundleIdentifier;
+        *stop = YES;
+      }
+    }];
+  }
+  @catch (NSException *exception) {
+    neededBrowserBundleId = defaultBrowserBundleId;
+  }
+  
+  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:0 additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
 
