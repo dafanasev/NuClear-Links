@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSStackView *isNotDefaultBrowserStackView;
 @property (weak) IBOutlet NSStackView *isDefaultBrowserStackView;
 @property (weak) IBOutlet NSButton *restoreDefaultBrowserButton;
+@property NSTimer *rightStackViewTimer;
 
 @end
 
@@ -25,6 +26,19 @@
 - (void)viewWillAppear {
   [super viewWillAppear];
   
+  [self showRightStackView];
+  
+  _rightStackViewTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showRightStackView) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillDisappear {
+  [_rightStackViewTimer invalidate];
+  _rightStackViewTimer = nil;
+  
+  [super viewWillDisappear];
+}
+
+- (void)showRightStackView {
   NSString *systemBrowserBundleIdentifier = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
   
   if ([systemBrowserBundleIdentifier isEqualToString:kDaemonBundleId]) {

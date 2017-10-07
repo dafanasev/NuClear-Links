@@ -27,7 +27,7 @@
     self.isActive = YES;
     
       // TODO: empty subpredicates
-    NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = 'yandex.ru'"]];
+    NSArray<NSPredicate *> *subpredicates = @[[NSPredicate predicateWithFormat:@"url.host = ''"]];
     self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
   }
   return self;
