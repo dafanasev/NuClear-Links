@@ -15,7 +15,6 @@
 
 @property (weak) IBOutlet NSStackView *isNotDefaultBrowserStackView;
 @property (weak) IBOutlet NSStackView *isDefaultBrowserStackView;
-@property (weak) IBOutlet NSButton *restoreDefaultBrowserButton;
 @property NSTimer *rightStackViewTimer;
 
 @end
@@ -42,10 +41,6 @@
   NSString *systemBrowserBundleIdentifier = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
   
   if ([systemBrowserBundleIdentifier isEqualToString:kDaemonBundleId]) {
-    NSString *previousSystemBrowserBundleId = [[NSUserDefaults appGroupUserDefaults] objectForKey:kPreviousSystemBrowserBundleId];
-    Browser *previousBrowser = [Browser browserWithBundleIdentifier:previousSystemBrowserBundleId];
-    _restoreDefaultBrowserButton.title = [NSString stringWithFormat:@"Restore %@...", previousBrowser.title];
-    
     [_isNotDefaultBrowserStackView setHidden:YES];
     [_isDefaultBrowserStackView setHidden:NO];
   }

@@ -23,7 +23,6 @@
     NSMenuItem *mi = [[NSMenuItem alloc] init];
     mi.title = browser.title;
     mi.image = browser.image;
-    mi.tag   = bundleIdentifier.hash;
     mi.representedObject = bundleIdentifier;
     [self.menu addItem:mi];
   }];

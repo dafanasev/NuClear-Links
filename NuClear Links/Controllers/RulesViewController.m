@@ -12,6 +12,10 @@
 #import "BrowserPopUpButton.h"
 #import <shared/shared.h>
 
+
+#define kShowRulePredicateEditorViewControllerSegue @"showRulePredicateEditorViewControllerSegue"
+
+
 @interface RulesViewController ()
 
 @property (strong) IBOutlet NSArrayController *arrayController;
@@ -30,14 +34,22 @@
   [[NSUserDefaults appGroupUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_arrayController.arrangedObjects] forKey:@"rules"];
 }
 
+- (IBAction)addButtonClicked:(NSButton *)sender {
+  [_arrayController insertObject:[Rule new] atArrangedObjectIndex:0];
+  // because [_arrayController selectsInsertedObjects] = YES does not work for compound objects
+  [_arrayController setSelectionIndex:0];
+  [self performSegueWithIdentifier:kShowRulePredicateEditorViewControllerSegue sender:self];
+}
 
 - (IBAction)duplicateButtonClicked:(NSButton *)sender {
-  
   Rule *selectedObject = _arrayController.selectedObjects.firstObject;
   Rule *newRule = [selectedObject copy];
   newRule.title = [NSString stringWithFormat:@"%@ copy", newRule.title];
-  [_arrayController insertObject:newRule atArrangedObjectIndex:_arrayController.selectionIndex + 1];
-  [_arrayController setSelectedObjects:@[newRule]];
+  NSUInteger newRuleIndex = _arrayController.selectionIndex + 1;
+  [_arrayController insertObject:newRule atArrangedObjectIndex:newRuleIndex];
+  // because [_arrayController selectsInsertedObjects] = YES does not work for compound objects
+  [_arrayController setSelectionIndex:newRuleIndex];
+  [self performSegueWithIdentifier:kShowRulePredicateEditorViewControllerSegue sender:self];
 }
 
 - (IBAction)removeButtonClicked:(id)sender {
@@ -45,16 +57,15 @@
   alert.messageText = @"Are you sure?";
   [alert addButtonWithTitle:@"OK"];
   [alert addButtonWithTitle:@"Cancel"];
-  NSModalResponse response = [alert runModal];
   
-  if (response == NSAlertFirstButtonReturn) {
+  if ([alert runModal] == NSAlertFirstButtonReturn) {
     [_arrayController removeObject:_arrayController.selectedObjects.firstObject];
   }
 }
 
 - (IBAction)tableViewDoubleClicked:(NSTableView *)sender {
   if (_arrayController.selectedObjects.firstObject) {
-    [self performSegueWithIdentifier:@"showRulePredicateEditorViewControllerSegue" sender:self];
+    [self performSegueWithIdentifier:kShowRulePredicateEditorViewControllerSegue sender:self];
   }
 }
 
