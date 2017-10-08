@@ -708,7 +708,7 @@
             <objects>
                 <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" canPropagateSelectedChildViewControllerTitle="NO" id="kKf-K2-sEA" customClass="NCLinksTabViewController" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Rules" identifier="rules" image="NSGoLeftTemplate" id="VjO-5E-YzN"/>
+                        <tabViewItem label="Rules" identifier="rules" image="rulesTabIcon" id="VjO-5E-YzN"/>
                         <tabViewItem label="Preferences" identifier="preferences" image="preferencesTabIcon" id="8BW-Yj-1JA"/>
                         <tabViewItem label="About" identifier="about" image="NSInfo" id="r3k-dU-xIX"/>
                     </tabViewItems>
@@ -1606,8 +1606,8 @@ DQ
         </scene>
     </scenes>
     <resources>
-        <image name="NSGoLeftTemplate" width="9" height="12"/>
         <image name="NSInfo" width="32" height="32"/>
         <image name="preferencesTabIcon" width="32" height="32"/>
+        <image name="rulesTabIcon" width="32" height="32"/>
     </resources>
 </document>
