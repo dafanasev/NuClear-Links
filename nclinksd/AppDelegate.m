@@ -29,13 +29,17 @@
   NSUserDefaults *defaults = [NSUserDefaults appGroupUserDefaults];
   
   NSString *defaultBrowserBundleId = [defaults objectForKey:kDefaultBrowserBundleId];
-  
+  // for some reason when main app reads com.apple.Safari from the defaults, nclinksd returns null
+  if (!defaultBrowserBundleId) {
+    defaultBrowserBundleId = @"com.apple.Safari";
+  }
+
   NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
   NSArray<NSURL *> *urlArray = [NSArray arrayWithObject:url];
   
   __block NSString *neededBrowserBundleId = defaultBrowserBundleId;
   
-  __block NSWorkspaceLaunchOptions options = 0;
+  __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
   @try {
     [[defaults rules] enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
       if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
@@ -50,7 +54,6 @@
   @catch (NSException *exception) {
     neededBrowserBundleId = defaultBrowserBundleId;
   }
-  
   
   [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
            additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
