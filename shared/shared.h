@@ -21,3 +21,4 @@ FOUNDATION_EXPORT const unsigned char sharedVersionString[];
 #import "Rule.h"
 #import "Browser.h"
 #import "NSUserDefaults+Links.h"
+#import "NSBundle+Links.h"

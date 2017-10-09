@@ -1426,14 +1426,14 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="479" height="149"/>
+                        <rect key="frame" x="0.0" y="0.0" width="479" height="166"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="439" height="109"/>
+                                <rect key="frame" x="20" y="20" width="439" height="126"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
-                                        <rect key="frame" x="0.0" y="88" width="267" height="21"/>
+                                        <rect key="frame" x="0.0" y="105" width="267" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5le-TX-odY" userLabel="NuClear Links is not activated">
                                                 <rect key="frame" x="-2" y="3" width="185" height="17"/>
@@ -1464,7 +1464,7 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S47-aL-Iwv">
-                                        <rect key="frame" x="0.0" y="88" width="258" height="21"/>
+                                        <rect key="frame" x="0.0" y="105" width="258" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-1V-pNq" userLabel="NuClear Links is activated">
                                                 <rect key="frame" x="-2" y="3" width="161" height="17"/>
@@ -1495,10 +1495,10 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-Az-B6d">
-                                        <rect key="frame" x="-2" y="29" width="412" height="51"/>
+                                        <rect key="frame" x="-2" y="29" width="412" height="68"/>
                                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
                                             <font key="font" metaFont="system"/>
-                                            <string key="title">Note: Activating NuClear Links means it will be set up as default browser. It should be done in order to proxy urls to other browsers. Setting other browser as default will stop proxying urls.</string>
+                                            <string key="title">Note: Activating NuClear Links means it will be set up as default browser. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1580,32 +1580,158 @@ DQ
             </objects>
             <point key="canvasLocation" x="377" y="1064"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">
             <objects>
-                <viewController id="Xto-Pd-1Dw" sceneMemberID="viewController">
+                <viewController id="Xto-Pd-1Dw" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" id="hQv-pQ-GcX">
-                        <rect key="frame" x="0.0" y="0.0" width="381" height="222"/>
+                        <rect key="frame" x="0.0" y="0.0" width="422" height="169"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vbR-iP-qiV">
-                                <rect key="frame" x="18" y="185" width="126" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="About Nuclear Links" id="XWO-7J-q9s">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-LP-6nO">
+                                <rect key="frame" x="20" y="20" width="382" height="129"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mjA-de-s3D">
+                                        <rect key="frame" x="0.0" y="1" width="128" height="128"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AboutIcon" id="Zgs-qr-n8G"/>
+                                    </imageView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiG-1b-LbA">
+                                        <rect key="frame" x="138" y="0.0" width="244" height="129"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-SI-Ri8">
+                                                <rect key="frame" x="-2" y="100" width="223" height="29"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="About NuClear Links" id="N8C-gW-Ij7">
+                                                    <font key="font" metaFont="system" size="24"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VY6-kE-gBg">
+                                                <rect key="frame" x="-2" y="75" width="50" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version" id="PFK-Ld-blH">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v6M-5L-IHe">
+                                                <rect key="frame" x="-2" y="50" width="64" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Copyright" id="bOT-W0-Dmq">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Eh-fT-dHt">
+                                                <rect key="frame" x="0.0" y="25" width="244" height="17"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="shG-Np-059">
+                                                        <rect key="frame" x="-2" y="0.0" width="168" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Get more NuClear Tools at " id="cz8-vx-EbM">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcn-xp-ppA" customClass="HyperlinkLabel">
+                                                        <rect key="frame" x="164" y="0.0" width="82" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="nuclear.tools" id="bXt-46-cjc">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="url" value="http://nuclear.tools?utm_source=links&amp;utm_medium=about-tab&amp;utm_campaign=links"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHc-fB-jBg">
+                                                <rect key="frame" x="0.0" y="0.0" width="194" height="17"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-5E-chS">
+                                                        <rect key="frame" x="-2" y="0.0" width="154" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Follow NuClear Tools on " id="cIl-Ch-dMF">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GRo-tn-iAc" customClass="HyperlinkLabel">
+                                                        <rect key="frame" x="150" y="0.0" width="46" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Twitter" id="NQY-i3-S2f">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="url" value="twitter.com/nucleartools"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PZd-LP-6nO" secondAttribute="bottom" constant="20" id="NRP-S4-5Tq"/>
+                            <constraint firstItem="PZd-LP-6nO" firstAttribute="leading" secondItem="hQv-pQ-GcX" secondAttribute="leading" constant="20" id="ZPJ-dP-ni5"/>
+                            <constraint firstAttribute="trailing" secondItem="PZd-LP-6nO" secondAttribute="trailing" constant="20" id="d76-Bi-G6E"/>
+                            <constraint firstItem="PZd-LP-6nO" firstAttribute="top" secondItem="hQv-pQ-GcX" secondAttribute="top" constant="20" id="k2x-FA-AoB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="v6M-5L-IHe" id="YuJ-0O-7L1"/>
+                        <outlet property="versionLabel" destination="VY6-kE-gBg" id="CPn-3X-E1K"/>
+                    </connections>
                 </viewController>
                 <customObject id="fc7-K6-lfo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844.5" y="635"/>
+            <point key="canvasLocation" x="844" y="576.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="AboutIcon" width="128" height="128"/>
         <image name="NSInfo" width="32" height="32"/>
         <image name="preferencesTabIcon" width="32" height="32"/>
         <image name="rulesTabIcon" width="32" height="32"/>

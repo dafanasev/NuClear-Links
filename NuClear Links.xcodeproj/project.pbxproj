@@ -16,10 +16,15 @@
 		2539498D1F87D6E70079C922 /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2539498B1F87D6E70079C922 /* Browser.m */; };
 		253949961F87F38E0079C922 /* NCLinksTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253949951F87F38E0079C922 /* NCLinksTabViewController.m */; };
 		2539F2EA1F88137300AB42C4 /* BrowserPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2539F2E91F88137300AB42C4 /* BrowserPopUpButton.m */; };
+		254A6DE41F8B029F00063E11 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254A6DE31F8B029F00063E11 /* AboutViewController.m */; };
 		25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */; };
 		2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */; };
 		25BA1DB11F7DDBE300176831 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; };
 		25BA1DB21F7DDBE300176831 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC5F151F7DD6DF00C99F14 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25C21E201F8AF77D0011E8E5 /* HyperlinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */; };
+		25C21E211F8AF7E70011E8E5 /* NSBundle+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E1C1F8AF43A0011E8E5 /* NSBundle+Links.m */; };
+		25C21E221F8AF7F30011E8E5 /* NSBundle+Links.h in Headers */ = {isa = PBXBuildFile; fileRef = 25C21E1B1F8AF43A0011E8E5 /* NSBundle+Links.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */; };
 		25C998AB1F830D890088BA9A /* Rule.h in Headers */ = {isa = PBXBuildFile; fileRef = 2517A2B71F82B9A6004AE168 /* Rule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		25C998AC1F830D8F0088BA9A /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2B81F82B9A6004AE168 /* Rule.m */; };
 		25CC5F191F7DD6DF00C99F14 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 25CC5F171F7DD6DF00C99F14 /* shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -103,10 +108,18 @@
 		253949951F87F38E0079C922 /* NCLinksTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCLinksTabViewController.m; sourceTree = "<group>"; };
 		2539F2E81F88137300AB42C4 /* BrowserPopUpButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserPopUpButton.h; sourceTree = "<group>"; };
 		2539F2E91F88137300AB42C4 /* BrowserPopUpButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserPopUpButton.m; sourceTree = "<group>"; };
+		254A6DE21F8B029F00063E11 /* AboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		254A6DE31F8B029F00063E11 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
 		2574E4D41F8534E500FEC112 /* NCLinksUserDefaulsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCLinksUserDefaulsController.h; sourceTree = "<group>"; };
 		2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCLinksUserDefaulsController.m; sourceTree = "<group>"; };
+		25C21E1B1F8AF43A0011E8E5 /* NSBundle+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Links.h"; sourceTree = "<group>"; };
+		25C21E1C1F8AF43A0011E8E5 /* NSBundle+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Links.m"; sourceTree = "<group>"; };
+		25C21E1E1F8AF77D0011E8E5 /* HyperlinkLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyperlinkLabel.h; sourceTree = "<group>"; };
+		25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperlinkLabel.m; sourceTree = "<group>"; };
+		25C21E241F8AFABA0011E8E5 /* NSAttributedString+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Links.h"; sourceTree = "<group>"; };
+		25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Links.m"; sourceTree = "<group>"; };
 		25CC5F151F7DD6DF00C99F14 /* shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CC5F171F7DD6DF00C99F14 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
 		25CC5F181F7DD6DF00C99F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +194,8 @@
 		2517A2C81F82CA08004AE168 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				25C21E1B1F8AF43A0011E8E5 /* NSBundle+Links.h */,
+				25C21E1C1F8AF43A0011E8E5 /* NSBundle+Links.m */,
 				2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */,
 				2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */,
 			);
@@ -193,6 +208,8 @@
 			children = (
 				2539F2E81F88137300AB42C4 /* BrowserPopUpButton.h */,
 				2539F2E91F88137300AB42C4 /* BrowserPopUpButton.m */,
+				25C21E1E1F8AF77D0011E8E5 /* HyperlinkLabel.h */,
+				25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,8 +227,19 @@
 				25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */,
 				253949941F87F38E0079C922 /* NCLinksTabViewController.h */,
 				253949951F87F38E0079C922 /* NCLinksTabViewController.m */,
+				254A6DE21F8B029F00063E11 /* AboutViewController.h */,
+				254A6DE31F8B029F00063E11 /* AboutViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25C21E231F8AFA930011E8E5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				25C21E241F8AFABA0011E8E5 /* NSAttributedString+Links.h */,
+				25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		25CC5F161F7DD6DF00C99F14 /* shared */ = {
@@ -255,6 +283,7 @@
 				2517A2B61F82B965004AE168 /* Resources */,
 				25556E9B1F7D908900A1C486 /* Controllers */,
 				253949981F8804DA0079C922 /* Views */,
+				25C21E231F8AFA930011E8E5 /* Categories */,
 			);
 			path = "NuClear Links";
 			sourceTree = "<group>";
@@ -285,6 +314,7 @@
 				2517A2CE1F82CA60004AE168 /* NSUserDefaults+Links.h in Headers */,
 				2539498C1F87D6E70079C922 /* Browser.h in Headers */,
 				25CC5F191F7DD6DF00C99F14 /* shared.h in Headers */,
+				25C21E221F8AF7F30011E8E5 /* NSBundle+Links.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +348,7 @@
 				25DB3AEE1F7D88D200484310 /* Resources */,
 				252EE0C71F7D8B7900E663CD /* CopyFiles */,
 				25CC5F211F7DD6DF00C99F14 /* Embed Frameworks */,
+				25C21E191F8AF3E00011E8E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -432,6 +463,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25C21E191F8AF3E00011E8E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25CC5F101F7DD6DF00C99F14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -439,6 +486,7 @@
 			files = (
 				2539498D1F87D6E70079C922 /* Browser.m in Sources */,
 				2517A2CF1F82CA60004AE168 /* NSUserDefaults+Links.m in Sources */,
+				25C21E211F8AF7E70011E8E5 /* NSBundle+Links.m in Sources */,
 				25C998AC1F830D8F0088BA9A /* Rule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,11 +496,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				253949961F87F38E0079C922 /* NCLinksTabViewController.m in Sources */,
+				25C21E201F8AF77D0011E8E5 /* HyperlinkLabel.m in Sources */,
 				2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */,
 				2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */,
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,
+				25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */,
+				254A6DE41F8B029F00063E11 /* AboutViewController.m in Sources */,
 				2539F2EA1F88137300AB42C4 /* BrowserPopUpButton.m in Sources */,
 				2529A0651F87AE0800C7EAF0 /* RulePredicateEditorViewController.m in Sources */,
 			);
