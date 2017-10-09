@@ -7,7 +7,7 @@
 //
 
 #import "AboutViewController.h"
-#import <shared/shared.h>
+#import "NSBundle+Links.h"
 
 
 @interface AboutViewController ()

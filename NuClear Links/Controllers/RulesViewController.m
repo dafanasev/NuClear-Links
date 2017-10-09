@@ -10,7 +10,6 @@
 #import "Rule.h"
 #import "RulePredicateEditorViewController.h"
 #import "BrowserPopUpButton.h"
-#import <shared/shared.h>
 
 
 #define kShowRulePredicateEditorViewControllerSegue @"showRulePredicateEditorViewControllerSegue"
@@ -31,7 +30,7 @@
 
 - (IBAction)rulesControlClicked:(id)sender {
   // BUG: Array Controller does not propagate changes to UserDefaulsController automatically
-  [[NSUserDefaults appGroupUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_arrayController.arrangedObjects] forKey:@"rules"];
+  [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_arrayController.arrangedObjects] forKey:@"rules"];
 }
 
 - (IBAction)addButtonClicked:(NSButton *)sender {

@@ -11,15 +11,6 @@
 
 @implementation NSUserDefaults (Links)
 
-+ (NSUserDefaults *)appGroupUserDefaults {
-  static NSUserDefaults *_appGroupUserDefaults = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    _appGroupUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:kAppGroup];
-  });
-  return _appGroupUserDefaults;
-}
-
 - (void)register {
   [self registerDefaults:@{kDefaultBrowserBundleId: @"com.apple.Safari"}];
 }

@@ -64,7 +64,7 @@
 
   [(__bridge NSArray *)LSCopyAllHandlersForURLScheme(CFSTR("http")) enumerateObjectsUsingBlock:^(id  _Nonnull bundleIdentifier, NSUInteger idx, BOOL * _Nonnull stop) {
     Browser *browser = [Browser browserWithBundleIdentifier:bundleIdentifier];
-    if (![bundleIdentifier isEqualToString:kDaemonBundleId] && browser.bundle.bundlePath && [[NSWorkspace sharedWorkspace] iconForFile:browser.bundle.bundlePath]) {
+    if (![bundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier] && browser.bundle.bundlePath && [[NSWorkspace sharedWorkspace] iconForFile:browser.bundle.bundlePath]) {
       [browsersDictionary setObject:browser forKey:bundleIdentifier];
     }
   }];

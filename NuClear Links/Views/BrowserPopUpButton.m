@@ -7,7 +7,7 @@
 //
 
 #import "BrowserPopUpButton.h"
-#import <shared/shared.h>
+#import "Browser.h"
 
 @implementation BrowserPopUpButton
 

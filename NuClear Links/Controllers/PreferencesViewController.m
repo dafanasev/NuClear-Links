@@ -7,8 +7,8 @@
 //
 
 #import <ServiceManagement/ServiceManagement.h>
-#import <shared/shared.h>
 #import "PreferencesViewController.h"
+#import "Constants.h"
 
 
 @interface PreferencesViewController ()
@@ -40,24 +40,24 @@
 - (void)showRightStackView {
   NSString *systemBrowserBundleIdentifier = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
   
-  if ([systemBrowserBundleIdentifier isEqualToString:kDaemonBundleId]) {
+  if ([systemBrowserBundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier]) {
     [_isNotDefaultBrowserStackView setHidden:YES];
     [_isDefaultBrowserStackView setHidden:NO];
   }
   else {
-    [[NSUserDefaults appGroupUserDefaults] setObject:systemBrowserBundleIdentifier forKey:kPreviousSystemBrowserBundleId];
+    [[NSUserDefaults standardUserDefaults] setObject:systemBrowserBundleIdentifier forKey:kPreviousSystemBrowserBundleId];
     [_isNotDefaultBrowserStackView setHidden:NO];
     [_isDefaultBrowserStackView setHidden:YES];
   }
 }
 
 - (IBAction)setAsTheSystemDefaultBrowserButtonClicked:(NSButton *)sender {
-  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)kDaemonBundleId);
-  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)kDaemonBundleId);
+  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)NSBundle.mainBundle.bundleIdentifier);
+  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)NSBundle.mainBundle.bundleIdentifier);
 }
 
 - (IBAction)restoreSystemBrowserButonClicked:(NSButton *)sender {
-  NSString *previousSystemBrowserBundleId = [[NSUserDefaults appGroupUserDefaults] objectForKey:kPreviousSystemBrowserBundleId];
+  NSString *previousSystemBrowserBundleId = [[NSUserDefaults standardUserDefaults] objectForKey:kPreviousSystemBrowserBundleId];
   LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)previousSystemBrowserBundleId);
   LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)previousSystemBrowserBundleId);
 }

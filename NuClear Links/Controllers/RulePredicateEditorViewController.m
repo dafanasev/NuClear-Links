@@ -8,7 +8,8 @@
 
 #import "RulePredicateEditorViewController.h"
 #import "RulesViewController.h"
-#import <shared/shared.h>
+#import "Rule.h"
+#import "NSUserDefaults+Links.h"
 
 
 @interface RulePredicateEditorViewController ()
@@ -22,9 +23,9 @@
   [self.view.window makeFirstResponder:sender];
   
   if (((NSButton *)sender).tag == 1) {
-    NSMutableArray<Rule *> *rules = [[[NSUserDefaults appGroupUserDefaults] rules] mutableCopy];
+    NSMutableArray<Rule *> *rules = [[[NSUserDefaults standardUserDefaults] rules] mutableCopy];
     [rules setObject:_objectController.selectedObjects.firstObject atIndexedSubscript:_objectIndex];
-    [[NSUserDefaults appGroupUserDefaults] setRules:rules];
+    [[NSUserDefaults standardUserDefaults] setRules:rules];
   }
   
   [super dismissController:sender];

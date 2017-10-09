@@ -23,7 +23,7 @@
 - (instancetype)init {
   if (self = [super init]) {
     self.title = @"New rule";
-    self.browser = [Browser browserWithBundleIdentifier:[[NSUserDefaults appGroupUserDefaults] objectForKey:kDefaultBrowserBundleId]];
+    self.browser = [Browser browserWithBundleIdentifier:[[NSUserDefaults standardUserDefaults] objectForKey:kDefaultBrowserBundleId]];
     self.isActive = YES;
     self.openInBackground = NO;
     self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[]];
@@ -62,11 +62,11 @@
 #pragma mark - Rules
 
 + (NSArray<Rule *> *)all {
-  return [NSUserDefaults appGroupUserDefaults].rules;
+  return [NSUserDefaults standardUserDefaults].rules;
 }
 
 + (void)setAll:(NSArray<Rule *> *)all {
-  [NSUserDefaults appGroupUserDefaults].rules = all;
+  [NSUserDefaults standardUserDefaults].rules = all;
 }
 
 @end

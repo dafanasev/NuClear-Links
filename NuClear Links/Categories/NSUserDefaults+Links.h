@@ -11,8 +11,6 @@
 
 @interface NSUserDefaults (Links)
 
-+ (NSUserDefaults *)appGroupUserDefaults;
-
 @property NSArray<Rule *> *rules;
 
 - (void)register;
