@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <shared/shared.h>
+#import "IsOneObjectValueTransformer.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,8 @@
   if ([[NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier] count] > 1) {
     [NSApplication.sharedApplication terminate:self];
   }
+  
+  [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
   
   [[NSUserDefaults appGroupUserDefaults] register];
 }

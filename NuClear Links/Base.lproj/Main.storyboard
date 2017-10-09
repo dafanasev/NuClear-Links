@@ -685,9 +685,9 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WindowController" sceneMemberID="viewController">
                     <window key="window" title="NuClear Links" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -750,7 +750,7 @@
                                             <rect key="frame" x="1" y="0.0" width="511" height="290"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="36" rowSizeStyle="large" headerView="S5S-ae-40R" viewBased="YES" id="9Gg-jH-ZZa">
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" typeSelect="NO" autosaveName="rulesTable" rowHeight="36" rowSizeStyle="large" headerView="S5S-ae-40R" viewBased="YES" id="9Gg-jH-ZZa">
                                                     <rect key="frame" x="0.0" y="0.0" width="511" height="267"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -939,6 +939,10 @@
                                                 </tableView>
                                             </subviews>
                                         </clipView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="291" id="83L-ma-wWg"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="513" id="x1y-GH-ee3"/>
+                                        </constraints>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="swR-tH-VhZ">
                                             <rect key="frame" x="1" y="274" width="511" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -974,7 +978,11 @@
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="duplicateButtonClicked:" target="Gi8-4o-obq" id="FLJ-uM-X7h"/>
-                                                    <binding destination="dm1-m0-s8h" name="enabled" keyPath="canRemove" id="7QN-uh-U8H"/>
+                                                    <binding destination="dm1-m0-s8h" name="enabled" keyPath="selectedObjects" id="O8q-qj-1ck">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">IsOneObjectValueTransformer</string>
+                                                        </dictionary>
+                                                    </binding>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ztW-yG-QLT">
@@ -984,7 +992,11 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <binding destination="dm1-m0-s8h" name="enabled" keyPath="canRemove" id="Sbw-XG-qaZ"/>
+                                                    <binding destination="dm1-m0-s8h" name="enabled" keyPath="selectedObjects" id="5Ig-dB-dOU">
+                                                        <dictionary key="options">
+                                                            <string key="NSValueTransformerName">IsOneObjectValueTransformer</string>
+                                                        </dictionary>
+                                                    </binding>
                                                     <segue destination="9cD-IX-Ab7" kind="sheet" identifier="showRulePredicateEditorViewControllerSegue" id="TCu-2z-nMs"/>
                                                 </connections>
                                             </button>
@@ -1499,8 +1511,8 @@ DQ
                                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
                                             <font key="font" metaFont="system"/>
                                             <string key="title">Note: Activating NuClear Links means it will be set up as default browser. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-14-Xee">

@@ -59,7 +59,7 @@
   [alert addButtonWithTitle:@"Cancel"];
   
   if ([alert runModal] == NSAlertFirstButtonReturn) {
-    [_arrayController removeObject:_arrayController.selectedObjects.firstObject];
+    [_arrayController removeObjects:_arrayController.selectedObjects];
   }
 }
 

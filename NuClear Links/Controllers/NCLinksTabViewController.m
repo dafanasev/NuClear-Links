@@ -30,6 +30,13 @@
   if (tabViewItem && tabViewItem.view) {
     [_tabViewSizes setObject:[NSValue valueWithSize:tabViewItem.view.frame.size] forKey:tabViewItem.identifier];
   }
+  
+  if (tabViewItem && [tabViewItem.identifier isEqualToString:@"rules"]) {
+    self.view.window.styleMask |= NSWindowStyleMaskResizable;
+  }
+  else {
+    self.view.window.styleMask &= ~(NSWindowStyleMaskResizable);
+  }
 }
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem {
