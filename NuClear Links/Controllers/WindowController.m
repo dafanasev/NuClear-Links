@@ -8,16 +8,28 @@
 
 #import "WindowController.h"
 
+
 @interface WindowController ()
 
 @end
+
 
 @implementation WindowController
 
 - (void)windowDidLoad {
   [super windowDidLoad];
   
-  [self.window setFrameAutosaveName:@"PreferencesWindow"];
+  self.window.delegate = self;
+  
+  [self.window setFrameAutosaveName:@"mainWindow"];
+}
+
+- (void)windowDidBecomeMain:(NSNotification *)notification {
+  [[NSApplication sharedApplication] setActivationPolicy:NSApplicationActivationPolicyRegular];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+  [[NSApplication sharedApplication] setActivationPolicy:NSApplicationActivationPolicyAccessory];
 }
 
 @end

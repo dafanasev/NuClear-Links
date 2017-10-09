@@ -68,8 +68,4 @@
            additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
-  return YES;
-}
-
 @end

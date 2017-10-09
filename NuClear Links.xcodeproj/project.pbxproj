@@ -19,6 +19,7 @@
 		2563ACF61F8C1AB400681D3C /* NSBundle+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E1C1F8AF43A0011E8E5 /* NSBundle+Links.m */; };
 		2563ACF81F8C1E1500681D3C /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2B81F82B9A6004AE168 /* Rule.m */; };
 		2563ACF91F8C1E1800681D3C /* Browser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2539498B1F87D6E70079C922 /* Browser.m */; };
+		2563ACFD1F8C1FC300681D3C /* StatusBarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2563ACFC1F8C1FC300681D3C /* StatusBarItemController.m */; };
 		2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */; };
 		25C21E201F8AF77D0011E8E5 /* HyperlinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */; };
 		25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */; };
@@ -53,6 +54,8 @@
 		2563ACF21F8C169B00681D3C /* IsOneObjectValueTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IsOneObjectValueTransformer.h; sourceTree = "<group>"; };
 		2563ACF31F8C169B00681D3C /* IsOneObjectValueTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IsOneObjectValueTransformer.m; sourceTree = "<group>"; };
 		2563ACF71F8C1D5B00681D3C /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2563ACFB1F8C1FC300681D3C /* StatusBarItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusBarItemController.h; sourceTree = "<group>"; };
+		2563ACFC1F8C1FC300681D3C /* StatusBarItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarItemController.m; sourceTree = "<group>"; };
 		2574E4D41F8534E500FEC112 /* NCLinksUserDefaulsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCLinksUserDefaulsController.h; sourceTree = "<group>"; };
 		2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCLinksUserDefaulsController.m; sourceTree = "<group>"; };
 		25C21E1B1F8AF43A0011E8E5 /* NSBundle+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Links.h"; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				254A6DE31F8B029F00063E11 /* AboutViewController.m */,
 				2563ACEE1F8BDF8B00681D3C /* WindowController.h */,
 				2563ACEF1F8BDF8B00681D3C /* WindowController.m */,
+				2563ACFB1F8C1FC300681D3C /* StatusBarItemController.h */,
+				2563ACFC1F8C1FC300681D3C /* StatusBarItemController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				2563ACF91F8C1E1800681D3C /* Browser.m in Sources */,
+				2563ACFD1F8C1FC300681D3C /* StatusBarItemController.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,
 				25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */,
 				2563ACF81F8C1E1500681D3C /* Rule.m in Sources */,
