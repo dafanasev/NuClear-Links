@@ -521,14 +521,14 @@
             <objects>
                 <viewController id="9cD-IX-Ab7" customClass="RulePredicateEditorViewController" sceneMemberID="viewController">
                     <view key="view" id="jps-ku-D4W">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="302"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="324"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5s-Iz-7id">
-                                <rect key="frame" x="20" y="20" width="410" height="262"/>
+                                <rect key="frame" x="20" y="20" width="410" height="284"/>
                                 <subviews>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="2eY-TZ-Hkv">
-                                        <rect key="frame" x="-2" y="246" width="60" height="18"/>
+                                        <rect key="frame" x="-2" y="268" width="60" height="18"/>
                                         <buttonCell key="cell" type="check" title="Active" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="46R-21-XgM">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -538,7 +538,7 @@
                                         </connections>
                                     </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltN-Cj-zO9">
-                                        <rect key="frame" x="0.0" y="218" width="410" height="22"/>
+                                        <rect key="frame" x="0.0" y="240" width="410" height="22"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xpa-Nx-wpc">
                                                 <rect key="frame" x="-2" y="3" width="38" height="17"/>
@@ -569,6 +569,16 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="k0R-aT-AYc">
+                                        <rect key="frame" x="-2" y="216" width="168" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Open in the background" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dsP-nQ-qsz">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="R1m-Jd-hez" name="value" keyPath="selection.openInBackground" id="tnc-ud-3F4"/>
+                                        </connections>
+                                    </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8f-38-0ew">
                                         <rect key="frame" x="0.0" y="189" width="97" height="21"/>
                                         <subviews>
@@ -856,8 +866,10 @@ DQ
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -887,14 +899,14 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="479" height="158"/>
+                        <rect key="frame" x="0.0" y="0.0" width="479" height="129"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="439" height="118"/>
+                                <rect key="frame" x="20" y="20" width="439" height="89"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-HK-PDl">
-                                        <rect key="frame" x="0.0" y="51" width="435" height="67"/>
+                                        <rect key="frame" x="0.0" y="22" width="435" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
                                                 <rect key="frame" x="0.0" y="46" width="267" height="21"/>
@@ -980,7 +992,7 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="n6Q-nS-zBk">
-                                        <rect key="frame" x="-2" y="27" width="159" height="18"/>
+                                        <rect key="frame" x="-2" y="-2" width="159" height="18"/>
                                         <buttonCell key="cell" type="check" title="Enable rules on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nY8-v8-jLn">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -989,59 +1001,12 @@ DQ
                                             <binding destination="Mbg-uG-Uw8" name="value" keyPath="values.enableRulesOnLaunch" id="zVI-Uz-B9d"/>
                                         </connections>
                                     </button>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-14-Xee">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="21"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SZ4-JU-MlC">
-                                                <rect key="frame" x="-2" y="2" width="28" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Use" id="D8i-GC-K92">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="60s-Du-0co" customClass="BrowserPopUpButton">
-                                                <rect key="frame" x="30" y="-3" width="105" height="26"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="J0Q-Ju-TMt"/>
-                                                </constraints>
-                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="aN9-yh-FA1">
-                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="GO4-Xg-uvV"/>
-                                                </popUpButtonCell>
-                                                <connections>
-                                                    <binding destination="Mbg-uG-Uw8" name="selectedObject" keyPath="values.defaultBrowserBundleId" id="TQU-qN-Syh"/>
-                                                </connections>
-                                            </popUpButton>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mcP-n9-0a6">
-                                                <rect key="frame" x="138" y="2" width="158" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="if the rule is not specified" id="oCf-jx-XiZ">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                        </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
@@ -1062,7 +1027,7 @@ DQ
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="383.5" y="1063.5"/>
+            <point key="canvasLocation" x="383.5" y="1007"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">

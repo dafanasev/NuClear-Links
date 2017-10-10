@@ -18,13 +18,14 @@
 
 @implementation NCLinksTabViewController
 
+-(void)awakeFromNib {
+  [super awakeFromNib];
+  
+  _tabViewSizes = [[NSMutableDictionary<NSString *, NSValue *> alloc] init];
+}
+
 - (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {
   [super tabView:tabView willSelectTabViewItem:tabViewItem];
-  
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    _tabViewSizes = [[NSMutableDictionary<NSString *, NSValue *> alloc] init];
-  });
   
   // Cache the size of the tab view.
   if (tabViewItem && tabViewItem.view) {

@@ -73,4 +73,16 @@
   return browsersDictionary;
 }
 
++ (NSString *)systemBrowserBundleId {
+  NSString *bid = [NSUserDefaults.standardUserDefaults objectForKey:kSystemBrowserBundleId];
+  if (!bid) {
+    bid = @"com.apple.safari";
+  }
+  return bid;
+}
+
++ (Browser *)systemBrowser {
+  return [Browser browserWithBundleIdentifier:Browser.systemBrowserBundleId];
+}
+
 @end

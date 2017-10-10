@@ -11,8 +11,7 @@
 
 #define kLaunchAtLogin  @"launchAtLogin"
 #define kAppGroup       @"com.nuclear-tools.NuClear-Links-Group"
-#define kPreviousSystemBrowserBundleId  @"previousSystemBrowser"
-#define kDefaultBrowserBundleId         @"defaultBrowserBundleId"
+#define kSystemBrowserBundleId  @"systemBrowserBundleId"
 #define kEnableRulesOnLaunch    @"enableRulesOnLaunch"
 #define kRulesStateNotification @"rulesStateNotification"
 #define kAreRulesEnabled @"areRulesEnabled"

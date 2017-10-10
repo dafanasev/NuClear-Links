@@ -9,6 +9,7 @@
 #import <ServiceManagement/ServiceManagement.h>
 #import "PreferencesViewController.h"
 #import "Constants.h"
+#import "Browser.h"
 
 
 @interface PreferencesViewController ()
@@ -38,14 +39,14 @@
 }
 
 - (void)showRightStackView {
-  NSString *systemBrowserBundleIdentifier = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
+  NSString *systemBrowserBundleId = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
   
-  if ([systemBrowserBundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString]) {
+  if ([systemBrowserBundleId isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString]) {
     [_isNotDefaultBrowserStackView setHidden:YES];
     [_isDefaultBrowserStackView setHidden:NO];
   }
   else {
-    [[NSUserDefaults standardUserDefaults] setObject:systemBrowserBundleIdentifier forKey:kPreviousSystemBrowserBundleId];
+    [[NSUserDefaults standardUserDefaults] setObject:systemBrowserBundleId forKey:kSystemBrowserBundleId];
     [_isNotDefaultBrowserStackView setHidden:NO];
     [_isDefaultBrowserStackView setHidden:YES];
   }
@@ -57,9 +58,14 @@
 }
 
 - (IBAction)restoreSystemBrowserButonClicked:(NSButton *)sender {
-  NSString *previousSystemBrowserBundleId = [NSUserDefaults.standardUserDefaults objectForKey:kPreviousSystemBrowserBundleId];
-  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)previousSystemBrowserBundleId);
-  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)previousSystemBrowserBundleId);
+  NSString *systemBrowserBundleId = Browser.systemBrowserBundleId;
+  
+  if (!systemBrowserBundleId) {
+    systemBrowserBundleId = @"com.apple.safari";
+  }
+  
+  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)systemBrowserBundleId);
+  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)systemBrowserBundleId);
 }
 
 @end
