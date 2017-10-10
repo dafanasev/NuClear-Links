@@ -112,7 +112,7 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="sTS-Ar-GHR"/>
-                        <menuItem title="More NuClearTools..." id="X8h-EZ-1XG">
+                        <menuItem title="More NuClear Tools..." id="X8h-EZ-1XG">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="moreNuClearToolsMenuItemClicked:" target="3Wc-du-Su6" id="Ibx-y5-KHt"/>

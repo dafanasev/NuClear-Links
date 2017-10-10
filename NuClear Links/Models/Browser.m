@@ -23,7 +23,7 @@
 
 - (instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier {
   if (self = [super init]) {
-    self.bundleIdentifier = bundleIdentifier;
+    self.bundleIdentifier = bundleIdentifier.lowercaseString;
   }
   return self;
 }
@@ -64,8 +64,9 @@
 
   [(__bridge NSArray *)LSCopyAllHandlersForURLScheme(CFSTR("http")) enumerateObjectsUsingBlock:^(id  _Nonnull bundleIdentifier, NSUInteger idx, BOOL * _Nonnull stop) {
     Browser *browser = [Browser browserWithBundleIdentifier:bundleIdentifier];
-    if (![bundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier] && browser.bundle.bundlePath && [[NSWorkspace sharedWorkspace] iconForFile:browser.bundle.bundlePath]) {
-      [browsersDictionary setObject:browser forKey:bundleIdentifier];
+    NSString *lowercasedIdentifier = ((NSString *)bundleIdentifier).lowercaseString;
+    if (![lowercasedIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString] && browser.bundle.bundlePath && [[NSWorkspace sharedWorkspace] iconForFile:browser.bundle.bundlePath]) {
+      [browsersDictionary setObject:browser forKey:lowercasedIdentifier];
     }
   }];
 

@@ -23,7 +23,7 @@
     NSMenuItem *mi = [[NSMenuItem alloc] init];
     mi.title = browser.title;
     mi.image = browser.image;
-    mi.representedObject = bundleIdentifier;
+    mi.representedObject = bundleIdentifier.lowercaseString;
     [self.menu addItem:mi];
   }];
 }
