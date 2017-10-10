@@ -108,7 +108,7 @@
                         <menuItem isSeparatorItem="YES" id="Pow-3w-4sK"/>
                         <menuItem title="Preferences..." keyEquivalent="," id="zOr-MR-dr8">
                             <connections>
-                                <segue destination="B8D-0N-5wS" kind="show" id="rW2-9n-v4M"/>
+                                <action selector="preferencesMenuItemClicked:" target="3Wc-du-Su6" id="dfw-fO-Zsm"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="sTS-Ar-GHR"/>

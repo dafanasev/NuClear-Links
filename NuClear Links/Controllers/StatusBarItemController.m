@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSMenu *menu;
 @property (weak) IBOutlet NSMenuItem *enableRulesMenuItem;
 @property (weak) IBOutlet NSMenuItem *disableRulesMenuItem;
+@property NSWindowController *windowController;
 
 @end
 
@@ -60,9 +61,14 @@
 //  [NSWorkspace.sharedWorkspace openURL:url];
 //}
 
+- (IBAction)preferencesMenuItemClicked:(NSMenuItem *)sender {
+  [NSApplication.sharedApplication activateIgnoringOtherApps:YES];
+  _windowController = [[NSStoryboard storyboardWithName:@"Main" bundle:NULL] instantiateControllerWithIdentifier:@"mainWindow"];
+  [_windowController showWindow:NULL];
+}
+
 - (IBAction)quitMenuItemClicked:(NSMenuItem *)sender {
   [NSApplication.sharedApplication terminate:self];
 }
-
 
 @end
