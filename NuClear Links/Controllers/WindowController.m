@@ -22,9 +22,7 @@
   self.window.delegate = self;
   
   [self.window setFrameAutosaveName:@"mainWindow"];
-}
-
-- (void)windowDidBecomeMain:(NSNotification *)notification {
+  
   [[NSApplication sharedApplication] setActivationPolicy:NSApplicationActivationPolicyRegular];
 }
 
