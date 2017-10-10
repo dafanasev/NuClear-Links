@@ -11,6 +11,8 @@
 
 @interface NSUserDefaults (Links)
 
+@property BOOL areRulesEnabled;
+@property NSString *systemBrowserBundleId;
 @property NSArray<Rule *> *rules;
 
 - (void)register;

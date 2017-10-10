@@ -62,11 +62,11 @@
 #pragma mark - Rules
 
 + (NSArray<Rule *> *)all {
-  return [NSUserDefaults standardUserDefaults].rules;
+  return NSUserDefaults.standardUserDefaults.rules;
 }
 
 + (void)setAll:(NSArray<Rule *> *)all {
-  [NSUserDefaults standardUserDefaults].rules = all;
+  NSUserDefaults.standardUserDefaults.rules = all;
 }
 
 @end

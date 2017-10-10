@@ -12,9 +12,11 @@
 #define kLaunchAtLogin  @"launchAtLogin"
 #define kAppGroup       @"com.nuclear-tools.NuClear-Links-Group"
 #define kSystemBrowserBundleId  @"systemBrowserBundleId"
-#define kEnableRulesOnLaunch    @"enableRulesOnLaunch"
 #define kRulesStateNotification @"rulesStateNotification"
 #define kAreRulesEnabled @"areRulesEnabled"
+#define kMainWindow @"mainWindow"
+#define kEditRuleSheet @"editRuleSheet"
+#define kRulesStateNotification @"rulesStateNotification"
 
 #endif /* Constants_h */
 

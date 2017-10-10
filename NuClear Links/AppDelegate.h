@@ -10,7 +10,5 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property BOOL areRulesEnabled;
-
 @end
 

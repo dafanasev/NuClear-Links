@@ -8,8 +8,8 @@
 
 #import <ServiceManagement/ServiceManagement.h>
 #import "PreferencesViewController.h"
-#import "Constants.h"
 #import "Browser.h"
+#import "NSUserDefaults+Links.h"
 
 
 @interface PreferencesViewController ()
@@ -46,7 +46,7 @@
     [_isDefaultBrowserStackView setHidden:NO];
   }
   else {
-    [[NSUserDefaults standardUserDefaults] setObject:systemBrowserBundleId forKey:kSystemBrowserBundleId];
+    NSUserDefaults.standardUserDefaults.systemBrowserBundleId = systemBrowserBundleId;
     [_isNotDefaultBrowserStackView setHidden:NO];
     [_isDefaultBrowserStackView setHidden:YES];
   }

@@ -27,12 +27,9 @@
   
   [NSUserDefaults.standardUserDefaults register];
   
-  _areRulesEnabled = [NSUserDefaults.standardUserDefaults boolForKey:kEnableRulesOnLaunch];
+  [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
   
-  [NSNotificationCenter.defaultCenter postNotificationName:@"rulesStateNotification" object:NULL
-                                                  userInfo:@{kAreRulesEnabled: [NSNumber numberWithBool:_areRulesEnabled]}];
-  
-  [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:)
+  [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
@@ -49,7 +46,7 @@
   __block NSString *neededBrowserBundleId = systemBrowserBundleId;
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
   
-  if (_areRulesEnabled) {
+  if (NSUserDefaults.standardUserDefaults.areRulesEnabled) {
     @try {
       [NSUserDefaults.standardUserDefaults.rules enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
         if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
@@ -66,7 +63,7 @@
     }
   }
   
-  [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
+  [NSWorkspace.sharedWorkspace openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
            additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 

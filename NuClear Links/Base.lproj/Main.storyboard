@@ -88,6 +88,7 @@
                         <outlet property="disableRulesMenuItem" destination="pR8-cK-YGQ" id="2XI-Kp-aVp"/>
                         <outlet property="enableRulesMenuItem" destination="86J-B0-MZa" id="GGo-nb-TiN"/>
                         <outlet property="menu" destination="eKf-lQ-ERD" id="D1k-xn-m5U"/>
+                        <outlet property="rulesSeparatorMenuItem" destination="Pow-3w-4sK" id="n5m-cV-6p1"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -512,7 +513,7 @@
         <!--Rule Predicate Editor View Controller-->
         <scene sceneID="8Fe-oe-5fS">
             <objects>
-                <viewController id="9cD-IX-Ab7" customClass="RulePredicateEditorViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editRuleSheet" id="9cD-IX-Ab7" customClass="RulePredicateEditorViewController" sceneMemberID="viewController">
                     <view key="view" id="jps-ku-D4W">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="324"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -520,18 +521,8 @@
                             <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5s-Iz-7id">
                                 <rect key="frame" x="20" y="20" width="410" height="284"/>
                                 <subviews>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="2eY-TZ-Hkv">
-                                        <rect key="frame" x="-2" y="268" width="60" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Active" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="46R-21-XgM">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="R1m-Jd-hez" name="value" keyPath="selection.isActive" id="G3G-Kv-eov"/>
-                                        </connections>
-                                    </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltN-Cj-zO9">
-                                        <rect key="frame" x="0.0" y="240" width="410" height="22"/>
+                                        <rect key="frame" x="0.0" y="262" width="410" height="22"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xpa-Nx-wpc">
                                                 <rect key="frame" x="-2" y="3" width="38" height="17"/>
@@ -562,6 +553,16 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="2eY-TZ-Hkv">
+                                        <rect key="frame" x="-2" y="238" width="60" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Active" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="46R-21-XgM">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="R1m-Jd-hez" name="value" keyPath="selection.isActive" id="G3G-Kv-eov"/>
+                                        </connections>
+                                    </button>
                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="k0R-aT-AYc">
                                         <rect key="frame" x="-2" y="216" width="168" height="18"/>
                                         <buttonCell key="cell" type="check" title="Open in the background" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dsP-nQ-qsz">
@@ -892,14 +893,14 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="479" height="129"/>
+                        <rect key="frame" x="0.0" y="0.0" width="479" height="107"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="439" height="89"/>
+                                <rect key="frame" x="20" y="20" width="439" height="67"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-HK-PDl">
-                                        <rect key="frame" x="0.0" y="22" width="435" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="435" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
                                                 <rect key="frame" x="0.0" y="46" width="267" height="21"/>
@@ -984,23 +985,11 @@ DQ
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="n6Q-nS-zBk">
-                                        <rect key="frame" x="-2" y="-2" width="159" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Enable rules on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nY8-v8-jLn">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="Mbg-uG-Uw8" name="value" keyPath="values.enableRulesOnLaunch" id="zVI-Uz-B9d"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
@@ -1020,7 +1009,7 @@ DQ
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="383.5" y="1007"/>
+            <point key="canvasLocation" x="383.5" y="978.5"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">

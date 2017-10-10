@@ -12,7 +12,23 @@
 @implementation NSUserDefaults (Links)
 
 - (void)register {
-  [self registerDefaults:@{kEnableRulesOnLaunch: [NSNumber numberWithBool:YES]}];
+  [self registerDefaults:@{kAreRulesEnabled: [NSNumber numberWithBool:YES]}];
+}
+
+- (BOOL)areRulesEnabled {
+  return [self boolForKey:kAreRulesEnabled];
+}
+
+- (void)setAreRulesEnabled:(BOOL)areRulesEnabled {
+  [self setBool:areRulesEnabled forKey:kAreRulesEnabled];
+}
+
+- (NSString *)systemBrowserBundleId {
+  return [self objectForKey:kSystemBrowserBundleId];
+}
+
+- (void)setSystemBrowserBundleId:(NSString *)systemBrowserBundleId {
+  [self setObject:systemBrowserBundleId forKey:kSystemBrowserBundleId];
 }
 
 - (NSArray<Rule *> *)rules {

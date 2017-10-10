@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "Rule.h"
+#import "NSUserDefaults+Links.h"
 
 
 @interface StatusBarItemController ()
@@ -18,6 +19,7 @@
 @property (weak) IBOutlet NSMenu *menu;
 @property (weak) IBOutlet NSMenuItem *enableRulesMenuItem;
 @property (weak) IBOutlet NSMenuItem *disableRulesMenuItem;
+@property (weak) IBOutlet NSMenuItem *rulesSeparatorMenuItem;
 @property NSWindowController *windowController;
 
 @end
@@ -29,7 +31,7 @@
   [super awakeFromNib];
   
   [NSNotificationCenter.defaultCenter addObserverForName:kRulesStateNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
-    [self showHideEnableDisableMenuItems:((NSNumber *)[note.userInfo objectForKey:kAreRulesEnabled]).boolValue];
+    [self showHideEnableDisableMenuItems];
   }];
   
   _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
@@ -41,17 +43,19 @@
 #pragma mark - Actions
 
 - (IBAction)enableDisableMenuItemClicked:(NSMenuItem *)sender {
-  AppDelegate *appDelegate = (AppDelegate *)[NSApplication.sharedApplication delegate];
-  appDelegate.areRulesEnabled = !appDelegate.areRulesEnabled;
-  [self showHideEnableDisableMenuItems:appDelegate.areRulesEnabled];
+  NSUserDefaults.standardUserDefaults.areRulesEnabled = !NSUserDefaults.standardUserDefaults.areRulesEnabled;
+  [self showHideEnableDisableMenuItems];
 }
 
-- (void)showHideEnableDisableMenuItems:(BOOL)areRulesEnabled {
+- (void)showHideEnableDisableMenuItems {
   if (Rule.all.count == 0) {
     [_enableRulesMenuItem setHidden:YES];
     [_disableRulesMenuItem setHidden:YES];
+    [_rulesSeparatorMenuItem setHidden:YES];
     return;
   }
+  [_rulesSeparatorMenuItem setHidden:NO];
+  BOOL areRulesEnabled = NSUserDefaults.standardUserDefaults.areRulesEnabled;
   [_enableRulesMenuItem setHidden:areRulesEnabled];
   [_disableRulesMenuItem setHidden:!areRulesEnabled];
 }
@@ -63,7 +67,7 @@
 
 - (IBAction)preferencesMenuItemClicked:(NSMenuItem *)sender {
   [NSApplication.sharedApplication activateIgnoringOtherApps:YES];
-  _windowController = [[NSStoryboard storyboardWithName:@"Main" bundle:NULL] instantiateControllerWithIdentifier:@"mainWindow"];
+  _windowController = [[NSStoryboard storyboardWithName:@"Main" bundle:NULL] instantiateControllerWithIdentifier:kMainWindow];
   [_windowController showWindow:NULL];
 }
 

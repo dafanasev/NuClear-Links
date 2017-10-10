@@ -7,7 +7,7 @@
 //
 
 #import "Browser.h"
-#import "Constants.h"
+#import "NSUserDefaults+Links.h"
 
 
 @interface Browser ()
@@ -74,7 +74,7 @@
 }
 
 + (NSString *)systemBrowserBundleId {
-  NSString *bid = [NSUserDefaults.standardUserDefaults objectForKey:kSystemBrowserBundleId];
+  NSString *bid = NSUserDefaults.standardUserDefaults.systemBrowserBundleId;
   if (!bid) {
     bid = @"com.apple.safari";
   }

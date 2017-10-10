@@ -10,6 +10,9 @@
 #import "RulesViewController.h"
 #import "Rule.h"
 #import "NSUserDefaults+Links.h"
+#import "Constants.h"
+
+#define kSaveChanges 1
 
 
 @interface RulePredicateEditorViewController ()
@@ -18,14 +21,15 @@
 
 @implementation RulePredicateEditorViewController
 
-
 - (void)dismissController:(id)sender {
+  // I order to to save titles
   [self.view.window makeFirstResponder:sender];
   
-  if (((NSButton *)sender).tag == 1) {
-    NSMutableArray<Rule *> *rules = [[[NSUserDefaults standardUserDefaults] rules] mutableCopy];
+  if (((NSButton *)sender).tag == kSaveChanges) {
+    NSMutableArray<Rule *> *rules = [NSUserDefaults.standardUserDefaults.rules mutableCopy];
     [rules setObject:_objectController.selectedObjects.firstObject atIndexedSubscript:_objectIndex];
-    [[NSUserDefaults standardUserDefaults] setRules:rules];
+    NSUserDefaults.standardUserDefaults.rules = rules;
+    [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
   }
   
   [super dismissController:sender];
