@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface RulesViewController : NSViewController <NSSeguePerforming>
+@interface RulesViewController : NSViewController <NSSeguePerforming, NSTableViewDataSource>
 
 @end

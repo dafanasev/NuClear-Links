@@ -33,6 +33,7 @@
 
 - (void)statusItemClicked:(NSStatusBarButton *)sender {
   [_windowController showWindow:NULL];
+  _window = _windowController.window;
 }
 
 @end

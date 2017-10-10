@@ -171,6 +171,7 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="jV7-CH-Uq5">
@@ -222,6 +223,7 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="isActive"/>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="q2v-v7-Aak">
@@ -258,6 +260,7 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="openInBackground"/>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="aPG-sb-dkL">
@@ -294,6 +297,7 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="browser.title"/>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="moP-r2-Qyo">
@@ -337,6 +341,7 @@
                                                         <action trigger="doubleAction" selector="tableViewDoubleClicked:" target="Gi8-4o-obq" id="RBR-yg-LeG"/>
                                                         <binding destination="dm1-m0-s8h" name="content" keyPath="arrangedObjects" id="ncE-nO-Wtg"/>
                                                         <binding destination="dm1-m0-s8h" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="ncE-nO-Wtg" id="pLY-eh-uZN"/>
+                                                        <outlet property="dataSource" destination="Gi8-4o-obq" id="Tt8-gi-NUn"/>
                                                         <outlet property="delegate" destination="Gi8-4o-obq" id="1Nt-uF-oPE"/>
                                                     </connections>
                                                 </tableView>

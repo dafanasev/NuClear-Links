@@ -10,7 +10,7 @@
 #import "Rule.h"
 #import "RulePredicateEditorViewController.h"
 #import "BrowserPopUpButton.h"
-
+#import "NSUserDefaults+Links.h"
 
 #define kShowRulePredicateEditorViewControllerSegue @"showRulePredicateEditorViewControllerSegue"
 
@@ -75,6 +75,14 @@
   Rule *selectedRule = _arrayController.selectedObjects.firstObject;
   [rulePredicateEditorViewController.objectController setContent:[selectedRule copy]];
   rulePredicateEditorViewController.objectIndex = _arrayController.selectionIndex;
+}
+
+#pragma mark - NSTableViewDataSource
+
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+  NSArray<Rule *> *sortedRules = [NSUserDefaults.standardUserDefaults.rules sortedArrayUsingDescriptors:tableView.sortDescriptors];
+  NSUserDefaults.standardUserDefaults.rules = sortedRules;
+  [tableView reloadData];
 }
 
 @end
