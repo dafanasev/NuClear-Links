@@ -65,7 +65,7 @@
 - (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
   [super toolbarDefaultItemIdentifiers:toolbar];
   
-  return @[@"rules", @"preferences", NSToolbarFlexibleSpaceItemIdentifier, @"about"];
+  return @[@"rules", @"general", NSToolbarFlexibleSpaceItemIdentifier, @"about"];
 }
 
 @end

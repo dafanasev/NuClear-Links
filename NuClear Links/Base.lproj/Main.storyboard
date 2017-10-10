@@ -106,19 +106,12 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="Pow-3w-4sK"/>
-                        <menuItem title="Settings..." keyEquivalent="," id="zOr-MR-dr8">
+                        <menuItem title="Preferences..." keyEquivalent="," id="zOr-MR-dr8">
                             <connections>
-                                <segue destination="B8D-0N-5wS" kind="show" id="Kdn-sw-jHA"/>
+                                <segue destination="B8D-0N-5wS" kind="show" id="rW2-9n-v4M"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="sTS-Ar-GHR"/>
-                        <menuItem title="More NuClear Tools..." id="X8h-EZ-1XG">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="moreNuClearToolsMenuItemClicked:" target="3Wc-du-Su6" id="Ibx-y5-KHt"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem isSeparatorItem="YES" id="UpH-QX-6lY"/>
                         <menuItem title="Quit" keyEquivalent="q" id="m8c-7l-GbM">
                             <connections>
                                 <action selector="quitMenuItemClicked:" target="3Wc-du-Su6" id="utd-bD-cI0"/>
@@ -153,7 +146,7 @@
                 <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" canPropagateSelectedChildViewControllerTitle="NO" id="kKf-K2-sEA" customClass="NCLinksTabViewController" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Rules" identifier="rules" image="rulesTabIcon" id="VjO-5E-YzN"/>
-                        <tabViewItem label="Preferences" identifier="preferences" image="preferencesTabIcon" id="8BW-Yj-1JA"/>
+                        <tabViewItem label="Gereral" identifier="general" image="generalTabIcon" id="8BW-Yj-1JA"/>
                         <tabViewItem label="About" identifier="about" image="NSInfo" id="r3k-dU-xIX"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions"/>
@@ -1182,7 +1175,7 @@ DQ
     <resources>
         <image name="AboutIcon" width="128" height="128"/>
         <image name="NSInfo" width="32" height="32"/>
-        <image name="preferencesTabIcon" width="32" height="32"/>
+        <image name="generalTabIcon" width="32" height="32"/>
         <image name="rulesTabIcon" width="32" height="32"/>
     </resources>
 </document>

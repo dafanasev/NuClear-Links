@@ -9,6 +9,7 @@
 #import "StatusBarItemController.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "Rule.h"
 
 
 @interface StatusBarItemController ()
@@ -45,14 +46,19 @@
 }
 
 - (void)showHideEnableDisableMenuItems:(BOOL)areRulesEnabled {
+  if (Rule.all.count == 0) {
+    [_enableRulesMenuItem setHidden:YES];
+    [_disableRulesMenuItem setHidden:YES];
+    return;
+  }
   [_enableRulesMenuItem setHidden:areRulesEnabled];
   [_disableRulesMenuItem setHidden:!areRulesEnabled];
 }
 
-- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
-  NSURL *url = [NSURL URLWithString:@"https://nuclear.tools?utm_source=links&utm_medium=menu&utm_campaign=links"];
-  [NSWorkspace.sharedWorkspace openURL:url];
-}
+//- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
+//  NSURL *url = [NSURL URLWithString:@"https://nuclear.tools?utm_source=links&utm_medium=menu&utm_campaign=links"];
+//  [NSWorkspace.sharedWorkspace openURL:url];
+//}
 
 - (IBAction)quitMenuItemClicked:(NSMenuItem *)sender {
   [NSApplication.sharedApplication terminate:self];
