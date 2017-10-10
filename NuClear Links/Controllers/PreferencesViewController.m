@@ -40,7 +40,7 @@
 - (void)showRightStackView {
   NSString *systemBrowserBundleIdentifier = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
   
-  if ([systemBrowserBundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier]) {
+  if ([systemBrowserBundleIdentifier isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString]) {
     [_isNotDefaultBrowserStackView setHidden:YES];
     [_isDefaultBrowserStackView setHidden:NO];
   }
@@ -57,7 +57,7 @@
 }
 
 - (IBAction)restoreSystemBrowserButonClicked:(NSButton *)sender {
-  NSString *previousSystemBrowserBundleId = [[NSUserDefaults standardUserDefaults] objectForKey:kPreviousSystemBrowserBundleId];
+  NSString *previousSystemBrowserBundleId = [NSUserDefaults.standardUserDefaults objectForKey:kPreviousSystemBrowserBundleId];
   LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)previousSystemBrowserBundleId);
   LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)previousSystemBrowserBundleId);
 }

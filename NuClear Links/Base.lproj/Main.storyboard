@@ -83,10 +83,51 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <customObject id="3Wc-du-Su6" customClass="StatusBarItemController"/>
+                <customObject id="3Wc-du-Su6" customClass="StatusBarItemController">
+                    <connections>
+                        <outlet property="disableRulesMenuItem" destination="pR8-cK-YGQ" id="2XI-Kp-aVp"/>
+                        <outlet property="enableRulesMenuItem" destination="86J-B0-MZa" id="GGo-nb-TiN"/>
+                        <outlet property="menu" destination="eKf-lQ-ERD" id="D1k-xn-m5U"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="eKf-lQ-ERD">
+                    <items>
+                        <menuItem title="Enable rules" id="86J-B0-MZa">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="enableDisableMenuItemClicked:" target="3Wc-du-Su6" id="NuG-u7-lwX"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Disable rules" id="pR8-cK-YGQ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="enableDisableMenuItemClicked:" target="3Wc-du-Su6" id="lzY-Qh-dTc"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="Pow-3w-4sK"/>
+                        <menuItem title="Settings..." keyEquivalent="," id="zOr-MR-dr8">
+                            <connections>
+                                <segue destination="B8D-0N-5wS" kind="show" id="Kdn-sw-jHA"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="sTS-Ar-GHR"/>
+                        <menuItem title="More NuClearTools..." id="X8h-EZ-1XG">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="moreNuClearToolsMenuItemClicked:" target="3Wc-du-Su6" id="Ibx-y5-KHt"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="UpH-QX-6lY"/>
+                        <menuItem title="Quit" keyEquivalent="q" id="m8c-7l-GbM">
+                            <connections>
+                                <action selector="quitMenuItemClicked:" target="3Wc-du-Su6" id="utd-bD-cI0"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="59" y="-129"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -104,7 +145,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="103" y="184"/>
         </scene>
         <!--Links Tab View Controller-->
         <scene sceneID="gzK-Fg-p3h">
@@ -846,83 +887,108 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="479" height="166"/>
+                        <rect key="frame" x="0.0" y="0.0" width="479" height="158"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="439" height="126"/>
+                                <rect key="frame" x="20" y="20" width="439" height="118"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
-                                        <rect key="frame" x="0.0" y="105" width="267" height="21"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-HK-PDl">
+                                        <rect key="frame" x="0.0" y="51" width="435" height="67"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5le-TX-odY" userLabel="NuClear Links is not activated">
-                                                <rect key="frame" x="-2" y="3" width="185" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is not activated" id="eUt-KL-8T4">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
+                                                <rect key="frame" x="0.0" y="46" width="267" height="21"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5le-TX-odY" userLabel="NuClear Links is not activated">
+                                                        <rect key="frame" x="-2" y="3" width="185" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is not activated" id="eUt-KL-8T4">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LvC-AQ-0UT" userLabel="Activate Button">
+                                                        <rect key="frame" x="183" y="-7" width="90" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Activate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bXh-YW-AYV">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="setAsTheSystemDefaultBrowserButtonClicked:" target="Nip-bf-vlf" id="Ks9-59-z9A"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S47-aL-Iwv">
+                                                <rect key="frame" x="0.0" y="46" width="258" height="21"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-1V-pNq" userLabel="NuClear Links is activated">
+                                                        <rect key="frame" x="-2" y="3" width="161" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is activated" id="Zcm-zI-McQ">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-NI-GaA" userLabel="Deactivate Button">
+                                                        <rect key="frame" x="159" y="-7" width="105" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Deactivate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gVr-9X-zF2">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="restoreSystemBrowserButonClicked:" target="Nip-bf-vlf" id="Wou-ej-NTC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-Az-B6d">
+                                                <rect key="frame" x="-2" y="0.0" width="439" height="42"/>
+                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                    <string key="title">Note: Activating NuClear Links means it will be set up as default browser. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LvC-AQ-0UT" userLabel="Activate Button">
-                                                <rect key="frame" x="183" y="-7" width="90" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Activate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bXh-YW-AYV">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="setAsTheSystemDefaultBrowserButtonClicked:" target="Nip-bf-vlf" id="Ks9-59-z9A"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <visibilityPriorities>
+                                            <integer value="1000"/>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                    <stackView hidden="YES" distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S47-aL-Iwv">
-                                        <rect key="frame" x="0.0" y="105" width="258" height="21"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-1V-pNq" userLabel="NuClear Links is activated">
-                                                <rect key="frame" x="-2" y="3" width="161" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="NuClear Links is activated" id="Zcm-zI-McQ">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fda-NI-GaA" userLabel="Deactivate Button">
-                                                <rect key="frame" x="159" y="-7" width="105" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Deactivate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gVr-9X-zF2">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="restoreSystemBrowserButonClicked:" target="Nip-bf-vlf" id="Wou-ej-NTC"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-Az-B6d">
-                                        <rect key="frame" x="-2" y="29" width="412" height="68"/>
-                                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="n6Q-nS-zBk">
+                                        <rect key="frame" x="-2" y="27" width="159" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Enable rules on launch" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nY8-v8-jLn">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
-                                            <string key="title">Note: Activating NuClear Links means it will be set up as default browser. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
-                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="Mbg-uG-Uw8" name="value" keyPath="values.enableRulesOnLaunch" id="zVI-Uz-B9d"/>
+                                        </connections>
+                                    </button>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-14-Xee">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="21"/>
                                         <subviews>
@@ -973,10 +1039,8 @@ DQ
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -998,7 +1062,7 @@ DQ
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="377" y="1064"/>
+            <point key="canvasLocation" x="383.5" y="1063.5"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">
@@ -1061,7 +1125,7 @@ DQ
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="url" value="http://nuclear.tools?utm_source=links&amp;utm_medium=about-tab&amp;utm_campaign=links"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="url" value="https://nuclear.tools?utm_source=links&amp;utm_medium=about-tab&amp;utm_campaign=links"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>

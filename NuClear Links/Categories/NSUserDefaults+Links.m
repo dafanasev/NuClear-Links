@@ -12,7 +12,10 @@
 @implementation NSUserDefaults (Links)
 
 - (void)register {
-  [self registerDefaults:@{kDefaultBrowserBundleId: @"com.apple.Safari"}];
+  [self registerDefaults:@{
+                           kDefaultBrowserBundleId: @"com.apple.Safari",
+                           kEnableRulesOnLaunch: [NSNumber numberWithBool:YES]
+                           }];
 }
 
 - (NSArray<Rule *> *)rules {

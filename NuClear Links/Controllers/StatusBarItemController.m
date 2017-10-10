@@ -7,13 +7,16 @@
 //
 
 #import "StatusBarItemController.h"
+#import "AppDelegate.h"
+#import "Constants.h"
 
 
 @interface StatusBarItemController ()
 
 @property NSStatusItem *statusItem;
-@property NSWindowController *windowController;
-@property NSWindow *window;
+@property (weak) IBOutlet NSMenu *menu;
+@property (weak) IBOutlet NSMenuItem *enableRulesMenuItem;
+@property (weak) IBOutlet NSMenuItem *disableRulesMenuItem;
 
 @end
 
@@ -23,16 +26,37 @@
 - (void)awakeFromNib {
   [super awakeFromNib];
   
+  [NSNotificationCenter.defaultCenter addObserverForName:kRulesStateNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
+    [self showHideEnableDisableMenuItems:((NSNumber *)[note.userInfo objectForKey:kAreRulesEnabled]).boolValue];
+  }];
+  
   _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
   _statusItem.button.image  = [NSImage imageNamed:@"statusBarItemImage"];
-  _statusItem.button.target = self;
-  _statusItem.button.action = @selector(statusItemClicked:);
+  
+  _statusItem.menu = _menu;
 }
 
-- (void)statusItemClicked:(NSStatusBarButton *)sender {
-  _windowController = [[NSStoryboard storyboardWithName:@"Main" bundle:nil] instantiateControllerWithIdentifier:@"mainWindow"];
-  _window = _windowController.window;
-  [_windowController showWindow:NULL];
+#pragma mark - Actions
+
+- (IBAction)enableDisableMenuItemClicked:(NSMenuItem *)sender {
+  AppDelegate *appDelegate = (AppDelegate *)[NSApplication.sharedApplication delegate];
+  appDelegate.areRulesEnabled = !appDelegate.areRulesEnabled;
+  [self showHideEnableDisableMenuItems:appDelegate.areRulesEnabled];
 }
+
+- (void)showHideEnableDisableMenuItems:(BOOL)areRulesEnabled {
+  [_enableRulesMenuItem setHidden:areRulesEnabled];
+  [_disableRulesMenuItem setHidden:!areRulesEnabled];
+}
+
+- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
+  NSURL *url = [NSURL URLWithString:@"https://nuclear.tools?utm_source=links&utm_medium=menu&utm_campaign=links"];
+  [NSWorkspace.sharedWorkspace openURL:url];
+}
+
+- (IBAction)quitMenuItemClicked:(NSMenuItem *)sender {
+  [NSApplication.sharedApplication terminate:self];
+}
+
 
 @end

@@ -13,6 +13,9 @@
 #define kAppGroup       @"com.nuclear-tools.NuClear-Links-Group"
 #define kPreviousSystemBrowserBundleId  @"previousSystemBrowser"
 #define kDefaultBrowserBundleId         @"defaultBrowserBundleId"
+#define kEnableRulesOnLaunch    @"enableRulesOnLaunch"
+#define kRulesStateNotification @"rulesStateNotification"
+#define kAreRulesEnabled @"areRulesEnabled"
 
 #endif /* Constants_h */
 

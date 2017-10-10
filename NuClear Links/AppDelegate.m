@@ -18,13 +18,18 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-  if ([[NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier] count] > 1) {
+  if ([NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier].count > 1) {
     [NSApplication.sharedApplication terminate:self];
   }
   
   [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
   
-  [[NSUserDefaults standardUserDefaults] register];
+  [NSUserDefaults.standardUserDefaults register];
+  
+  _areRulesEnabled = [NSUserDefaults.standardUserDefaults boolForKey:kEnableRulesOnLaunch];
+  
+  [NSNotificationCenter.defaultCenter postNotificationName:@"rulesStateNotification" object:NULL
+                                                  userInfo:@{kAreRulesEnabled: [NSNumber numberWithBool:_areRulesEnabled]}];
   
   [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
@@ -35,9 +40,7 @@
 }
 
 - (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  
-  NSString *defaultBrowserBundleId = [defaults objectForKey:kDefaultBrowserBundleId];
+  NSString *defaultBrowserBundleId = [NSUserDefaults.standardUserDefaults objectForKey:kDefaultBrowserBundleId];
     // for some reason when main app reads com.apple.Safari from the defaults, nclinksd returns null
   if (!defaultBrowserBundleId) {
     defaultBrowserBundleId = @"com.apple.Safari";
@@ -47,21 +50,23 @@
   NSArray<NSURL *> *urlArray = [NSArray arrayWithObject:url];
   
   __block NSString *neededBrowserBundleId = defaultBrowserBundleId;
-  
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
-  @try {
-    [[defaults rules] enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
-      if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
-        neededBrowserBundleId = rule.browser.bundleIdentifier;
-        if (rule.openInBackground) {
-          options |= NSWorkspaceLaunchWithoutActivation;
+  
+  if (_areRulesEnabled) {
+    @try {
+      [NSUserDefaults.standardUserDefaults.rules enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
+          neededBrowserBundleId = rule.browser.bundleIdentifier;
+          if (rule.openInBackground) {
+            options |= NSWorkspaceLaunchWithoutActivation;
+          }
+          *stop = YES;
         }
-        *stop = YES;
-      }
-    }];
-  }
-  @catch (NSException *exception) {
-    neededBrowserBundleId = defaultBrowserBundleId;
+      }];
+    }
+    @catch (NSException *exception) {
+      neededBrowserBundleId = defaultBrowserBundleId;
+    }
   }
   
   [[NSWorkspace sharedWorkspace] openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
