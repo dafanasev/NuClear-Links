@@ -5,5 +5,5 @@
 * Window resize +
 * Table zebra +
 * Sort table rows
-* One executable
-* Tab bar icon
+* One executable +
+* Tab bar icon +
