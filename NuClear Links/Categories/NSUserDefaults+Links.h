@@ -14,6 +14,7 @@
 @property BOOL areRulesEnabled;
 @property NSString *systemBrowserBundleId;
 @property NSArray<Rule *> *rules;
+@property NSDictionary<NSString *, NSString *> *shortenedURLsCache;
 
 - (void)register;
 

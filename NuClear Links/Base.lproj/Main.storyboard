@@ -696,6 +696,9 @@
                                                                         <menuItem title="contains" id="oqg-Ek-Xq5">
                                                                             <integer key="representedObject" value="99"/>
                                                                         </menuItem>
+                                                                        <menuItem title="in" id="6jM-WH-BVS">
+                                                                            <integer key="representedObject" value="10"/>
+                                                                        </menuItem>
                                                                     </items>
                                                                 </menu>
                                                             </popUpMenus>

@@ -11,6 +11,7 @@
 #import "NSUserDefaults+Links.h"
 #import "Constants.h"
 #import "Browser.h"
+#import "ShortenedURLExtractor.h"
 
 
 @interface AppDelegate ()
@@ -31,11 +32,28 @@
   
   [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
   
-  [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:)
+  [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
-- (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
+- (void)applicationWillTerminate:(NSNotification *)notification {
+  [ShortenedURLExtractor.sharedExtractor saveCache];
+}
+
+- (void)getURL:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
+  NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
+  
+  if ([ShortenedURLExtractor.sharedExtractor isShortenedURL:url]) {
+    [ShortenedURLExtractor.sharedExtractor extractURL:url andExecuteBlock:^(NSURL *resultUrl) {
+      [self proxyURL:resultUrl];
+    }];
+  }
+  else {
+    [self proxyURL:url];
+  }
+}
+
+- (void)proxyURL:(NSURL *)url {
   NSString *systemBrowserBundleId = Browser.systemBrowserBundleId;
   __block NSString *neededBrowserBundleId = systemBrowserBundleId;
   
@@ -44,7 +62,6 @@
     options |= NSWorkspaceLaunchWithoutActivation;
   }
   
-  NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
   NSArray<NSURL *> *urlArray = @[url];
   
   if (NSUserDefaults.standardUserDefaults.areRulesEnabled) {

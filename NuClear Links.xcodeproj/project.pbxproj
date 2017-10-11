@@ -23,6 +23,7 @@
 		2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2574E4D51F8534E500FEC112 /* NCLinksUserDefaulsController.m */; };
 		25C21E201F8AF77D0011E8E5 /* HyperlinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */; };
 		25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */; };
+		25D859191F8E8D3D003365A3 /* ShortenedURLExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D859181F8E8D3D003365A3 /* ShortenedURLExtractor.m */; };
 		25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3AF41F7D88D200484310 /* AppDelegate.m */; };
 		25DB3AFA1F7D88D200484310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AF91F7D88D200484310 /* Assets.xcassets */; };
 		25DB3AFD1F7D88D200484310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AFB1F7D88D200484310 /* Main.storyboard */; };
@@ -65,6 +66,8 @@
 		25C21E1F1F8AF77D0011E8E5 /* HyperlinkLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HyperlinkLabel.m; sourceTree = "<group>"; };
 		25C21E241F8AFABA0011E8E5 /* NSAttributedString+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Links.h"; sourceTree = "<group>"; };
 		25C21E251F8AFABA0011E8E5 /* NSAttributedString+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Links.m"; sourceTree = "<group>"; };
+		25D859171F8E8D3D003365A3 /* ShortenedURLExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShortenedURLExtractor.h; sourceTree = "<group>"; };
+		25D859181F8E8D3D003365A3 /* ShortenedURLExtractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShortenedURLExtractor.m; sourceTree = "<group>"; };
 		25DB3AF01F7D88D200484310 /* NuClear Links.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NuClear Links.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DB3AF31F7D88D200484310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		25DB3AF41F7D88D200484310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +161,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		25D859161F8E8D25003365A3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				25D859171F8E8D3D003365A3 /* ShortenedURLExtractor.h */,
+				25D859181F8E8D3D003365A3 /* ShortenedURLExtractor.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		25DB3AE71F7D88D200484310 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 				25DB3AF41F7D88D200484310 /* AppDelegate.m */,
 				25DB3AFF1F7D88D200484310 /* main.m */,
 				2517A2B51F82B95B004AE168 /* Models */,
+				25D859161F8E8D25003365A3 /* Services */,
 				2517A2B61F82B965004AE168 /* Resources */,
 				25556E9B1F7D908900A1C486 /* Controllers */,
 				253949981F8804DA0079C922 /* Views */,
@@ -295,6 +308,7 @@
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
 				25FEDAC91F8E6299006E08B2 /* NSAlert+Links.m in Sources */,
 				2563ACF91F8C1E1800681D3C /* Browser.m in Sources */,
+				25D859191F8E8D3D003365A3 /* ShortenedURLExtractor.m in Sources */,
 				2563ACFD1F8C1FC300681D3C /* StatusBarItemController.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,
 				25C21E261F8AFABA0011E8E5 /* NSAttributedString+Links.m in Sources */,

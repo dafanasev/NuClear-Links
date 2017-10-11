@@ -33,7 +33,7 @@
 
 - (NSArray<Rule *> *)rules {
   NSData *data = [self objectForKey:@"rules"];
-  if (data == nil) {
+  if (!data) {
     return @[];
   }
   return (NSArray<Rule *> *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -41,6 +41,18 @@
 
 - (void)setRules:(NSArray<Rule *> *)newRules {
   [self setObject:[NSKeyedArchiver archivedDataWithRootObject:newRules] forKey:@"rules"];
+}
+
+- (NSDictionary<NSString *, NSString *> *)shortenedURLsCache {
+  NSDictionary<NSString *, NSString *> *cache = [self dictionaryForKey:@"shortenedURLsCache"];
+  if (!cache) {
+    return @{};
+  }
+  return cache;
+}
+
+- (void)setShortenedURLsCache:(NSDictionary<NSString *,NSString *> *)shortenedURLsCache {
+  [self setObject:shortenedURLsCache forKey:@"shortenedURLsCache"];
 }
 
 

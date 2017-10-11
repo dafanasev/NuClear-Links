@@ -9,4 +9,5 @@
 * Tab bar icon +
 * Auto launch
 * Always open in the background links that suppose to be open there +
-* url shorteners
+* url shorteners +
+* test with fake non working shortener to to proper error handling +
