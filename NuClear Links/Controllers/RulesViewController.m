@@ -12,6 +12,7 @@
 #import "BrowserPopUpButton.h"
 #import "NSUserDefaults+Links.h"
 #import "Constants.h"
+#import "NSAlert+Links.h"
 
 #define kShowRulePredicateEditorViewControllerSegue @"showRulePredicateEditorViewControllerSegue"
 
@@ -52,12 +53,7 @@
 }
 
 - (IBAction)removeButtonClicked:(id)sender {
-  NSAlert *alert = [[NSAlert alloc] init];
-  alert.messageText = @"Are you sure?";
-  [alert addButtonWithTitle:@"OK"];
-  [alert addButtonWithTitle:@"Cancel"];
-  
-  if ([alert runModal] == NSAlertFirstButtonReturn) {
+  if ([NSAlert confirm]) {
     [_arrayController removeObjects:_arrayController.selectedObjects];
     [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
   }

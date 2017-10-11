@@ -27,6 +27,7 @@
 		25DB3AFA1F7D88D200484310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AF91F7D88D200484310 /* Assets.xcassets */; };
 		25DB3AFD1F7D88D200484310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25DB3AFB1F7D88D200484310 /* Main.storyboard */; };
 		25DB3B001F7D88D200484310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DB3AFF1F7D88D200484310 /* main.m */; };
+		25FEDAC91F8E6299006E08B2 /* NSAlert+Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDAC81F8E6299006E08B2 /* NSAlert+Links.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		25DB3AFE1F7D88D200484310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25DB3AFF1F7D88D200484310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25DB3B1C1F7D88F200484310 /* NuClear Links.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NuClear Links.entitlements"; sourceTree = "<group>"; };
+		25FEDAC71F8E6299006E08B2 /* NSAlert+Links.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Links.h"; sourceTree = "<group>"; };
+		25FEDAC81F8E6299006E08B2 /* NSAlert+Links.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+Links.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -149,6 +152,8 @@
 				25C21E1C1F8AF43A0011E8E5 /* NSBundle+Links.m */,
 				2517A2CC1F82CA60004AE168 /* NSUserDefaults+Links.h */,
 				2517A2CD1F82CA60004AE168 /* NSUserDefaults+Links.m */,
+				25FEDAC71F8E6299006E08B2 /* NSAlert+Links.h */,
+				25FEDAC81F8E6299006E08B2 /* NSAlert+Links.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */,
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
+				25FEDAC91F8E6299006E08B2 /* NSAlert+Links.m in Sources */,
 				2563ACF91F8C1E1800681D3C /* Browser.m in Sources */,
 				2563ACFD1F8C1FC300681D3C /* StatusBarItemController.m in Sources */,
 				25DB3AF51F7D88D200484310 /* AppDelegate.m in Sources */,

@@ -12,9 +12,11 @@
 #import "Constants.h"
 #import "Browser.h"
 
+
 @interface AppDelegate ()
 
 @end
+
 
 @implementation AppDelegate
 
@@ -33,18 +35,17 @@
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-}
-
 - (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
   NSString *systemBrowserBundleId = Browser.systemBrowserBundleId;
-  
-  NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
-  NSArray<NSURL *> *urlArray = [NSArray arrayWithObject:url];
-  
   __block NSString *neededBrowserBundleId = systemBrowserBundleId;
+  
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
+  if (!NSApplication.sharedApplication.isActive) {
+    options |= NSWorkspaceLaunchWithoutActivation;
+  }
+  
+  NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
+  NSArray<NSURL *> *urlArray = @[url];
   
   if (NSUserDefaults.standardUserDefaults.areRulesEnabled) {
     @try {
@@ -64,7 +65,7 @@
   }
   
   [NSWorkspace.sharedWorkspace openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
-           additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
+         additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
 @end
