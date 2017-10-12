@@ -12,7 +12,10 @@
 @implementation NSUserDefaults (Links)
 
 - (void)register {
-  [self registerDefaults:@{kAreRulesEnabled: [NSNumber numberWithBool:YES]}];
+  [self registerDefaults:@{
+    kAreRulesEnabled: [NSNumber numberWithBool:YES],
+    kExpandShortenedURLs: [NSNumber numberWithBool:YES],
+  }];
 }
 
 - (BOOL)areRulesEnabled {
@@ -51,16 +54,16 @@
   [self setObject:[NSKeyedArchiver archivedDataWithRootObject:newRules] forKey:@"rules"];
 }
 
-- (NSDictionary<NSString *, NSString *> *)shortenedURLsCache {
-  NSDictionary<NSString *, NSString *> *cache = [self dictionaryForKey:@"shortenedURLsCache"];
+- (NSDictionary<NSString *, NSString *> *)expandedURLsCache {
+  NSDictionary<NSString *, NSString *> *cache = [self dictionaryForKey:@"expandedURLsCache"];
   if (!cache) {
     return @{};
   }
   return cache;
 }
 
-- (void)setShortenedURLsCache:(NSDictionary<NSString *,NSString *> *)shortenedURLsCache {
-  [self setObject:shortenedURLsCache forKey:@"shortenedURLsCache"];
+- (void)setExpandedURLsCache:(NSDictionary<NSString *,NSString *> *)expandedURLsCache {
+  [self setObject:expandedURLsCache forKey:@"expandedURLsCache"];
 }
 
 

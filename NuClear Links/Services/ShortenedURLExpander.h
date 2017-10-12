@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ShortenedURLExtractor : NSObject <NSURLSessionTaskDelegate>
+@interface ShortenedURLExpander : NSObject <NSURLSessionTaskDelegate>
 
-+ (instancetype)sharedExtractor;
+@property void (^block)(NSURL *);
+
++ (instancetype)sharedExpander;
 
 - (BOOL)isShortenedURL:(NSURL *)url;
-- (void)extractURL:(NSURL *)url andExecuteBlock:(void (^)(NSURL *resultUrl))block;
+- (void)expandURLAndExecuteBlock:(NSURL *)url;
 - (void)saveCache;
 
 @end

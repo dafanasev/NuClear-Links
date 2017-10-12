@@ -11,7 +11,7 @@
 #import "NSUserDefaults+Links.h"
 #import "Constants.h"
 #import "Browser.h"
-#import "ShortenedURLExtractor.h"
+#import "ShortenedURLExpander.h"
 
 
 @interface AppDelegate ()
@@ -28,6 +28,10 @@
   
   [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
   
+  ShortenedURLExpander.sharedExpander.block = ^void (NSURL *url) {
+    [self proxyURL:url];
+  };
+  
   [NSUserDefaults.standardUserDefaults register];
   
   [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
@@ -37,16 +41,14 @@
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-  [ShortenedURLExtractor.sharedExtractor saveCache];
+  [ShortenedURLExpander.sharedExpander saveCache];
 }
 
 - (void)getURL:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
   NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
   
-  if (NSUserDefaults.standardUserDefaults.expandShortenedURLs && [ShortenedURLExtractor.sharedExtractor isShortenedURL:url]) {
-    [ShortenedURLExtractor.sharedExtractor extractURL:url andExecuteBlock:^(NSURL *resultUrl) {
-      [self proxyURL:resultUrl];
-    }];
+  if (NSUserDefaults.standardUserDefaults.expandShortenedURLs && [ShortenedURLExpander.sharedExpander isShortenedURL:url]) {
+    [ShortenedURLExpander.sharedExpander expandURLAndExecuteBlock:url];
   }
   else {
     [self proxyURL:url];

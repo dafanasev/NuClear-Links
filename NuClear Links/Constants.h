@@ -17,6 +17,7 @@
 #define kMainWindow @"mainWindow"
 #define kEditRuleSheet @"editRuleSheet"
 #define kRulesStateNotification @"rulesStateNotification"
+#define kExpandShortenedURLs @"expandShortenedURLs"
 
 #endif /* Constants_h */
 
