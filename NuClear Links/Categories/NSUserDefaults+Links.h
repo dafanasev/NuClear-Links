@@ -13,6 +13,7 @@
 
 @property BOOL areRulesEnabled;
 @property NSString *systemBrowserBundleId;
+@property BOOL expandShortenedURLs;
 @property NSArray<Rule *> *rules;
 @property NSDictionary<NSString *, NSString *> *shortenedURLsCache;
 

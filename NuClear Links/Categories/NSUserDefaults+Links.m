@@ -27,6 +27,14 @@
   return [self objectForKey:kSystemBrowserBundleId];
 }
 
+- (BOOL)expandShortenedURLs {
+  return [NSUserDefaults.standardUserDefaults boolForKey:@"expandShortenedURLs"];
+}
+
+- (void)setExpandShortenedURLs:(BOOL)expandShortenedURLs {
+  [NSUserDefaults.standardUserDefaults setBool:expandShortenedURLs forKey:@"expandShortenedURLs"];
+}
+
 - (void)setSystemBrowserBundleId:(NSString *)systemBrowserBundleId {
   [self setObject:systemBrowserBundleId forKey:kSystemBrowserBundleId];
 }

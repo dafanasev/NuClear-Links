@@ -43,7 +43,7 @@
 - (void)getURL:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
   NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
   
-  if ([ShortenedURLExtractor.sharedExtractor isShortenedURL:url]) {
+  if (NSUserDefaults.standardUserDefaults.expandShortenedURLs && [ShortenedURLExtractor.sharedExtractor isShortenedURL:url]) {
     [ShortenedURLExtractor.sharedExtractor extractURL:url andExecuteBlock:^(NSURL *resultUrl) {
       [self proxyURL:resultUrl];
     }];
@@ -62,12 +62,10 @@
     options |= NSWorkspaceLaunchWithoutActivation;
   }
   
-  NSArray<NSURL *> *urlArray = @[url];
-  
   if (NSUserDefaults.standardUserDefaults.areRulesEnabled) {
     @try {
       [NSUserDefaults.standardUserDefaults.rules enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (rule.isActive && [urlArray filteredArrayUsingPredicate:rule.predicate].count > 0) {
+        if (rule.isActive && [rule.predicate evaluateWithObject:url]) {
           neededBrowserBundleId = rule.browser.bundleIdentifier;
           if (rule.openInBackground) {
             options |= NSWorkspaceLaunchWithoutActivation;
@@ -81,7 +79,7 @@
     }
   }
   
-  [NSWorkspace.sharedWorkspace openURLs:urlArray withAppBundleIdentifier:neededBrowserBundleId options:options
+  [NSWorkspace.sharedWorkspace openURLs:@[url] withAppBundleIdentifier:neededBrowserBundleId options:options
          additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
