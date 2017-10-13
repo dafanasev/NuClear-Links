@@ -10,7 +10,7 @@
 
 @interface NSAlert (Links)
 
-+ (void)infoWithMessage:(NSString *)message;
++ (void)alertWithMessage:(NSString *)message;
 + (BOOL)confirm;
 
 @end

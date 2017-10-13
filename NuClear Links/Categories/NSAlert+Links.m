@@ -10,7 +10,7 @@
 
 @implementation NSAlert (Links)
 
-+ (void)infoWithMessage:(NSString *)message {
++ (void)alertWithMessage:(NSString *)message {
   NSAlert *alert = [[NSAlert alloc] init];
   alert.messageText = message;
   [alert addButtonWithTitle:@"OK"];

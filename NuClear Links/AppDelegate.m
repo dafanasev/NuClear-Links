@@ -34,7 +34,7 @@
     [self proxyURL:url];
   };
   
-  [NSNotificationCenter.defaultCenter postNotificationName:kRulesSetupNotification object:NULL userInfo:NULL];
+  [NSNotificationCenter.defaultCenter postNotificationName:kLinksSetupNotification object:NULL userInfo:NULL];
   
   [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];
@@ -60,7 +60,7 @@
   __block NSString *neededBrowserBundleId = systemBrowserBundleId;
   
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
-  if (!NSApplication.sharedApplication.isActive) {
+  if (!NSApplication.sharedApplication.isActive || NSUserDefaults.standardUserDefaults.openInBackground) {
     options |= NSWorkspaceLaunchWithoutActivation;
   }
   

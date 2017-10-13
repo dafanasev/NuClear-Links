@@ -10,8 +10,9 @@
 #define Constants_h
 
 #define kDefaultBrowserBundleId  @"defaultBrowserBundleId"
-#define kRulesSetupNotification @"rulesSetupNotification"
+#define kLinksSetupNotification @"linksSetupNotification"
 #define kRulesCountDidChangeNotification @"rulesCountDidChangeNotification"
+#define kSystemBrowserChangedNotification @"kSystemBrowserChangedNotification"
 #define kAreRulesEnabled @"areRulesEnabled"
 #define kMainWindow    @"mainWindow"
 #define kEditRuleSheet @"editRuleSheet"

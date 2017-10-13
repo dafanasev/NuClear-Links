@@ -17,6 +17,7 @@
 @property (class, readonly) NSDictionary <NSString *, Browser *> *browsersDictionary;
 @property (class, readonly) NSString *defaultBrowserBundleId;
 @property (class, readonly) Browser *defaultBrowser;
+@property (class, readonly) NSString *systemBrowserBundleId;
 @property (class, readonly) BOOL isLinksActive;
 
 + (Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier;

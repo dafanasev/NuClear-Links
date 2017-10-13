@@ -27,7 +27,17 @@
 }
 
 - (NSString *)defaultBrowserBundleId {
-  return [self objectForKey:kDefaultBrowserBundleId];
+  NSString *bid = [self objectForKey:kDefaultBrowserBundleId];
+  if (!bid) {
+    bid = @"com.apple.safari";
+  }
+  return bid;
+}
+
+- (void)setDefaultBrowserBundleId:(NSString *)defaultBrowserBundleId {
+  if (![self.defaultBrowserBundleId isEqualToString:defaultBrowserBundleId]) {
+    [self setObject:defaultBrowserBundleId forKey:kDefaultBrowserBundleId];
+  }
 }
 
 - (BOOL)expandShortenedURLs {
@@ -38,8 +48,12 @@
   [NSUserDefaults.standardUserDefaults setBool:expandShortenedURLs forKey:@"expandShortenedURLs"];
 }
 
-- (void)setDefaultBrowserBundleId:(NSString *)systemBrowserBundleId {
-  [self setObject:systemBrowserBundleId forKey:kDefaultBrowserBundleId];
+- (BOOL)openInBackground {
+  return [NSUserDefaults.standardUserDefaults boolForKey:@"openInBackground"];
+}
+
+- (void)setOpenInBackground:(BOOL)openInBackground {
+  [NSUserDefaults.standardUserDefaults setBool:openInBackground forKey:@"openInBackground"];
 }
 
 - (NSArray<Rule *> *)rules {

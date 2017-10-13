@@ -74,19 +74,19 @@
 }
 
 + (NSString *)defaultBrowserBundleId {
-  NSString *bid = NSUserDefaults.standardUserDefaults.defaultBrowserBundleId;
-  if (!bid) {
-    bid = @"com.apple.safari";
-  }
-  return bid;
+  return NSUserDefaults.standardUserDefaults.defaultBrowserBundleId;
 }
 
 + (Browser *)defaultBrowser {
   return [Browser browserWithBundleIdentifier:Browser.defaultBrowserBundleId];
 }
 
++ (NSString *)systemBrowserBundleId {
+  return (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
+}
+
 + (BOOL)isLinksActive {
-  return self.defaultBrowserBundleId == NSBundle.mainBundle.bundleIdentifier;
+  return [self.systemBrowserBundleId.lowercaseString isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString];
 }
 
 @end

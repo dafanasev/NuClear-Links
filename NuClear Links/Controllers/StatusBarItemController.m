@@ -12,6 +12,7 @@
 #import "Rule.h"
 #import "NSUserDefaults+Links.h"
 #import "Browser.h"
+#import "NSAlert+Links.h"
 
 
 @interface StatusBarItemController ()
@@ -31,13 +32,16 @@
   [super awakeFromNib];
   _menu.autoenablesItems = NO;
   
-  [NSNotificationCenter.defaultCenter addObserverForName:kRulesSetupNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
-    [self showHideRulesMenuItems];
-    [self enableDisableRulesMenuItems];
+  [NSNotificationCenter.defaultCenter addObserverForName:kLinksSetupNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
+    [self setupRulesMenuItems];
   }];
   
   [NSNotificationCenter.defaultCenter addObserverForName:kRulesCountDidChangeNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
-    [self enableDisableRulesMenuItems];
+    [self setupRulesMenuItems];
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:kSystemBrowserChangedNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
+    [self setupRulesMenuItems];
   }];
   
   _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
@@ -49,20 +53,24 @@
 #pragma mark - Actions
 
 - (IBAction)enableDisableMenuItemClicked:(NSMenuItem *)sender {
-  NSUserDefaults.standardUserDefaults.areRulesEnabled = !NSUserDefaults.standardUserDefaults.areRulesEnabled;
-  [self showHideRulesMenuItems];
+  if (Browser.isLinksActive) {
+    NSUserDefaults.standardUserDefaults.areRulesEnabled = !NSUserDefaults.standardUserDefaults.areRulesEnabled;
+    [self setupRulesMenuItems];
+  }
+  else {
+    [NSAlert alertWithMessage:@"Rules can not be enabled because NuClear Links is not active. You can activate it by going to Preferences > General."];
+  }
 }
 
-- (void)showHideRulesMenuItems {
-  BOOL rulesCanBeExecuted = NSUserDefaults.standardUserDefaults.areRulesEnabled; //&& Browser.isLinksDefaultBrowser;
-  [_enableRulesMenuItem setHidden:rulesCanBeExecuted];
-  [_disableRulesMenuItem setHidden:!rulesCanBeExecuted];
-}
-
-- (void)enableDisableRulesMenuItems {
+- (void)setupRulesMenuItems {
+  // if there are no rules than menu items should not be clickable
   BOOL areThereRules = Rule.all.count > 0;
   [_enableRulesMenuItem setEnabled:areThereRules];
   [_disableRulesMenuItem setEnabled:areThereRules];
+  
+  BOOL rulesCanBeExecuted = NSUserDefaults.standardUserDefaults.areRulesEnabled && Browser.isLinksActive;
+  [_enableRulesMenuItem setHidden:rulesCanBeExecuted];
+  [_disableRulesMenuItem setHidden:!rulesCanBeExecuted];
 }
 
 //- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {

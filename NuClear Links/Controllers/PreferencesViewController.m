@@ -10,6 +10,7 @@
 #import "PreferencesViewController.h"
 #import "Browser.h"
 #import "NSUserDefaults+Links.h"
+#import "Constants.h"
 
 
 @interface PreferencesViewController ()
@@ -39,16 +40,20 @@
 }
 
 - (void)showRightStackView {
-  NSString *systemBrowserBundleId = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
+  BOOL beforeState = _isDefaultBrowserStackView.isHidden;
   
-  if ([systemBrowserBundleId isEqualToString:NSBundle.mainBundle.bundleIdentifier.lowercaseString]) {
+  if (Browser.isLinksActive) {
     [_isNotDefaultBrowserStackView setHidden:YES];
     [_isDefaultBrowserStackView setHidden:NO];
   }
   else {
-    NSUserDefaults.standardUserDefaults.defaultBrowserBundleId = systemBrowserBundleId;
+    NSUserDefaults.standardUserDefaults.defaultBrowserBundleId = Browser.systemBrowserBundleId;
     [_isNotDefaultBrowserStackView setHidden:NO];
     [_isDefaultBrowserStackView setHidden:YES];
+  }
+  
+  if (_isDefaultBrowserStackView.isHidden != beforeState) {
+    [NSNotificationCenter.defaultCenter postNotificationName:kSystemBrowserChangedNotification object:NULL userInfo:NULL];
   }
 }
 
@@ -58,14 +63,10 @@
 }
 
 - (IBAction)restoreSystemBrowserButonClicked:(NSButton *)sender {
-  NSString *systemBrowserBundleId = Browser.defaultBrowserBundleId;
+  NSString *defaultBrowserBundleId = Browser.defaultBrowserBundleId;
   
-  if (!systemBrowserBundleId) {
-    systemBrowserBundleId = @"com.apple.safari";
-  }
-  
-  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)systemBrowserBundleId);
-  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)systemBrowserBundleId);
+  LSSetDefaultHandlerForURLScheme(CFSTR("http"), (__bridge CFStringRef)defaultBrowserBundleId);
+  LSSetDefaultHandlerForURLScheme(CFSTR("https"), (__bridge CFStringRef)defaultBrowserBundleId);
 }
 
 @end

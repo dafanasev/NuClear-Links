@@ -14,6 +14,7 @@
 @property BOOL areRulesEnabled;
 @property NSString *defaultBrowserBundleId;
 @property BOOL expandShortenedURLs;
+@property BOOL openInBackground;
 @property NSArray<Rule *> *rules;
 @property NSDictionary<NSString *, NSString *> *expandedURLsCache;
 
