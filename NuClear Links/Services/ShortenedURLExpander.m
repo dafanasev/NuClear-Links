@@ -54,30 +54,30 @@
 }
 
 - (void)expandURLAndExecuteBlock:(NSURL *)url {
-  NSURL *cachedResultUrl = [NSURL URLWithString:[_cache objectForKey:url.absoluteString]];
+  NSURL *cachedExpandedUrl = [NSURL URLWithString:[_cache objectForKey:url.absoluteString]];
   
-  if (cachedResultUrl) {
-    _block(cachedResultUrl);
+  if (cachedExpandedUrl) {
+    _block(cachedExpandedUrl);
   }
   else {
     NSURLSessionDataTask *task = [_urlSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
       if (!error && response) {
-        [self handleResultURL:response.URL forSourceUrl:response.URL];
+        [self handleExpandedURL:response.URL forShortenedURL:response.URL];
       }
       else {
-        [self handleResultURL:url forSourceUrl:url];
+        [self handleExpandedURL:url forShortenedURL:url];
       }
     }];
     [task resume];
   }
 }
 
-- (void)handleResultURL:(NSURL *)resultUrl forSourceUrl:(NSURL *)sourceUrl {
+- (void)handleExpandedURL:(NSURL *)expandedUrl forShortenedURL:(NSURL *)shortenedUrl {
     // save actual url in cache
-  [_cache setObject:resultUrl.absoluteString forKey:sourceUrl.absoluteString];
+  [_cache setObject:expandedUrl.absoluteString forKey:shortenedUrl.absoluteString];
     // and call proxying block which came from app app delegate
   if (_block) {
-    _block(resultUrl);
+    _block(expandedUrl);
   }
 }
 
@@ -90,7 +90,7 @@
   }
   else {
     completionHandler(nil);
-    [self handleResultURL:request.URL forSourceUrl:task.originalRequest.URL];
+    [self handleExpandedURL:request.URL forShortenedURL:task.originalRequest.URL];
   }
 }
 
