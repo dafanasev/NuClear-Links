@@ -22,7 +22,7 @@
   [Browser.browsersDictionary enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull bundleIdentifier, Browser * _Nonnull browser, BOOL * _Nonnull stop) {
     NSMenuItem *mi = [[NSMenuItem alloc] init];
     mi.title = browser.title;
-    mi.image = browser.image;
+    mi.image = browser.icon;
     mi.representedObject = bundleIdentifier.lowercaseString;
     [self.menu addItem:mi];
   }];

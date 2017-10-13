@@ -12,7 +12,7 @@
 
 @property NSString *bundleIdentifier;
 @property (readonly) NSString *title;
-@property (readonly) NSImage  *image;
+@property (readonly) NSImage  *icon;
 
 @property (class, readonly) NSDictionary <NSString *, Browser *> *browsersDictionary;
 @property (class, readonly) NSString *defaultBrowserBundleId;

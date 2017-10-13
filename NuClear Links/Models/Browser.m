@@ -55,7 +55,7 @@
   return [self.bundle.infoDictionary objectForKey:(NSString *)kCFBundleNameKey];
 }
 
-- (NSImage *)image {
+- (NSImage *)icon {
   return [[NSWorkspace sharedWorkspace] iconForFile:self.bundle.bundlePath];
 }
 
