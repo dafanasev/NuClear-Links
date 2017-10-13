@@ -27,11 +27,11 @@
 }
 
 - (NSString *)defaultBrowserBundleId {
-  NSString *bid = [self objectForKey:kDefaultBrowserBundleId];
-  if (!bid) {
-    bid = @"com.apple.safari";
+  NSString *bundleId = [self objectForKey:kDefaultBrowserBundleId];
+  if (!bundleId || ![NSWorkspace.sharedWorkspace absolutePathForAppBundleWithIdentifier:bundleId]) {
+    bundleId = @"com.apple.safari";
   }
-  return bid;
+  return bundleId;
 }
 
 - (void)setDefaultBrowserBundleId:(NSString *)defaultBrowserBundleId {

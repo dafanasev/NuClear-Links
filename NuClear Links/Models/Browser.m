@@ -48,7 +48,7 @@
 #pragma mark - Computed properties
 
 - (NSBundle *)bundle {
-  return [NSBundle bundleWithPath:[[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:_bundleIdentifier]];
+  return [NSBundle bundleWithPath:[NSWorkspace.sharedWorkspace absolutePathForAppBundleWithIdentifier:_bundleIdentifier]];
 }
 
 - (NSString *)title {
