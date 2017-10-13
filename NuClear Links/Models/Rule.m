@@ -23,7 +23,7 @@
 - (instancetype)init {
   if (self = [super init]) {
     self.title = @"New rule";
-    self.browser = Browser.systemBrowser;
+    self.browser = Browser.defaultBrowser;
     self.isActive = YES;
     self.openInBackground = NO;
     self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[]];

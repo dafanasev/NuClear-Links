@@ -28,11 +28,11 @@
   
   [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
   
+  [NSUserDefaults.standardUserDefaults register];
+  
   ShortenedURLExpander.sharedExpander.block = ^void (NSURL *url) {
     [self proxyURL:url];
   };
-  
-  [NSUserDefaults.standardUserDefaults register];
   
   [NSNotificationCenter.defaultCenter postNotificationName:kRulesSetupNotification object:NULL userInfo:NULL];
   
@@ -56,7 +56,7 @@
 }
 
 - (void)proxyURL:(NSURL *)url {
-  NSString *systemBrowserBundleId = Browser.systemBrowserBundleId;
+  NSString *systemBrowserBundleId = Browser.defaultBrowserBundleId;
   __block NSString *neededBrowserBundleId = systemBrowserBundleId;
   
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;

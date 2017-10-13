@@ -46,7 +46,7 @@
     [_isDefaultBrowserStackView setHidden:NO];
   }
   else {
-    NSUserDefaults.standardUserDefaults.systemBrowserBundleId = systemBrowserBundleId;
+    NSUserDefaults.standardUserDefaults.defaultBrowserBundleId = systemBrowserBundleId;
     [_isNotDefaultBrowserStackView setHidden:NO];
     [_isDefaultBrowserStackView setHidden:YES];
   }
@@ -58,7 +58,7 @@
 }
 
 - (IBAction)restoreSystemBrowserButonClicked:(NSButton *)sender {
-  NSString *systemBrowserBundleId = Browser.systemBrowserBundleId;
+  NSString *systemBrowserBundleId = Browser.defaultBrowserBundleId;
   
   if (!systemBrowserBundleId) {
     systemBrowserBundleId = @"com.apple.safari";

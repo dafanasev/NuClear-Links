@@ -9,13 +9,11 @@
 #ifndef Constants_h
 #define Constants_h
 
-#define kLaunchAtLogin  @"launchAtLogin"
-#define kAppGroup       @"com.nuclear-tools.NuClear-Links-Group"
-#define kSystemBrowserBundleId  @"systemBrowserBundleId"
+#define kDefaultBrowserBundleId  @"defaultBrowserBundleId"
 #define kRulesSetupNotification @"rulesSetupNotification"
 #define kRulesCountDidChangeNotification @"rulesCountDidChangeNotification"
 #define kAreRulesEnabled @"areRulesEnabled"
-#define kMainWindow @"mainWindow"
+#define kMainWindow    @"mainWindow"
 #define kEditRuleSheet @"editRuleSheet"
 #define kExpandShortenedURLs @"expandShortenedURLs"
 

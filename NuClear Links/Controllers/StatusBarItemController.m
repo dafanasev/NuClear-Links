@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Rule.h"
 #import "NSUserDefaults+Links.h"
+#import "Browser.h"
 
 
 @interface StatusBarItemController ()
@@ -53,9 +54,9 @@
 }
 
 - (void)showHideRulesMenuItems {
-  BOOL areRulesEnabled = NSUserDefaults.standardUserDefaults.areRulesEnabled;
-  [_enableRulesMenuItem setHidden:areRulesEnabled];
-  [_disableRulesMenuItem setHidden:!areRulesEnabled];
+  BOOL rulesCanBeExecuted = NSUserDefaults.standardUserDefaults.areRulesEnabled; //&& Browser.isLinksDefaultBrowser;
+  [_enableRulesMenuItem setHidden:rulesCanBeExecuted];
+  [_disableRulesMenuItem setHidden:!rulesCanBeExecuted];
 }
 
 - (void)enableDisableRulesMenuItems {

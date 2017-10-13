@@ -12,7 +12,7 @@
 @interface NSUserDefaults (Links)
 
 @property BOOL areRulesEnabled;
-@property NSString *systemBrowserBundleId;
+@property NSString *defaultBrowserBundleId;
 @property BOOL expandShortenedURLs;
 @property NSArray<Rule *> *rules;
 @property NSDictionary<NSString *, NSString *> *expandedURLsCache;

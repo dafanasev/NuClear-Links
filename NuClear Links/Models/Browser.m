@@ -73,16 +73,20 @@
   return browsersDictionary;
 }
 
-+ (NSString *)systemBrowserBundleId {
-  NSString *bid = NSUserDefaults.standardUserDefaults.systemBrowserBundleId;
++ (NSString *)defaultBrowserBundleId {
+  NSString *bid = NSUserDefaults.standardUserDefaults.defaultBrowserBundleId;
   if (!bid) {
     bid = @"com.apple.safari";
   }
   return bid;
 }
 
-+ (Browser *)systemBrowser {
-  return [Browser browserWithBundleIdentifier:Browser.systemBrowserBundleId];
++ (Browser *)defaultBrowser {
+  return [Browser browserWithBundleIdentifier:Browser.defaultBrowserBundleId];
+}
+
++ (BOOL)isLinksActive {
+  return self.defaultBrowserBundleId == NSBundle.mainBundle.bundleIdentifier;
 }
 
 @end

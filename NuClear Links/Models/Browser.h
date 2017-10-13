@@ -15,11 +15,11 @@
 @property (readonly) NSImage  *image;
 
 @property (class, readonly) NSDictionary <NSString *, Browser *> *browsersDictionary;
-@property (class, readonly) NSString *systemBrowserBundleId;
-@property (class, readonly) Browser *systemBrowser;
+@property (class, readonly) NSString *defaultBrowserBundleId;
+@property (class, readonly) Browser *defaultBrowser;
+@property (class, readonly) BOOL isLinksActive;
 
 + (Browser *)browserWithBundleIdentifier:(NSString *)bundleIdentifier;
-+ (NSString *)systemBrowserBundleId;
 
 - (instancetype)initWithBundleIdentifier:(NSString *)bundleIdentifier;
 

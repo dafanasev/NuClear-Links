@@ -26,8 +26,8 @@
   [self setBool:areRulesEnabled forKey:kAreRulesEnabled];
 }
 
-- (NSString *)systemBrowserBundleId {
-  return [self objectForKey:kSystemBrowserBundleId];
+- (NSString *)defaultBrowserBundleId {
+  return [self objectForKey:kDefaultBrowserBundleId];
 }
 
 - (BOOL)expandShortenedURLs {
@@ -38,8 +38,8 @@
   [NSUserDefaults.standardUserDefaults setBool:expandShortenedURLs forKey:@"expandShortenedURLs"];
 }
 
-- (void)setSystemBrowserBundleId:(NSString *)systemBrowserBundleId {
-  [self setObject:systemBrowserBundleId forKey:kSystemBrowserBundleId];
+- (void)setDefaultBrowserBundleId:(NSString *)systemBrowserBundleId {
+  [self setObject:systemBrowserBundleId forKey:kDefaultBrowserBundleId];
 }
 
 - (NSArray<Rule *> *)rules {
