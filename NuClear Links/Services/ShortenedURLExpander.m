@@ -76,7 +76,9 @@
     // save actual url in cache
   [_cache setObject:resultUrl.absoluteString forKey:sourceUrl.absoluteString];
     // and call proxying block which came from app app delegate
-  _block(resultUrl);
+  if (_block) {
+    _block(resultUrl);
+  }
 }
 
 #pragma mark - NSURLSessionTaskDelegate
