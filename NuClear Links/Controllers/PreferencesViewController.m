@@ -52,8 +52,12 @@
     [_isDefaultBrowserStackView setHidden:YES];
   }
   
+  // if system browser is changed
   if (_isDefaultBrowserStackView.isHidden != beforeState) {
     [NSNotificationCenter.defaultCenter postNotificationName:kSystemBrowserChangedNotification object:NULL userInfo:NULL];
+    
+    // if it is changed to Links
+    SMLoginItemSetEnabled((__bridge CFStringRef)kLauncherBundleId, Browser.isLinksActive);
   }
 }
 

@@ -13,5 +13,6 @@
 * test with fake non working shortener to to proper error handling +
 * isEnabled instead of isHidden for the 'enable rules/disable rules' menu items if there are no rules +
 * Alert to activate Links if the 'enable rules' menu item clicked and Links is not active +
-* Launch on login when Links is active, not launch if it is not
+* Launch on login when Links is active, not launch if it is not +
 * Open all links in background preference +
+* Removed browsers handling

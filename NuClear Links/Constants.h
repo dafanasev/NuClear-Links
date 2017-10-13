@@ -17,6 +17,7 @@
 #define kMainWindow    @"mainWindow"
 #define kEditRuleSheet @"editRuleSheet"
 #define kExpandShortenedURLs @"expandShortenedURLs"
+#define kLauncherBundleId @"com.nuclear-tools.NuClear-Links-Launcher"
 
 #endif /* Constants_h */
 

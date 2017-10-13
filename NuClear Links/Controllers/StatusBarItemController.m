@@ -54,7 +54,7 @@
 
 - (IBAction)enableDisableMenuItemClicked:(NSMenuItem *)sender {
   if (Browser.isLinksActive) {
-    NSUserDefaults.standardUserDefaults.areRulesEnabled = !NSUserDefaults.standardUserDefaults.areRulesEnabled;
+    NSUserDefaults.standardUserDefaults.areRulesEnabled = sender == _enableRulesMenuItem;
     [self setupRulesMenuItems];
   }
   else {

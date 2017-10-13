@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "Browser.h"
 #import "ShortenedURLExpander.h"
+#import <ServiceManagement/ServiceManagement.h>
 
 
 @interface AppDelegate ()
@@ -41,6 +42,10 @@
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
+  if (!Browser.isLinksActive) {
+    SMLoginItemSetEnabled((__bridge CFStringRef)kLauncherBundleId, NO);
+  }
+  
   [ShortenedURLExpander.sharedExpander saveCache];
 }
 
@@ -71,6 +76,9 @@
           neededBrowserBundleId = rule.browser.bundleIdentifier;
           if (rule.openInBackground) {
             options |= NSWorkspaceLaunchWithoutActivation;
+          }
+          else {
+            options &= ~(NSWorkspaceLaunchWithoutActivation);
           }
           *stop = YES;
         }
