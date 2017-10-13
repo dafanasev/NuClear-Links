@@ -61,7 +61,12 @@
   }
   else {
     NSURLSessionDataTask *task = [_urlSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-      [self handleResultURL:response.URL forSourceUrl:response.URL];
+      if (!error && response) {
+        [self handleResultURL:response.URL forSourceUrl:response.URL];
+      }
+      else {
+        [self handleResultURL:url forSourceUrl:url];
+      }
     }];
     [task resume];
   }
