@@ -16,5 +16,6 @@
 @property (readonly) NSString *versionWithBuild;
 @property (readonly) NSString *copyright;
 
++ (BOOL)isBundleWithIdentifierExists:(NSString *)bundleIdentifier;
 
 @end

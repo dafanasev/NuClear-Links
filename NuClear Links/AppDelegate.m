@@ -8,10 +8,13 @@
 
 #import "AppDelegate.h"
 #import "IsOneObjectValueTransformer.h"
+#import "NilToRedColorValueTransformer.h"
+#import "HasNotBrokenRulesValueTransformer.h"
 #import "NSUserDefaults+Links.h"
 #import "Constants.h"
 #import "Browser.h"
 #import "ShortenedURLExpander.h"
+#import "NSBundle+Links.h"
 #import <ServiceManagement/ServiceManagement.h>
 
 
@@ -28,6 +31,8 @@
   }
   
   [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
+  [NSValueTransformer setValueTransformer:[NilToRedColorValueTransformer new] forName:@"NilToRedColorValueTransformer"];
+  [NSValueTransformer setValueTransformer:[HasNotBrokenRulesValueTransformer new] forName:@"HasNotBrokenRulesValueTransformer"];
   
   [NSUserDefaults.standardUserDefaults register];
   
@@ -61,8 +66,7 @@
 }
 
 - (void)proxyURL:(NSURL *)url {
-  NSString *systemBrowserBundleId = Browser.defaultBrowserBundleId;
-  __block NSString *neededBrowserBundleId = systemBrowserBundleId;
+  __block NSString *neededBrowserBundleId = Browser.defaultBrowserBundleId;
   
   __block NSWorkspaceLaunchOptions options = NSWorkspaceLaunchAsync;
   if (!NSApplication.sharedApplication.isActive || NSUserDefaults.standardUserDefaults.openInBackground) {
@@ -74,18 +78,23 @@
       [NSUserDefaults.standardUserDefaults.rules enumerateObjectsUsingBlock:^(Rule * _Nonnull rule, NSUInteger idx, BOOL * _Nonnull stop) {
         if (rule.isActive && [rule.predicate evaluateWithObject:url]) {
           neededBrowserBundleId = rule.browser.bundleIdentifier;
+          if (![NSBundle isBundleWithIdentifierExists:neededBrowserBundleId]) {
+            neededBrowserBundleId = Browser.defaultBrowserBundleId;
+          }
+          
           if (rule.openInBackground) {
             options |= NSWorkspaceLaunchWithoutActivation;
           }
           else {
             options &= ~(NSWorkspaceLaunchWithoutActivation);
           }
+          
           *stop = YES;
         }
       }];
     }
     @catch (NSException *exception) {
-      neededBrowserBundleId = systemBrowserBundleId;
+      neededBrowserBundleId = Browser.defaultBrowserBundleId;
     }
   }
   

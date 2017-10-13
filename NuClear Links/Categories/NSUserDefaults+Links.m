@@ -8,6 +8,7 @@
 
 #import "NSUserDefaults+Links.h"
 #import "Constants.h"
+#import "NSBundle+Links.h"
 
 @implementation NSUserDefaults (Links)
 
@@ -28,7 +29,7 @@
 
 - (NSString *)defaultBrowserBundleId {
   NSString *bundleId = [self objectForKey:kDefaultBrowserBundleId];
-  if (!bundleId || ![NSWorkspace.sharedWorkspace absolutePathForAppBundleWithIdentifier:bundleId]) {
+  if (!bundleId || ![NSBundle isBundleWithIdentifierExists:bundleId]) {
     bundleId = @"com.apple.safari";
   }
   return bundleId;

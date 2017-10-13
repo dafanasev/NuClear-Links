@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250CC95C1F9168E000529842 /* NilToRedColorValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 250CC95B1F9168E000529842 /* NilToRedColorValueTransformer.m */; };
+		250CC95F1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 250CC95E1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.m */; };
 		2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2517A2BE1F82BFEC004AE168 /* RulesViewController.m */; };
 		2529A0651F87AE0800C7EAF0 /* RulePredicateEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529A0641F87AE0800C7EAF0 /* RulePredicateEditorViewController.m */; };
 		253949961F87F38E0079C922 /* NCLinksTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253949951F87F38E0079C922 /* NCLinksTabViewController.m */; };
@@ -50,6 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		250CC95A1F9168E000529842 /* NilToRedColorValueTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NilToRedColorValueTransformer.h; sourceTree = "<group>"; };
+		250CC95B1F9168E000529842 /* NilToRedColorValueTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NilToRedColorValueTransformer.m; sourceTree = "<group>"; };
+		250CC95D1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HasNotBrokenRulesValueTransformer.h; sourceTree = "<group>"; };
+		250CC95E1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HasNotBrokenRulesValueTransformer.m; sourceTree = "<group>"; };
 		2517A2B71F82B9A6004AE168 /* Rule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
 		2517A2B81F82B9A6004AE168 /* Rule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rule.m; sourceTree = "<group>"; };
 		2517A2BD1F82BFEC004AE168 /* RulesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RulesViewController.h; sourceTree = "<group>"; };
@@ -178,6 +184,10 @@
 			children = (
 				2563ACF21F8C169B00681D3C /* IsOneObjectValueTransformer.h */,
 				2563ACF31F8C169B00681D3C /* IsOneObjectValueTransformer.m */,
+				250CC95A1F9168E000529842 /* NilToRedColorValueTransformer.h */,
+				250CC95B1F9168E000529842 /* NilToRedColorValueTransformer.m */,
+				250CC95D1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.h */,
+				250CC95E1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.m */,
 			);
 			path = ValueTransformers;
 			sourceTree = "<group>";
@@ -398,7 +408,9 @@
 				2574E4D61F8534E500FEC112 /* NCLinksUserDefaulsController.m in Sources */,
 				2517A2BF1F82BFEC004AE168 /* RulesViewController.m in Sources */,
 				25556E9E1F7D90A300A1C486 /* PreferencesViewController.m in Sources */,
+				250CC95F1F916EFF00529842 /* HasNotBrokenRulesValueTransformer.m in Sources */,
 				25DB3B001F7D88D200484310 /* main.m in Sources */,
+				250CC95C1F9168E000529842 /* NilToRedColorValueTransformer.m in Sources */,
 				25FEDAC91F8E6299006E08B2 /* NSAlert+Links.m in Sources */,
 				2563ACF91F8C1E1800681D3C /* Browser.m in Sources */,
 				25D859191F8E8D3D003365A3 /* ShortenedURLExpander.m in Sources */,

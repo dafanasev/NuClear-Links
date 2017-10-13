@@ -7,6 +7,7 @@
 //
 
 #import "NSBundle+Links.h"
+#import <Cocoa/Cocoa.h>
 
 @implementation NSBundle (Links)
 
@@ -39,6 +40,10 @@
 
 - (NSString *)copyright {
   return (NSString *)[self objectForInfoDictionaryKey:@"NSHumanReadableCopyright"];
+}
+
++ (BOOL)isBundleWithIdentifierExists:(NSString *)bundleIdentifier {
+  return !![NSWorkspace.sharedWorkspace absolutePathForAppBundleWithIdentifier:bundleIdentifier];
 }
 
 @end

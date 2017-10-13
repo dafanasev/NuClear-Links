@@ -15,4 +15,4 @@
 * Alert to activate Links if the 'enable rules' menu item clicked and Links is not active +
 * Launch on login when Links is active, not launch if it is not +
 * Open all links in background preference +
-* Removed browsers handling
+* Removed browsers handling +
