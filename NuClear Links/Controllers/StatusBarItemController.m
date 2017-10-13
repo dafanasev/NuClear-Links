@@ -19,7 +19,6 @@
 @property (weak) IBOutlet NSMenu *menu;
 @property (weak) IBOutlet NSMenuItem *enableRulesMenuItem;
 @property (weak) IBOutlet NSMenuItem *disableRulesMenuItem;
-@property (weak) IBOutlet NSMenuItem *rulesSeparatorMenuItem;
 @property NSWindowController *windowController;
 
 @end
@@ -29,9 +28,15 @@
 
 - (void)awakeFromNib {
   [super awakeFromNib];
+  _menu.autoenablesItems = NO;
   
-  [NSNotificationCenter.defaultCenter addObserverForName:kRulesStateNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
-    [self showHideEnableDisableMenuItems];
+  [NSNotificationCenter.defaultCenter addObserverForName:kRulesSetupNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
+    [self showHideRulesMenuItems];
+    [self enableDisableRulesMenuItems];
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:kRulesCountDidChangeNotification object:NULL queue:NULL usingBlock:^(NSNotification * _Nonnull note) {
+    [self enableDisableRulesMenuItems];
   }];
   
   _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
@@ -44,20 +49,19 @@
 
 - (IBAction)enableDisableMenuItemClicked:(NSMenuItem *)sender {
   NSUserDefaults.standardUserDefaults.areRulesEnabled = !NSUserDefaults.standardUserDefaults.areRulesEnabled;
-  [self showHideEnableDisableMenuItems];
+  [self showHideRulesMenuItems];
 }
 
-- (void)showHideEnableDisableMenuItems {
-  if (Rule.all.count == 0) {
-    [_enableRulesMenuItem setHidden:YES];
-    [_disableRulesMenuItem setHidden:YES];
-    [_rulesSeparatorMenuItem setHidden:YES];
-    return;
-  }
-  [_rulesSeparatorMenuItem setHidden:NO];
+- (void)showHideRulesMenuItems {
   BOOL areRulesEnabled = NSUserDefaults.standardUserDefaults.areRulesEnabled;
   [_enableRulesMenuItem setHidden:areRulesEnabled];
   [_disableRulesMenuItem setHidden:!areRulesEnabled];
+}
+
+- (void)enableDisableRulesMenuItems {
+  BOOL areThereRules = Rule.all.count > 0;
+  [_enableRulesMenuItem setEnabled:areThereRules];
+  [_disableRulesMenuItem setEnabled:areThereRules];
 }
 
 //- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {

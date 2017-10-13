@@ -11,7 +11,7 @@
 * Always open in the background links that suppose to be open there +
 * url shorteners +
 * test with fake non working shortener to to proper error handling +
-* isEnabled instead of isHidden for the 'enable rules/disable rules' menu items if there are no rules
+* isEnabled instead of isHidden for the 'enable rules/disable rules' menu items if there are no rules +
 * Alert to activate Links if the 'enable rules' menu item clicked and Links is not active
 * Launch on login when Links is active, not launch if is not
 * Open all links in background settings

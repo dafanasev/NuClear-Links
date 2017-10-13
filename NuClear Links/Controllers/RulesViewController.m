@@ -55,7 +55,7 @@
 - (IBAction)removeButtonClicked:(id)sender {
   if ([NSAlert confirm]) {
     [_arrayController removeObjects:_arrayController.selectedObjects];
-    [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
+    [NSNotificationCenter.defaultCenter postNotificationName:kRulesCountDidChangeNotification object:NULL userInfo:NULL];
   }
 }
 

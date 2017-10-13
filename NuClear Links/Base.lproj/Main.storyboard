@@ -88,7 +88,6 @@
                         <outlet property="disableRulesMenuItem" destination="pR8-cK-YGQ" id="2XI-Kp-aVp"/>
                         <outlet property="enableRulesMenuItem" destination="86J-B0-MZa" id="GGo-nb-TiN"/>
                         <outlet property="menu" destination="eKf-lQ-ERD" id="D1k-xn-m5U"/>
-                        <outlet property="rulesSeparatorMenuItem" destination="Pow-3w-4sK" id="n5m-cV-6p1"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

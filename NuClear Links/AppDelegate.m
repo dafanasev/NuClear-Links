@@ -34,7 +34,7 @@
   
   [NSUserDefaults.standardUserDefaults register];
   
-  [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
+  [NSNotificationCenter.defaultCenter postNotificationName:kRulesSetupNotification object:NULL userInfo:NULL];
   
   [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];

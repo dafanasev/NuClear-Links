@@ -22,14 +22,14 @@
 @implementation RulePredicateEditorViewController
 
 - (void)dismissController:(id)sender {
-  // I order to to save titles
+  // In order to save titles it should lost its focus
   [self.view.window makeFirstResponder:sender];
   
   if (((NSButton *)sender).tag == kSaveChanges) {
     NSMutableArray<Rule *> *rules = [NSUserDefaults.standardUserDefaults.rules mutableCopy];
     [rules setObject:_objectController.selectedObjects.firstObject atIndexedSubscript:_objectIndex];
     NSUserDefaults.standardUserDefaults.rules = rules;
-    [NSNotificationCenter.defaultCenter postNotificationName:kRulesStateNotification object:NULL userInfo:NULL];
+    [NSNotificationCenter.defaultCenter postNotificationName:kRulesCountDidChangeNotification object:NULL userInfo:NULL];
   }
   
   [super dismissController:sender];
