@@ -185,7 +185,7 @@
                                         <rect key="frame" x="-2" y="299" width="619" height="51"/>
                                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="AW4-76-iR7">
                                             <font key="font" metaFont="system"/>
-                                            <string key="title">You have removed the browser that was assigned to some of your rules. These rules are marked with red color and will use the default browser. You can set another browser to these rules to get rid off of this message.</string>
+                                            <string key="title">You have removed the browser that was assigned to some of your rules. These rules are marked with the red color and will use the default browser. You can asign another browser to these rules to get rid off of this message.</string>
                                             <color key="textColor" red="1" green="0.28011126990000002" blue="0.23707244150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -242,12 +242,12 @@
                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                             </textFieldCell>
                                                                                             <connections>
-                                                                                                <binding destination="jV7-CH-Uq5" name="value" keyPath="objectValue.title" id="TiL-sK-BSD"/>
                                                                                                 <binding destination="jV7-CH-Uq5" name="textColor" keyPath="objectValue.browser.title" id="yMt-up-GKb">
                                                                                                     <dictionary key="options">
                                                                                                         <string key="NSValueTransformerName">NilToRedColorValueTransformer</string>
                                                                                                     </dictionary>
                                                                                                 </binding>
+                                                                                                <binding destination="jV7-CH-Uq5" name="value" keyPath="objectValue.title" id="TiL-sK-BSD"/>
                                                                                             </connections>
                                                                                         </textField>
                                                                                     </subviews>

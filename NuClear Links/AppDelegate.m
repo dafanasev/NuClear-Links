@@ -15,6 +15,7 @@
 #import "Browser.h"
 #import "ShortenedURLExpander.h"
 #import "NSBundle+Links.h"
+#import "NSUserNotificationCenter+Links.h"
 #import <ServiceManagement/ServiceManagement.h>
 
 
@@ -80,6 +81,7 @@
           neededBrowserBundleId = rule.browser.bundleIdentifier;
           if (![NSBundle isBundleWithIdentifierExists:neededBrowserBundleId]) {
             neededBrowserBundleId = Browser.defaultBrowserBundleId;
+            [NSUserNotificationCenter.defaultUserNotificationCenter deliverMessage:@"The browser you have set up for this rule has been removed from the system. NuClear links uses the default browser"];
           }
           
           if (rule.openInBackground) {
