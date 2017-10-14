@@ -16,4 +16,4 @@
 * Launch on login when Links is active, not launch if it is not +
 * Open all links in background preference +
 * Removed browsers handling +
-* User Notification if broken rule is used
+* User Notification if broken rule is used +

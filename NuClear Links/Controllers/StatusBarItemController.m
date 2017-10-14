@@ -58,7 +58,7 @@
     [self setupRulesMenuItems];
   }
   else {
-    [NSAlert alertWithMessage:@"Rules can not be enabled because NuClear Links is not active. You can activate it by going to Preferences > General."];
+    [NSAlert alertWithMessage:kLinksIsNotActiveNotification];
   }
 }
 

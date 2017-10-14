@@ -42,19 +42,19 @@
 }
 
 - (BOOL)expandShortenedURLs {
-  return [NSUserDefaults.standardUserDefaults boolForKey:@"expandShortenedURLs"];
+  return [self boolForKey:@"expandShortenedURLs"];
 }
 
 - (void)setExpandShortenedURLs:(BOOL)expandShortenedURLs {
-  [NSUserDefaults.standardUserDefaults setBool:expandShortenedURLs forKey:@"expandShortenedURLs"];
+  [self setBool:expandShortenedURLs forKey:@"expandShortenedURLs"];
 }
 
 - (BOOL)openInBackground {
-  return [NSUserDefaults.standardUserDefaults boolForKey:@"openInBackground"];
+  return [self boolForKey:@"openInBackground"];
 }
 
 - (void)setOpenInBackground:(BOOL)openInBackground {
-  [NSUserDefaults.standardUserDefaults setBool:openInBackground forKey:@"openInBackground"];
+  [self setBool:openInBackground forKey:@"openInBackground"];
 }
 
 - (NSArray<Rule *> *)rules {

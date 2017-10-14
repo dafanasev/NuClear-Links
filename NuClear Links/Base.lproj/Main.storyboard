@@ -30,15 +30,15 @@
                                                 <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="bfK-NR-eyM">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="z5Y-EC-MoZ"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Show All" id="Kd2-mp-pUS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Close" keyEquivalent="w" id="bfK-NR-eyM">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="z5Y-EC-MoZ"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
@@ -182,10 +182,10 @@
                                 <rect key="frame" x="20" y="20" width="619" height="350"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="D5Q-NW-uvY">
-                                        <rect key="frame" x="-2" y="299" width="619" height="51"/>
+                                        <rect key="frame" x="-2" y="299" width="623" height="51"/>
                                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="AW4-76-iR7">
                                             <font key="font" metaFont="system"/>
-                                            <string key="title">You have removed the browser that was assigned to some of your rules. These rules are marked with the red color and will use the default browser. You can asign another browser to these rules to get rid off of this message.</string>
+                                            <string key="title">You have removed the browser that was assigned to some of your rules. These rules are marked with the red color and will use the default browser. You can assign another browser to these rules to get rid off of this message.</string>
                                             <color key="textColor" red="1" green="0.28011126990000002" blue="0.23707244150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>

@@ -81,7 +81,7 @@
           neededBrowserBundleId = rule.browser.bundleIdentifier;
           if (![NSBundle isBundleWithIdentifierExists:neededBrowserBundleId]) {
             neededBrowserBundleId = Browser.defaultBrowserBundleId;
-            [NSUserNotificationCenter.defaultUserNotificationCenter deliverMessage:@"The browser you have set up for this rule has been removed from the system. NuClear links uses the default browser"];
+            [NSUserNotificationCenter.defaultUserNotificationCenter deliverMessage:kMissingBrowserNotification];
           }
           
           if (rule.openInBackground) {
