@@ -31,9 +31,9 @@
     [NSApplication.sharedApplication terminate:self];
   }
   
-  [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:@"IsOneObjectValueTransformer"];
-  [NSValueTransformer setValueTransformer:[NilToRedColorValueTransformer new] forName:@"NilToRedColorValueTransformer"];
-  [NSValueTransformer setValueTransformer:[HasNotBrokenRulesValueTransformer new] forName:@"HasNotBrokenRulesValueTransformer"];
+  [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:NSStringFromClass(IsOneObjectValueTransformer.class)];
+  [NSValueTransformer setValueTransformer:[NilToRedColorValueTransformer new] forName:NSStringFromClass(NilToRedColorValueTransformer.class)];
+  [NSValueTransformer setValueTransformer:[HasNotBrokenRulesValueTransformer new] forName:NSStringFromClass(HasNotBrokenRulesValueTransformer.class)];
   
   [NSUserDefaults.standardUserDefaults register];
   
@@ -41,7 +41,7 @@
     [self proxyURL:url];
   };
   
-  [NSNotificationCenter.defaultCenter postNotificationName:kLinksSetupNotification object:NULL userInfo:NULL];
+  [NSNotificationCenter.defaultCenter postNotificationName:kLinksSetupNotification object:NULL];
   
   [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
                                                    forEventClass:kInternetEventClass andEventID:kAEGetURL];

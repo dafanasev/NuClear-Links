@@ -27,8 +27,14 @@
   
   if (((NSButton *)sender).tag == kSaveChanges) {
     NSMutableArray<Rule *> *rules = [NSUserDefaults.standardUserDefaults.rules mutableCopy];
-    [rules setObject:_objectController.selectedObjects.firstObject atIndexedSubscript:_objectIndex];
-    NSUserDefaults.standardUserDefaults.rules = rules;
+    Rule *rule = (Rule *)_objectController.selectedObjects.firstObject;
+    if (_isNewBobject) {
+      [rules insertObject:rule atIndex:_objectIndex];
+    }
+    else {
+      [rules setObject:rule atIndexedSubscript:_objectIndex];
+    }
+    Rule.all = rules;
     [NSNotificationCenter.defaultCenter postNotificationName:kRulesCountDidChangeNotification object:NULL userInfo:NULL];
   }
   

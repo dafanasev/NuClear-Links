@@ -38,7 +38,8 @@
 - (IBAction)addButtonClicked:(NSButton *)sender {
   RulePredicateEditorViewController *rulePredicateEditorViewController = [self.storyboard instantiateControllerWithIdentifier:kEditRuleSheet];
   [rulePredicateEditorViewController.objectController setContent:[Rule new]];
-  rulePredicateEditorViewController.objectIndex = 0;
+  rulePredicateEditorViewController.objectIndex = Rule.all.count;
+  rulePredicateEditorViewController.isNewBobject = YES;
   [self presentViewControllerAsSheet:rulePredicateEditorViewController];
 }
 
@@ -49,6 +50,7 @@
   RulePredicateEditorViewController *rulePredicateEditorViewController = [self.storyboard instantiateControllerWithIdentifier:kEditRuleSheet];
   [rulePredicateEditorViewController.objectController setContent:newRule];
   rulePredicateEditorViewController.objectIndex = _arrayController.selectionIndex + 1;
+  rulePredicateEditorViewController.isNewBobject = YES;
   [self presentViewControllerAsSheet:rulePredicateEditorViewController];
 }
 
@@ -80,6 +82,7 @@
   Rule *selectedRule = _arrayController.selectedObjects.firstObject;
   [rulePredicateEditorViewController.objectController setContent:[selectedRule copy]];
   rulePredicateEditorViewController.objectIndex = _arrayController.selectionIndex;
+  rulePredicateEditorViewController.isNewBobject = NO;
 }
 
 @end

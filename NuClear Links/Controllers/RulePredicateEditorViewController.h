@@ -13,5 +13,6 @@
 
 @property (strong) IBOutlet NSObjectController *objectController;
 @property NSInteger objectIndex;
+@property BOOL isNewBobject;
 
 @end
