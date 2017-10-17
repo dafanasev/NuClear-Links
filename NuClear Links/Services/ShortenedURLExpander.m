@@ -89,7 +89,6 @@
     completionHandler(request);
   }
   else {
-    completionHandler(nil);
     [self handleExpandedURL:request.URL forShortenedURL:task.originalRequest.URL];
   }
 }

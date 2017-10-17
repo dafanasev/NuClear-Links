@@ -26,25 +26,30 @@
 
 @implementation AppDelegate
 
+- (instancetype)init {
+  if (self = [super init]) {
+    [NSUserDefaults.standardUserDefaults register];
+    
+    ShortenedURLExpander.sharedExpander.block = ^void (NSURL *url) {
+      [self proxyURL:url];
+    };
+    
+    [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
+                                                   forEventClass:kInternetEventClass andEventID:kAEGetURL];
+  }
+  return self;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   if ([NSRunningApplication runningApplicationsWithBundleIdentifier:NSBundle.mainBundle.bundleIdentifier].count > 1) {
     [NSApplication.sharedApplication terminate:self];
   }
   
+  [NSNotificationCenter.defaultCenter postNotificationName:kLinksSetupNotification object:NULL];
+  
   [NSValueTransformer setValueTransformer:[IsOneObjectValueTransformer new] forName:NSStringFromClass(IsOneObjectValueTransformer.class)];
   [NSValueTransformer setValueTransformer:[NilToRedColorValueTransformer new] forName:NSStringFromClass(NilToRedColorValueTransformer.class)];
   [NSValueTransformer setValueTransformer:[HasNotBrokenRulesValueTransformer new] forName:NSStringFromClass(HasNotBrokenRulesValueTransformer.class)];
-  
-  [NSUserDefaults.standardUserDefaults register];
-  
-  ShortenedURLExpander.sharedExpander.block = ^void (NSURL *url) {
-    [self proxyURL:url];
-  };
-  
-  [NSNotificationCenter.defaultCenter postNotificationName:kLinksSetupNotification object:NULL];
-  
-  [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(getURL:withReplyEvent:)
-                                                   forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
