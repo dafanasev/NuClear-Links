@@ -60,7 +60,7 @@
 }
 
 + (NSDictionary <NSString *, Browser *> *)browsersDictionary {
-  NSMutableDictionary <NSString *, Browser *> *browsersDictionary = [NSMutableDictionary dictionary];
+  NSMutableDictionary <NSString *, Browser *> *browsersDictionary = [NSMutableDictionary new];
 
   [(__bridge NSArray *)LSCopyAllHandlersForURLScheme(CFSTR("http")) enumerateObjectsUsingBlock:^(id  _Nonnull bundleIdentifier, NSUInteger idx, BOOL * _Nonnull stop) {
     Browser *browser = [Browser browserWithBundleIdentifier:bundleIdentifier];
@@ -82,7 +82,7 @@
 }
 
 + (NSString *)systemBrowserBundleId {
-  return (__bridge NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
+  return (__bridge_transfer NSString *)LSCopyDefaultHandlerForURLScheme(CFSTR("http"));
 }
 
 + (BOOL)isLinksActive {

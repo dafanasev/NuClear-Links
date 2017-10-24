@@ -19,5 +19,6 @@
 @property NSDictionary<NSString *, NSString *> *expandedURLsCache;
 
 - (void)register;
+- (void)reset;
 
 @end

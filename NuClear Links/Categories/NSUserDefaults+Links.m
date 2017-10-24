@@ -19,6 +19,10 @@
   }];
 }
 
+- (void)reset {
+  [self removePersistentDomainForName:NSBundle.mainBundle.bundleIdentifier];
+}
+
 - (BOOL)areRulesEnabled {
   return [self boolForKey:kAreRulesEnabled];
 }

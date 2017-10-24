@@ -33,7 +33,7 @@
 - (instancetype)init {
   if (self = [super init]) {
     self.urlSession = [NSURLSession sessionWithConfiguration:NSURLSessionConfiguration.defaultSessionConfiguration delegate:self delegateQueue:nil];
-    self.cache = [NSUserDefaults.standardUserDefaults.expandedURLsCache mutableCopy];
+    self.cache      = [NSUserDefaults.standardUserDefaults.expandedURLsCache mutableCopy];
     self.shorteners = @[@"bit.do", @"t.co", @"lnkd.in", @"db.tt", @"qr.ae", @"adf.ly", @"goo.gl", @"bitly.com", @"cur.lv", @"tinyurl.com",
                         @"ow.ly", @"bit.ly", @"ity.im", @"q.gs", @"is.gd", @"po.st", @"bc.vc", @"twitthis.com", @"u.to", @"j.mp", @"buzurl.com",
                         @"cutt.us", @"u.bb", @"yourls.org", @"x.co", @"prettylinkpro.com", @"scrnch.me", @"filoops.info", @"vzturl.com",
@@ -60,15 +60,14 @@
     _block(cachedExpandedUrl);
   }
   else {
-    NSURLSessionDataTask *task = [_urlSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[_urlSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
       if (!error && response) {
         [self handleExpandedURL:response.URL forShortenedURL:response.URL];
       }
       else {
         [self handleExpandedURL:url forShortenedURL:url];
       }
-    }];
-    [task resume];
+    }] resume];
   }
 }
 

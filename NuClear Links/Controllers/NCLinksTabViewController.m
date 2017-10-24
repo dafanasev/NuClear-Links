@@ -21,7 +21,7 @@
 -(void)awakeFromNib {
   [super awakeFromNib];
   
-  _tabViewSizes = [[NSMutableDictionary<NSString *, NSValue *> alloc] init];
+  _tabViewSizes = [NSMutableDictionary<NSString *, NSValue *> new];
 }
 
 - (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem {

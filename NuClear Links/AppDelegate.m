@@ -109,4 +109,10 @@
          additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
+#pragma mark - NSUserNotificationCenterDelegate
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification {
+  return YES;
+}
+
 @end

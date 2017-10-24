@@ -11,14 +11,14 @@
 @implementation NSAttributedString (Links)
 
 + (NSAttributedString *)linkWithLabel:(NSString *)label font:(NSFont *)font url:(NSURL *)url {
-  NSURL *tempUrl = url ? url : [NSURL URLWithString:label];
-  if (!tempUrl) {
+  NSURL *linkUrl = url ? url : [NSURL URLWithString:label];
+  if (!linkUrl) {
     return NULL;
   }
   
   NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:label];
   
-  [attrString addAttributes:@{NSLinkAttributeName: url.absoluteString, NSFontAttributeName: font ? font : [NSFont systemFontOfSize: [NSFont systemFontSize]]}
+  [attrString addAttributes:@{NSLinkAttributeName: linkUrl.absoluteString, NSFontAttributeName: font ? font : [NSFont systemFontOfSize: [NSFont systemFontSize]]}
                       range:NSMakeRange(0, attrString.length)];
   
   return attrString;

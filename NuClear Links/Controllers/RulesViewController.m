@@ -31,7 +31,7 @@
 #pragma mark - Actions
 
 - (IBAction)rulesControlClicked:(id)sender {
-  // BUG: Array Controller does not propagate changes to UserDefaulsController automatically
+  // BUG: Array Controller does not propagate changes to compound objects to UserDefaulsController automatically
   NSUserDefaults.standardUserDefaults.rules = (NSArray<Rule *> *)_arrayController.arrangedObjects;
 }
 
