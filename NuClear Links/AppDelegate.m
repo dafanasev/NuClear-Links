@@ -60,6 +60,12 @@
   [ShortenedURLExpander.sharedExpander saveCache];
 }
 
+- (void)application:(NSApplication *)sender openFiles:(NSArray<NSString *> *)filenames {
+  for (NSString *filename in filenames) {
+    [self proxyURL:[NSURL fileURLWithPath:filename]];
+  }
+}
+
 - (void)getURL:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
   NSURL *url = [NSURL URLWithString:[event paramDescriptorForKeyword:keyDirectObject].stringValue];
   
