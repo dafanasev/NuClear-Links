@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -109,6 +109,13 @@
                         <menuItem title="Preferences..." keyEquivalent="," id="zOr-MR-dr8">
                             <connections>
                                 <action selector="preferencesMenuItemClicked:" target="3Wc-du-Su6" id="dfw-fO-Zsm"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="aCg-Er-EEj"/>
+                        <menuItem title="More NuClear Tools..." id="Ju3-nZ-ioW">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="moreNuClearToolsMenuItemClicked:" target="3Wc-du-Su6" id="dEd-Jc-nTV"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="sTS-Ar-GHR"/>
@@ -929,14 +936,14 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="443" height="163"/>
+                        <rect key="frame" x="0.0" y="0.0" width="478" height="192"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="403" height="123"/>
+                                <rect key="frame" x="20" y="20" width="438" height="152"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgW-HZ-0Nr">
-                                        <rect key="frame" x="0.0" y="44" width="403" height="79"/>
+                                        <rect key="frame" x="0.0" y="73" width="431" height="79"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
                                                 <rect key="frame" x="0.0" y="58" width="247" height="21"/>
@@ -1001,12 +1008,57 @@ DQ
                                                 </customSpacing>
                                             </stackView>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-Az-B6d">
-                                                <rect key="frame" x="-2" y="0.0" width="407" height="56"/>
+                                                <rect key="frame" x="-2" y="0.0" width="435" height="56"/>
                                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <string key="title">Note: Activating NuClear Links means it will be set up as default browser and will be launched at startup. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqo-zJ-RRh">
+                                        <rect key="frame" x="0.0" y="44" width="354" height="21"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-hh-fWc">
+                                                <rect key="frame" x="-2" y="2" width="28" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Use" id="FO2-bN-0iA">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5rh-zd-K9a" customClass="BrowserPopUpButton">
+                                                <rect key="frame" x="30" y="-3" width="105" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="JdS-KK-fSj"/>
+                                                </constraints>
+                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="9JN-fI-s4X">
+                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="menu"/>
+                                                    <menu key="menu" id="NgB-hj-b3H"/>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <binding destination="Mbg-uG-Uw8" name="selectedObject" keyPath="values.defaultBrowserBundleId" id="JRl-Wo-BtE"/>
+                                                </connections>
+                                            </popUpButton>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSi-TH-j7p">
+                                                <rect key="frame" x="138" y="2" width="218" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="if a rule for the URL is not specified" id="vfZ-6w-bgu">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
@@ -1046,8 +1098,10 @@ DQ
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -1069,25 +1123,25 @@ DQ
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="391" y="1076"/>
+            <point key="canvasLocation" x="391" y="1048.5"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">
             <objects>
                 <viewController id="Xto-Pd-1Dw" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" id="hQv-pQ-GcX">
-                        <rect key="frame" x="0.0" y="0.0" width="422" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="472" height="169"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-LP-6nO">
-                                <rect key="frame" x="20" y="20" width="382" height="129"/>
+                                <rect key="frame" x="20" y="20" width="432" height="129"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mjA-de-s3D">
                                         <rect key="frame" x="0.0" y="1" width="128" height="128"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AboutIcon" id="Zgs-qr-n8G"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiG-1b-LbA">
-                                        <rect key="frame" x="138" y="0.0" width="244" height="129"/>
+                                        <rect key="frame" x="138" y="0.0" width="294" height="129"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hPO-SI-Ri8">
                                                 <rect key="frame" x="-2" y="100" width="223" height="29"/>
@@ -1218,7 +1272,7 @@ DQ
                 </viewController>
                 <customObject id="fc7-K6-lfo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="576.5"/>
+            <point key="canvasLocation" x="860" y="401.5"/>
         </scene>
     </scenes>
     <resources>

@@ -73,10 +73,10 @@
   [_disableRulesMenuItem setHidden:!rulesCanBeExecuted];
 }
 
-//- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
-//  NSURL *url = [NSURL URLWithString:@"https://nuclear.tools?utm_source=links&utm_medium=menu&utm_campaign=links"];
-//  [NSWorkspace.sharedWorkspace openURL:url];
-//}
+- (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
+  NSURL *url = [NSURL URLWithString:@"https://nuclear.tools?utm_source=links&utm_medium=menu&utm_campaign=links"];
+  [NSWorkspace.sharedWorkspace openURL:url];
+}
 
 - (IBAction)preferencesMenuItemClicked:(NSMenuItem *)sender {
   [NSApplication.sharedApplication activateIgnoringOtherApps:YES];

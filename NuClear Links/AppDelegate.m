@@ -61,9 +61,13 @@
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray<NSString *> *)filenames {
+  NSMutableArray<NSURL *> *urls = [NSMutableArray new];
   for (NSString *filename in filenames) {
-    [self proxyURL:[NSURL fileURLWithPath:filename]];
+    [urls addObject:[NSURL fileURLWithPath:filename]];
   }
+  
+  [NSWorkspace.sharedWorkspace openURLs:urls withAppBundleIdentifier:Browser.defaultBrowserBundleId options:0
+         additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 
 - (void)getURL:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent {
