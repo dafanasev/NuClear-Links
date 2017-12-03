@@ -45,7 +45,7 @@
   }];
   
   _statusItem = [NSStatusBar.systemStatusBar statusItemWithLength:NSSquareStatusItemLength];
-  _statusItem.button.image  = [NSImage imageNamed:@"statusBarItemImage"];
+  _statusItem.button.image = [NSImage imageNamed:@"statusBarItemImage"];
   
   _statusItem.menu = _menu;
 }
@@ -71,6 +71,8 @@
   BOOL rulesCanBeExecuted = NSUserDefaults.standardUserDefaults.areRulesEnabled && Browser.isLinksActive;
   [_enableRulesMenuItem setHidden:rulesCanBeExecuted];
   [_disableRulesMenuItem setHidden:!rulesCanBeExecuted];
+  
+  _statusItem.button.image = [NSImage imageNamed:areThereRules && rulesCanBeExecuted ? @"statusBarItemImage" : @"disabledStatusBarItemImage"];
 }
 
 - (IBAction)moreNuClearToolsMenuItemClicked:(NSMenuItem *)sender {
