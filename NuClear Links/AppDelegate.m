@@ -61,12 +61,13 @@
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray<NSString *> *)filenames {
-  NSMutableArray<NSURL *> *urls = [NSMutableArray new];
-  for (NSString *filename in filenames) {
-    [urls addObject:[NSURL fileURLWithPath:filename]];
-  }
+//  NSMutableArray<NSURL *> *urls = [NSMutableArray new];
+//  for (NSString *filename in filenames) {
+//    [urls addObject:];
+//  }
   
-  [NSWorkspace.sharedWorkspace openURLs:urls withAppBundleIdentifier:Browser.defaultBrowserBundleId options:0
+  NSURL *url = [NSURL fileURLWithPath:filenames[0]];
+  [NSWorkspace.sharedWorkspace openURLs:@[url] withAppBundleIdentifier:Browser.defaultBrowserBundleId options:0
          additionalEventParamDescriptor:NULL launchIdentifiers:NULL];
 }
 

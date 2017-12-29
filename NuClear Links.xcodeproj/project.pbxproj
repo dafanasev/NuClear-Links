@@ -77,7 +77,6 @@
 		254A6DE31F8B029F00063E11 /* AboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		25556E9C1F7D90A300A1C486 /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
 		25556E9D1F7D90A300A1C486 /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
-		2563ACEC1F8BDD9300681D3C /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		2563ACEE1F8BDF8B00681D3C /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		2563ACEF1F8BDF8B00681D3C /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 		2563ACF21F8C169B00681D3C /* IsOneObjectValueTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IsOneObjectValueTransformer.h; sourceTree = "<group>"; };
@@ -238,7 +237,6 @@
 		25DB3AE71F7D88D200484310 = {
 			isa = PBXGroup;
 			children = (
-				2563ACEC1F8BDD9300681D3C /* TODO.md */,
 				25DB3AF21F7D88D200484310 /* NuClear Links */,
 				258073621F91183F0001DBBC /* NuClear Links Launcher */,
 				25DB3AF11F7D88D200484310 /* Products */,

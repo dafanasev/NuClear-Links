@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -153,7 +153,7 @@
                 <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" canPropagateSelectedChildViewControllerTitle="NO" id="kKf-K2-sEA" customClass="NCLinksTabViewController" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Rules" identifier="rules" image="rulesTabIcon" id="VjO-5E-YzN"/>
-                        <tabViewItem label="Gereral" identifier="general" image="generalTabIcon" id="8BW-Yj-1JA"/>
+                        <tabViewItem label="General" identifier="general" image="generalTabIcon" id="8BW-Yj-1JA"/>
                         <tabViewItem label="About" identifier="about" image="NSInfo" id="r3k-dU-xIX"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions"/>
@@ -936,14 +936,14 @@ DQ
             <objects>
                 <viewController title="Preferences" id="Nip-bf-vlf" customClass="PreferencesViewController" sceneMemberID="viewController">
                     <view key="view" id="yzh-hr-PTV">
-                        <rect key="frame" x="0.0" y="0.0" width="478" height="192"/>
+                        <rect key="frame" x="0.0" y="0.0" width="391" height="192"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yH3-mc-uIv">
-                                <rect key="frame" x="20" y="20" width="438" height="152"/>
+                                <rect key="frame" x="20" y="20" width="351" height="152"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgW-HZ-0Nr">
-                                        <rect key="frame" x="0.0" y="73" width="431" height="79"/>
+                                        <rect key="frame" x="0.0" y="73" width="351" height="79"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVe-Lc-XcF">
                                                 <rect key="frame" x="0.0" y="58" width="247" height="21"/>
@@ -1008,7 +1008,7 @@ DQ
                                                 </customSpacing>
                                             </stackView>
                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1l3-Az-B6d">
-                                                <rect key="frame" x="-2" y="0.0" width="435" height="56"/>
+                                                <rect key="frame" x="-2" y="0.0" width="355" height="56"/>
                                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="MWy-Fd-OYJ">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <string key="title">Note: Activating NuClear Links means it will be set up as default browser and will be launched at startup. It should be done in order to proxy urls to other browsers. Setting other browser as default will deactivate NuClear Links and therefore stop proxying.</string>
@@ -1029,18 +1029,18 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqo-zJ-RRh">
-                                        <rect key="frame" x="0.0" y="44" width="354" height="21"/>
+                                        <rect key="frame" x="0.0" y="44" width="273" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-hh-fWc">
-                                                <rect key="frame" x="-2" y="2" width="28" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Use" id="FO2-bN-0iA">
+                                                <rect key="frame" x="-2" y="2" width="169" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="If no rules are matched use" id="FO2-bN-0iA">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5rh-zd-K9a" customClass="BrowserPopUpButton">
-                                                <rect key="frame" x="30" y="-3" width="105" height="26"/>
+                                                <rect key="frame" x="171" y="-3" width="105" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="JdS-KK-fSj"/>
                                                 </constraints>
@@ -1053,22 +1053,12 @@ DQ
                                                     <binding destination="Mbg-uG-Uw8" name="selectedObject" keyPath="values.defaultBrowserBundleId" id="JRl-Wo-BtE"/>
                                                 </connections>
                                             </popUpButton>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSi-TH-j7p">
-                                                <rect key="frame" x="138" y="2" width="218" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="if a rule for the URL is not specified" id="vfZ-6w-bgu">
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
                                         </subviews>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
-                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -1123,7 +1113,7 @@ DQ
                 <customObject id="CM8-n2-rvZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Mbg-uG-Uw8" customClass="NCLinksUserDefaulsController"/>
             </objects>
-            <point key="canvasLocation" x="391" y="1048.5"/>
+            <point key="canvasLocation" x="318.5" y="1048"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="aAm-iU-1Yi">
